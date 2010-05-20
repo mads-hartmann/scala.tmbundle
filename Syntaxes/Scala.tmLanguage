@@ -354,7 +354,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>([A-Z][a-zA-Z]*)</string>
+			<string>\b([A-Z][a-zA-Z]*)\b</string>
 		</dict>
 	</array>
 	<key>repository</key>
