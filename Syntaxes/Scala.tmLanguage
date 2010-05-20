@@ -13,7 +13,7 @@
 	<key>keyEquivalent</key>
 	<string>^~S</string>
 	<key>name</key>
-	<string>Language: Scala</string>
+	<string>Scala</string>
 	<key>patterns</key>
 	<array>
 		<dict>
@@ -242,6 +242,45 @@
 			<string>\s(extends|with)\s(\w*)</string>
 		</dict>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.class</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.class</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(import)\s([_|\w|\.]*)</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.class</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\s(new)\s(\w*)</string>
+		</dict>
+		<dict>
 			<key>match</key>
 			<string>\b(case|else|for|if|return|while|yield|synchronized)\b</string>
 			<key>name</key>
@@ -250,6 +289,10 @@
 		<dict>
 			<key>include</key>
 			<string>#typesAsParameter</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#returnTypes</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -269,15 +312,9 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(import|package|requires)\b</string>
+			<string>\b(package|requires)\b</string>
 			<key>name</key>
 			<string>keyword.import.scala</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(new)\b</string>
-			<key>name</key>
-			<string>keyword.creators.scala</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -287,7 +324,13 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(do|match|new|with|this)\b</string>
+			<string>\b(Nil)\b</string>
+			<key>name</key>
+			<string>entity.name.class</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(do|match|new|with|this|Nil)\b</string>
 			<key>name</key>
 			<string>keyword.other.scala</string>
 		</dict>
@@ -300,6 +343,18 @@
 			<string>\b(false|null|true)\b</string>
 			<key>name</key>
 			<string>constant.language.scala</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.class</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>([A-Z][a-zA-Z]*)</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -378,6 +433,19 @@
 			</dict>
 			<key>match</key>
 			<string>(\w*)</string>
+		</dict>
+		<key>returnTypes</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.class</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>[^:]:\s*(\w+)</string>
 		</dict>
 		<key>strings</key>
 		<dict>
@@ -467,7 +535,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(\w*)\s?[^:]:(\s*)?([\w|_|?|.]*)</string>
+			<string>(\w+)\s*:(\s*)?([\w|_|?|\.]*)</string>
 		</dict>
 		<key>typesAsParameter</key>
 		<dict>
@@ -485,7 +553,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\(((\w*)\s?:\s?(\w*),?)\)</string>
+			<string>\(((\w+)\s?:\s?(\w+),?)\)</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
