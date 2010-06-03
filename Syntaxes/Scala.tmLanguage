@@ -123,28 +123,6 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.other.scala</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.object</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^(\s*([private|protected|override]*\s)?object\s(\w*))</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.declaration.scala</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
 					<string>entity.name.class</string>
 				</dict>
 			</dict>
@@ -188,7 +166,29 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(\s*([private|protected|override]*\s)?class\s(\w*))</string>
+			<string>^(\s*([private|protected|override]*\s)?object\s(\w*))</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.declaration.scala</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.scala</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.class</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^(\s*([private|protected|override]*\s)?\s*class\s(\w*))</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -252,16 +252,11 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.class</string>
-				</dict>
-				<key>5</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.class</string>
+					<string>support.class</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(import)\s([_|\w|\.]*)</string>
+			<string>\b(import|package)\b\s*(.*)$</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -312,7 +307,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(package|requires)\b</string>
+			<string>\b(requires)\b</string>
 			<key>name</key>
 			<string>keyword.import.scala</string>
 		</dict>
