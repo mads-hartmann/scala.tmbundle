@@ -1,0 +1,14 @@
+Scala-TextMate-Bundle
+
+What does it do
+
+I started this bundle because I wasn't happy with the syntax definitions in the bundle that comes with Scala. 
+
+The bundle new syntax definitions means better hightlighting and that the right things show up in the Symbols List. 
+
+Installation guide
+
+To get started simply run
+
+git clone git://github.com/mads379/scala.tmbundle.git
+open scala.tmbundle
