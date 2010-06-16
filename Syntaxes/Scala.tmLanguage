@@ -66,6 +66,10 @@
 			<string>#comments</string>
 		</dict>
 		<dict>
+			<key>include</key>
+			<string>#strings</string>
+		</dict>
+		<dict>
 			<key>begin</key>
 			<string>\[</string>
 			<key>end</key>
@@ -328,10 +332,6 @@
 			<string>\b(do|match|new|with|this|Nil)\b</string>
 			<key>name</key>
 			<string>keyword.other.scala</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#strings</string>
 		</dict>
 		<dict>
 			<key>match</key>
