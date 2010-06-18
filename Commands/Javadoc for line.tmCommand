@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -wKU
+
+require ENV['TM_SUPPORT_PATH'] + '/lib/ui.rb'
+
+# the globals (ewwww)
+tab_stop_count = 1 
+currentLine = ENV["TM_CURRENT_LINE"]
+
+# the helpers
+def largest_argument(arguments)
+	size = 0
+	arguments.each do |arg|
+	  size = arg.size if arg.size &gt; size 
+	end
+	return size
+end
+
+def pretty_print(annotation, arguments, msg, size, spacing, initial_tab_stop_count)
+  new_tab_stop_count = initial_tab_stop_count
+  arguments.each do |arg| 
+    new_tab_stop_count = new_tab_stop_count+1
+    spaces = size - arg.size
+    puts "#{spacing}* #{annotation}\t" + arg +" "*spaces+"\t"+"${#{new_tab_stop_count}:#{msg}}"
+  end
+  new_tab_stop_count
+end
+
+# the code 
+
+if currentLine.match(/def/) != nil
+  initial_spacing = currentLine.scan(/^\s*/).to_s
+
+  puts "#{initial_spacing}/**"
+  puts "#{initial_spacing}* ${1:I really should get around to writing some documentation}"
+  puts "#{initial_spacing}* "
+
+  arguments = currentLine.scan(/[^)](\w*\s?:\s?\w*)/).collect do |arg| arg.to_s.split(":").first end
+  size = largest_argument(arguments)
+
+  tab_stop_count = pretty_print("@param",arguments, "well isn't it obvious", size, initial_spacing,tab_stop_count)  
+  tab_stop_count = pretty_print("@return",[""], "dunno", size, initial_spacing,tab_stop_count)  
+
+  puts "#{initial_spacing}*/"
+	print "$TM_CURRENT_LINE${0}"
+end</string>
+	<key>fallbackInput</key>
+	<string>line</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>^D</string>
+	<key>name</key>
+	<string>Javadoc for line</string>
+	<key>output</key>
+	<string>insertAsSnippet</string>
+	<key>scope</key>
+	<string>source.scala</string>
+	<key>uuid</key>
+	<string>F56949E3-B311-4BD8-898C-7316E4134785</string>
+</dict>
+</plist>
