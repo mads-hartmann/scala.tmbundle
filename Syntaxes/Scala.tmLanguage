@@ -311,13 +311,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(requires)\b</string>
-			<key>name</key>
-			<string>keyword.import.scala</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(abstract|final|sealed|private|protected|sealed|implicit|override)</string>
+			<string>\b(abstract|final|sealed|private|protected|implicit|override)\b</string>
 			<key>name</key>
 			<string>keyword.identifiers.scala</string>
 		</dict>
