@@ -10,7 +10,7 @@
 }
 </string>
 	<key>name</key>
-	<string>omain</string>
+	<string>object with main method</string>
 	<key>tabTrigger</key>
 	<string>omain</string>
 	<key>uuid</key>

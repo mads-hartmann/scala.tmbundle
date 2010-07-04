@@ -3,16 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>#!/bin/sh
-  exec scala "\$0" "\$@"
-!#
-
-$1</string>
+	<string>import scala.collection.{ mutable, immutable, generic }</string>
 	<key>name</key>
-	<string>script header</string>
+	<string>import mutable/immutable</string>
 	<key>tabTrigger</key>
-	<string>script</string>
+	<string>impc</string>
 	<key>uuid</key>
-	<string>11D5086B-FD25-4B33-92E3-4DEADCF4119D</string>
+	<string>F38BFF4F-BE1D-4CE2-8BE8-8BEDF5EB7277</string>
 </dict>
 </plist>
