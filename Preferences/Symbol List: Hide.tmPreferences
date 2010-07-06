@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Symbol List: Hide</string>
 	<key>scope</key>
-	<string>entity.name.function</string>
+	<string>source.scala entity.name.type</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>

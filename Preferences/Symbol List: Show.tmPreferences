@@ -13,7 +13,7 @@
 		<key>symbolTransformation</key>
 		<string>
 		s/\t/ /g;  # First change all tabs to spaces
-		s/ /  /g;  # Now double the spaces
+		s/ /    /g;  # Now double the spaces
 		s/(\w) +(\w)/$1 $2/g;  # Remove extra spacings between words
    </string>
 	</dict>
