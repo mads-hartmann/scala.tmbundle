@@ -126,6 +126,11 @@
 		<dict>
 			<key>captures</key>
 			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>scala.symbol-list</string>
+				</dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
@@ -143,7 +148,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(case)?\b(class|trait|object)\s+([^\s\{\(\[]+)</string>
+			<string>^\s*(case)?\b(class|trait|object)\s+([^\s\{\(\[]+)</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -216,6 +221,11 @@
 		<dict>
 			<key>captures</key>
 			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>scala.symbol-list</string>
+				</dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
@@ -228,7 +238,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(def)\s+([a-zA-Z]*(_\S+)?)</string>
+			<string>^\s*\b(def)\s+([a-zA-Z]*(_\S+)?)</string>
 		</dict>
 		<dict>
 			<key>captures</key>

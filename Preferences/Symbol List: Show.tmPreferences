@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Symbol List: Show</string>
 	<key>scope</key>
-	<string>source.scala entity.name.class</string>
+	<string>source.scala scala.symbol-list</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
@@ -13,7 +13,7 @@
 		<key>symbolTransformation</key>
 		<string>
 		s/\t/ /g;  # First change all tabs to spaces
-		s/ /  /g;  # Now double the spaces
+		s/ /    /g;  # Now double the spaces
 		s/(\w) +(\w)/$1 $2/g;  # Remove extra spacings between words
    </string>
 	</dict>
