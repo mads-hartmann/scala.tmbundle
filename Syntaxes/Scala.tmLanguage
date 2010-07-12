@@ -431,7 +431,7 @@
 		<key>parameterList</key>
 		<dict>
 			<key>begin</key>
-			<string>\w*\(</string>
+			<string>\w+\(</string>
 			<key>end</key>
 			<string>\)</string>
 			<key>patterns</key>
