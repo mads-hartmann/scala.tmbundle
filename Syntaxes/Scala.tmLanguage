@@ -430,10 +430,6 @@
 		</dict>
 		<key>parameterList</key>
 		<dict>
-			<key>begin</key>
-			<string>\w+\(</string>
-			<key>end</key>
-			<string>\)</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -452,10 +448,6 @@
 					</dict>
 					<key>match</key>
 					<string>(\w+)\s*:\s*([A-Za-z0-9][\w|_|?|\.]*),?</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#strings</string>
 				</dict>
 			</array>
 		</dict>
