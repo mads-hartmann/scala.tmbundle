@@ -455,7 +455,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#typeParameterList</string>
+					<string>#strings</string>
 				</dict>
 			</array>
 		</dict>
