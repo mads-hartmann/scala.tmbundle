@@ -3,21 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>Symbol List: Show</string>
+	<string>Symbol List: Functions</string>
 	<key>scope</key>
-	<string>source.scala entity.name.class</string>
+	<string>source.scala entity.name.function</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
 		<integer>1</integer>
 		<key>symbolTransformation</key>
 		<string>
-		s/\t/ /g;  # First change all tabs to spaces
-		s/ /  /g;  # Now double the spaces
-		s/(\w) +(\w)/$1 $2/g;  # Remove extra spacings between words
+		s/^.*$/\tdef $0/g;  # First change all tabs to spaces
    </string>
 	</dict>
 	<key>uuid</key>
-	<string>700924A0-8541-4D3B-8AEC-80CB4D6DC074</string>
+	<string>29E465EE-8E50-47E1-A8A9-2CE589666626</string>
 </dict>
 </plist>
