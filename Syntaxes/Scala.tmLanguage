@@ -430,21 +430,34 @@
 		</dict>
 		<key>parameterList</key>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>2</key>
+			<key>begin</key>
+			<string>\w*\(</string>
+			<key>end</key>
+			<string>\)</string>
+			<key>patterns</key>
+			<array>
 				<dict>
-					<key>name</key>
-					<string>variable.parameter</string>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>variable.parameter</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.type</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(\w+)\s*:\s*([A-Za-z0-9][\w|_|?|\.]*),?</string>
 				</dict>
-				<key>3</key>
 				<dict>
-					<key>name</key>
-					<string>entity.name.type</string>
+					<key>include</key>
+					<string>#typeParameterList</string>
 				</dict>
-			</dict>
-			<key>match</key>
-			<string>\(((\w+)\s*:\s*(\w+),?)\)</string>
+			</array>
 		</dict>
 		<key>primitive-types</key>
 		<dict>
