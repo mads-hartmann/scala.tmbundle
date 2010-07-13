@@ -49,6 +49,14 @@ if currentLine.match(/def/) != nil
 
   puts "#{initial_spacing}*/"
 	print "$TM_CURRENT_LINE${0}"
+elsif currentLine.match(/[def|class|object|trait]/)
+  initial_spacing = currentLine.scan(/^\s*/).to_s
+
+  puts "#{initial_spacing}/**"
+  puts "#{initial_spacing}* ${1:I really should get around to writing some documentation}"
+  puts "#{initial_spacing}* "
+  puts "#{initial_spacing}*/"
+  print "$TM_CURRENT_LINE${0}"
 end</string>
 	<key>fallbackInput</key>
 	<string>line</string>
