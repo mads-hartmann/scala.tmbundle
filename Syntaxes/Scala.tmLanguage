@@ -177,7 +177,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(val)\s+([a-zA-Z]*(_\S+)?)</string>
+			<string>\b(val)\s+([a-zA-Z][a-zA-Z0-9]*(_[^a-zA-Z0-9\s]+)?)</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -194,7 +194,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(var)\s+([a-zA-Z]*(_\S+)?)</string>
+			<string>\b(var)\s+([a-zA-Z][a-zA-Z0-9]*(_[^a-zA-Z0-9\s]+)?)</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -211,7 +211,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(type)\s+([a-zA-Z]*(_\S+)?)</string>
+			<string>\b(type)\s+([a-zA-Z][a-zA-Z0-9]*(_[^a-zA-Z0-9\s]+)?)</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -228,7 +228,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(def)\s+([a-zA-Z]*(_\S+)?)</string>
+			<string>\b(def)\s+([a-zA-Z][a-zA-Z0-9]*(_[^a-zA-Z0-9\s]+)?)</string>
 		</dict>
 		<dict>
 			<key>captures</key>
