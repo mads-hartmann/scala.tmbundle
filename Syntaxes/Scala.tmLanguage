@@ -325,6 +325,29 @@
 			<key>match</key>
 			<string>\b(private\[\S?\]|protected\[\S?\]|private|protected)\b</string>
 		</dict>
+		<key>block-comments</key>
+		<dict>
+			<key>begin</key>
+			<string>/\*</string>
+			<key>end</key>
+			<string>\*/</string>
+			<key>name</key>
+			<string>comment.block.scala</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#block-comments</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?x)
+            (?! /\*)
+            (?! \*/)
+          </string>
+				</dict>
+			</array>
+		</dict>
 		<key>char-literal</key>
 		<dict>
 			<key>match</key>
@@ -344,20 +367,8 @@
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>begin</key>
-					<string>/\*</string>
-					<key>captures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.comment.scala</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>\*/</string>
-					<key>name</key>
-					<string>comment.block.scala</string>
+					<key>include</key>
+					<string>#block-comments</string>
 				</dict>
 				<dict>
 					<key>captures</key>
@@ -540,6 +551,57 @@
 			<key>match</key>
 			<string>(\b([A-Z][\w]*))</string>
 		</dict>
+		<key>regexp-double</key>
+		<dict>
+			<key>begin</key>
+			<string>(?x)
+		    " (?= 
+		        (?: (\\. | [^"])* " \.r\b ) |
+		        (?: \s*\(\? )
+		      )
+  		</string>
+			<key>end</key>
+			<string>"(\.r\b)?</string>
+			<key>name</key>
+			<string>string.quoted.regex.scala</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.regexp.oniguruma</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\\.|[^"]</string>
+				</dict>
+			</array>
+		</dict>
+		<key>regexp-triple</key>
+		<dict>
+			<key>begin</key>
+			<string>(?x)
+		    """
+		      (?=
+		        (?: \s*\(\? ) |
+		        (?: .*? """ (?=\.r\b) )
+		      )
+		  </string>
+			<key>end</key>
+			<string>"""</string>
+			<key>name</key>
+			<string>string.quoted.regex.scala</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.regexp.oniguruma</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>.</string>
+				</dict>
+			</array>
+		</dict>
 		<key>returnTypes</key>
 		<dict>
 			<key>captures</key>
@@ -584,45 +646,26 @@
 			<key>patterns</key>
 			<array>
 				<dict>
+					<key>include</key>
+					<string>#regexp-double</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#regexp-triple</string>
+				</dict>
+				<dict>
 					<key>begin</key>
 					<string>"""</string>
 					<key>end</key>
-					<string>""("+)</string>
+					<string>"*?"""</string>
 					<key>name</key>
 					<string>string.quoted.triple.scala</string>
 				</dict>
 				<dict>
-					<key>begin</key>
-					<string>"</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.string.begin.scala</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>"</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.string.end.scala</string>
-						</dict>
-					</dict>
+					<key>match</key>
+					<string>"(\\.|[^"])*"</string>
 					<key>name</key>
 					<string>string.quoted.double.scala</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>match</key>
-							<string>\\.</string>
-							<key>name</key>
-							<string>constant.character.escape.scala</string>
-						</dict>
-					</array>
 				</dict>
 			</array>
 		</dict>
