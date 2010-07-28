@@ -36,23 +36,8 @@
 			<string>meta.package.scala</string>
 		</dict>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.other.scoping.scala</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.import.scala</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>\b(import)\s+([\w]+\.)(\{|_|\w)</string>
-			<key>name</key>
-			<string>meta.import.scala</string>
+			<key>include</key>
+			<string>#imports</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -429,6 +414,81 @@
 					</dict>
 					<key>match</key>
 					<string>`[^`]+`</string>
+				</dict>
+			</array>
+		</dict>
+		<key>imports</key>
+		<dict>
+			<key>begin</key>
+			<string>\b(import)\s+</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.import.scala</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?&lt;=[\n;}])</string>
+			<key>name</key>
+			<string>meta.import.scala</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>([^\s{;.]+)\s*\.\s*</string>
+					<key>name</key>
+					<string>variable.package.scala</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>([^\s{;.]+)\s*[;\n]</string>
+					<key>name</key>
+					<string>variable.import.scala</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>{</string>
+					<key>end</key>
+					<string>}</string>
+					<key>name</key>
+					<string>meta.import.selector.scala</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>variable.import.renamed-from.scala</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.other.arrow.scala</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>variable.import.renamed-to.scala</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(?x) \s*
+                ([^\s.,}]+) \s*
+                (=&gt;) \s*
+                ([^\s.,}]+) \s*
+              </string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>([^\s.,}]+)</string>
+							<key>name</key>
+							<string>variable.import.scala</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
