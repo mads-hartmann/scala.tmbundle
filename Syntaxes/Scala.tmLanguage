@@ -156,7 +156,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.other.inherited-class</string>
+					<string>entity.other.inherited-class.scala</string>
 				</dict>
 			</dict>
 			<key>match</key>
