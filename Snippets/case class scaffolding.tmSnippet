@@ -19,6 +19,8 @@ object $1 {
 </string>
 	<key>name</key>
 	<string>case class scaffolding</string>
+	<key>scope</key>
+	<string>source.scala</string>
 	<key>tabTrigger</key>
 	<string>ccc</string>
 	<key>uuid</key>

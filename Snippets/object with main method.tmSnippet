@@ -11,6 +11,8 @@
 </string>
 	<key>name</key>
 	<string>object with main method</string>
+	<key>scope</key>
+	<string>source.scala</string>
 	<key>tabTrigger</key>
 	<string>omain</string>
 	<key>uuid</key>

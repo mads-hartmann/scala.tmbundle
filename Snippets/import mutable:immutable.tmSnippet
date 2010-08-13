@@ -6,6 +6,8 @@
 	<string>import scala.collection.{ mutable, immutable, generic }</string>
 	<key>name</key>
 	<string>import mutable/immutable</string>
+	<key>scope</key>
+	<string>source.scala</string>
 	<key>tabTrigger</key>
 	<string>impc</string>
 	<key>uuid</key>
