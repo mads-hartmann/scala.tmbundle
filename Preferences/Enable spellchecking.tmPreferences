@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>Disable Spellchecking global</string>
+	<string>Enable spellchecking</string>
 	<key>scope</key>
-	<string>source.scala</string>
+	<string>comment.block.documentation.scala</string>
 	<key>settings</key>
 	<dict>
 		<key>spellChecking</key>
-		<integer>0</integer>
+		<integer>1</integer>
 	</dict>
 	<key>uuid</key>
-	<string>80930738-1643-4DEC-A143-B6E96F0E63AD</string>
+	<string>256E7AF5-FEF1-4078-A423-08C59FA950A9</string>
 </dict>
 </plist>
