@@ -10,14 +10,16 @@
 cline = ENV['TM_CURRENT_LINE']
 space = cline.scan(/^\s*/).to_s
 
+chars = cline.chars.to_a.slice(ENV['TM_COLUMN_NUMBER'].to_i-1,cline.chars.count)
+
 print cline
-print "\n" + space + "*\t$0"</string>
+print "\n" + space + "*\t"+chars.to_s+ "$0"</string>
 	<key>fallbackInput</key>
 	<string>line</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
-	<string></string>
+	<string>$</string>
 	<key>name</key>
 	<string>new javadoc line</string>
 	<key>output</key>
