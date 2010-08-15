@@ -454,7 +454,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>([^\s{;.]+)\s*[;\n]</string>
+					<string>([^\s{;.]+)\s*</string>
 					<key>name</key>
 					<string>variable.import.scala</string>
 				</dict>
