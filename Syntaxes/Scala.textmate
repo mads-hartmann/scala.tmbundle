@@ -1,0 +1,287 @@
+{	scopeName = 'source.scala';
+	fileTypes = ( 'scala' );
+	foldingStartMarker = '/\*\*|\{\s*$';
+	foldingStopMarker = '\*\*/|^\s*\}';
+	patterns = (
+		{	name = 'meta.package.scala';
+			match = '\b(package)\s+([\w\.]+)';
+			captures = {
+				1 = { name = 'keyword.other.scoping.scala'; };
+				2 = { name = 'entity.name.package.scala'; };
+			};
+		},
+		{	include = '#imports'; },
+		{	name = 'comment.block.empty.scala';
+			match = '/\*\*/';
+			captures = { 0 = { name = 'punctuation.definition.comment.scala'; }; };
+		},
+		{	name = 'comment.block.documentation.scala';
+			begin = '(^\s*)?/\*\*';
+			end = '\*/(\s*\n)?';
+			captures = { 0 = { name = 'punctuation.definition.comment.scala'; }; };
+			patterns = (
+				{	name = 'keyword.other.documentation.scaladoc.scala';
+					match = '(@\w+\s)';
+				},
+				{	name = 'keyword.other.documentation.scaladoc.link.scala';
+					match = '\{@link\s+[^\}]*\}';
+				},
+			);
+		},
+		{	include = '#any-modifier'; },
+		{	include = '#char-literal'; },
+		{	include = '#scala-symbol'; },
+		{	include = '#comments'; },
+		{	include = '#strings'; },
+		{	include = '#typeParameterList'; },
+		{	match = '(case)?\b(class|trait|object)\s+([^\s\{\(\[]+)';
+			captures = {
+				1 = { name = 'keyword.declaration.scala'; };
+				2 = { name = 'keyword.declaration.scala'; };
+				3 = { name = 'entity.name.class'; };
+			};
+		},
+		{	match = '(extends|with)\s+([^\s\{\(\[]+)';
+			captures = {
+				1 = { name = 'keyword.declaration.scala'; };
+				2 = { name = 'entity.other.inherited-class.scala'; };
+			};
+		},
+		{	match = '\b(val)\s+([a-zA-Z][a-zA-Z0-9]*(_[^a-zA-Z0-9\s]+)?)';
+			captures = {
+				1 = { name = 'keyword.declaration.stable.scala'; };
+				2 = { name = 'entity.name.val'; };
+			};
+		},
+		{	match = '\b(var)\s+([a-zA-Z][a-zA-Z0-9]*(_[^a-zA-Z0-9\s]+)?)';
+			captures = {
+				1 = { name = 'keyword.declaration.volatile.scala'; };
+				2 = { name = 'entity.name.var'; };
+			};
+		},
+		{	match = '\b(type)\s+([a-zA-Z][a-zA-Z0-9]*(_[^a-zA-Z0-9\s]+)?)';
+			captures = {
+				1 = { name = 'keyword.declaration.scala'; };
+				2 = { name = 'entity.name.type'; };
+			};
+		},
+		{	match = '\b(def)\s+([a-zA-Z][a-zA-Z0-9]*(_[^a-zA-Z0-9\s]+)?)';
+			captures = {
+				1 = { name = 'keyword.declaration.scala'; };
+				2 = { name = 'entity.name.function'; };
+			};
+		},
+		{	match = '\b(new)\s+([^\s\{\(\[]+)';
+			captures = {
+				1 = { name = 'keyword'; };
+				2 = { name = 'entity.name.type'; };
+			};
+		},
+		{	name = 'keyword.control.flow.jump.scala';
+			match = '\b(return|throw)\b';
+		},
+		{	name = 'keyword.control.flow.scala';
+			match = '\b(else|if|do|while|for|yield|match|case)\b';
+		},
+		{	name = 'keyword.control.exception.scala';
+			match = '\b(catch|finally|try)\b';
+		},
+		{	name = 'storage.modifier.access';
+			match = '\b(private\[\S?\]|protected\[\S?\]|private|protected)\b';
+		},
+		{	name = 'storage.modifier.other';
+			match = '\b(synchronized|@volatile|abstract|final|lazy|sealed|implicit|override|@transient|@native)\b';
+		},
+		{	name = 'variable.language.scala';
+			match = '\b(this|super|self)\b';
+		},
+		{	name = 'constant.numeric.scala';
+			match = '\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)([LlFfUuDd]|UL|ul)?\b';
+		},
+		{	name = 'constant.language.scala';
+			match = '\b(false|null|true|Nil|None)\b';
+		},
+		{	include = '#parameterList'; },
+		{	include = '#returnTypes'; },
+		{	include = '#types'; },
+		{	include = '#qualifiedClassName'; },
+	);
+	repository = {
+	    imports = {
+			name = 'meta.import.scala';
+			begin = '\b(import)\s+';
+			end = '(?<=[\n;}])';
+			beginCaptures = { 1 = { name = 'keyword.other.import.scala'; }; };
+			patterns = (
+				{	name = 'variable.package.scala';
+					match = '([^\s{;.]+)\s*\.\s*';
+				},
+				{	name = 'variable.import.scala';
+					match = '([^\s{;.]+)\s*[;\n]';
+				},
+				{	name = 'meta.import.selector.scala';
+					begin = '{';
+					end = '}';
+					patterns = (
+						{	match = '(?x) \s*
+                ([^\s.,}]+) \s*
+                (=>) \s*
+                ([^\s.,}]+) \s*
+              ';
+							captures = {
+								1 = { name = 'variable.import.renamed-from.scala'; };
+								2 = { name = 'keyword.other.arrow.scala'; };
+								3 = { name = 'variable.import.renamed-to.scala'; };
+							};
+						},
+						{	name = 'variable.import.scala';
+							match = '([^\s.,}]+)';
+						},
+					);
+				},
+			);
+		};
+		access-modifiers = {
+			match = '\b(private\[\S?\]|protected\[\S?\]|private|protected)\b';
+			captures = { 1 = { name = 'storage.modifier.access.scala'; }; };
+		};
+		any-modifier = {
+			match = '\b(private\[\S?\]|protected\[\S?\]|private|protected)\b';
+			captures = { 1 = { name = 'storage.modifier.scala'; }; };
+		};
+		char-literal = {
+			name = 'constant.character.literal.scala';
+			match = "'.'";
+		};
+		char-literal-escaped = {
+			name = 'constant.character.escape.scala';
+			match = "'\.'";
+		};
+		block-comments = {
+			name = 'comment.block.scala';
+			begin = '/\*';
+			end = '\*/';
+			patterns = (
+				{	include = '#block-comments'; },
+				{	match = '(?x)
+            (?! /\*)
+            (?! \*/)
+          '; },
+			);
+		};
+		comments = {
+			patterns = (
+				{	include = '#block-comments'; },
+				{	name = 'comment.line.double-slash.scala';
+					match = '(//).*$\n?';
+					captures = { 1 = { name = 'punctuation.definition.comment.scala'; }; };
+				},
+			);
+		};
+		identifier = {
+			patterns = (
+				{	match = '([a-zA-Z][a-zA-Z0-9]*(_[^a-zA-Z0-9\s]+)?)';
+					captures = { 0 = { name = 'variable.other'; }; };
+				},
+				{	match = '([^a-zA-Z0-9\s]+)';
+					captures = { 0 = { name = 'variable.other'; }; };
+				},
+				{	match = '`[^`]+`';
+					captures = { 0 = { name = 'variable.other'; }; };
+				},
+			);
+		};
+		parameterList = {
+			patterns = (
+				{	match = '(\w+)\s*:\s*([A-Za-z0-9][\w|_|?|\.]*),?';
+					captures = {
+						1 = { name = 'variable.parameter'; };
+						2 = { name = 'entity.name.type'; };
+					};
+				},
+			);
+		};
+		primitive-types = {
+			patterns = (
+				{	name = 'storage.type.primitive.scala';
+					match = '\b(Unit|Boolean|Byte|Char|Short|Int|Float|Long|Double)\b';
+				},
+			);
+		};
+		qualifiedClassName = {
+			match = '(\b([A-Z][\w]*))';
+			captures = { 1 = { name = 'entity.name.type'; }; };
+		};
+		returnTypes = {
+			match = '[^:]:\s*(\w+)';
+			captures = { 1 = { name = 'entity.name.type'; }; };
+		};
+		scala-symbol = {
+			match = "('\w+)";
+			captures = { 1 = { name = 'entity.name.symbol'; }; };
+		};
+		storage-modifiers = {
+			match = '\b(final|@native|synchronized|abstract|sealed|@transient|@volatile)\b';
+			captures = { 1 = { name = 'storage.modifier.scala'; }; };
+		};
+		regexp-double = {
+			name = 'string.quoted.regex.scala';
+			begin = '(?x)
+		    " (?= 
+		        (?: (\\. | [^"])* " \.r\b ) |
+		        (?: \s*\(\? )
+		      )
+  		';
+			end = '"(\.r\b)?';
+			patterns = (
+				{	include = 'source.regexp.oniguruma'; },
+				{	match = '\\.|[^"]'; },
+			);
+		};
+		regexp-triple = {
+			name = 'string.quoted.regex.scala';
+			begin = '(?x)
+		    """
+		      (?=
+		        (?: \s*\(\? ) |
+		        (?: .*? """ (?=\.r\b) )
+		      )
+		  ';
+			end = '"""';
+			patterns = (
+				{	include = 'source.regexp.oniguruma'; },
+				{	match = '.'; },
+			);
+		};
+		strings = {
+			patterns = (
+				{	include = '#regexp-double'; },
+				{	include = '#regexp-triple'; },
+				{	name = 'string.quoted.triple.scala';
+					begin = '"""';
+					end = '"*?"""';
+				},
+				{	name = 'string.quoted.double.scala';
+					match = '"(\\.|[^"])*"';
+				},
+			);
+		};
+		typeParameterList = {
+			begin = '\[';
+			end = '\]';
+			patterns = (
+				{	match = '(\w*)\s*,?\s*';
+					captures = { 1 = { name = 'entity.name.type'; }; };
+				},
+				{	include = '#typeParameterList'; },
+			);
+		};
+		types = {
+			match = '(\w+)\s*:\s*([A-Za-z0-9][\w|_|?|\.]*)';
+			captures = {
+				1 = { name = 'variable.language.scala'; };
+				2 = { name = 'entity.name.type'; };
+			};
+		};
+	};
+}
