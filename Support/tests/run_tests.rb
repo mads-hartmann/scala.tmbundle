@@ -25,3 +25,6 @@ puts "Simple import: " + RunTests.compare("import").to_s
 
 ## Import without brackets, ie. scala.xml.NodeSeq
 puts "Simple import2: " + RunTests.compare("import2").to_s
+
+## Comments on same line as import statements 
+puts "Simple import3: " + RunTests.compare("import3").to_s

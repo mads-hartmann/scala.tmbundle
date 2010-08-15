@@ -160,9 +160,10 @@
 		imports = {
 			name = 'meta.import.scala';
 			begin = '\b(import)\s+';
-			end = '(?<=[\n;}])';
+			end = '(?<=[\n;])';
 			beginCaptures = { 1 = { name = 'keyword.other.import.scala'; }; };
 			patterns = (
+				{	include = '#comments'; },
 				{	name = 'variable.package.scala';
 					match = '([^\s{;.]+)\s*\.\s*';
 				},
