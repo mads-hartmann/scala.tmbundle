@@ -32,3 +32,11 @@ Also, some of the features of the bundle uses ctags, so please add the following
 --regex-scala=/^[ \t]*private def[ \t]+([a-zA-Z0-9_]+)/\1/pd,defs/</code></pre>
 
 It might work best if used in conjunction with [the theme Paul Phillips use](http://github.com/paulp/scala.tmtheme) or [the theme I use](http://github.com/mads379/Github_flavor.tmtheme) alongside it:
+
+Using it
+--------
+
+First off, some of the nicest features of this bundle requires a ctags file of your project. To create one simply run the <code>Create Index File</code> command by pressing ctrl+option+cmd+t.
+
+- **Navigation (cmd+shift+c)**    
+  This will display a list of all the traits/classes/objects/types in the project. Simply pick the one you want and press enter and Textmate will jump to the appropriate line in the file where you declare that class/trait (etc.).
