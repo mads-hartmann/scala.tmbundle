@@ -1,10 +1,34 @@
+Scala Textmate Bundle
+=====================
+
+About
+-----
+
 I wasn't happy with the official [TextMate](http://macromates.com/) bundle so I started my own bundle. It has since been hugely improved by [Paul Phillips](http://github.com/paulp) and is now vastly better than the original one. It still needs some work but it is very usable (I use it for all my Scala development) 
 
-It might work best if used in conjunction with [the theme Paul Phillips use](http://github.com/paulp/scala.tmtheme) alongside it:
+Installation
+------------
 
-    git clone git://github.com/mads379/scala.tmbundle.git
-    git clone git://github.com/paulp/scala.tmtheme.git
-    open scala.tmbundle
-    open scala.tmtheme/Vibrant\ Scala.tmTheme
+To install the bundle simply run the following in your terminal:
 
-Improvements welcome.
+<pre><code>git clone git://github.com/mads379/scala.tmbundle.git
+open scala.tmbundle
+</code></pre>
+
+Also, some of the features of the bundle uses ctags, so please add the following to your ~/.ctags file (If you haven't got one, simply create one)
+
+<pre><code>--langdef=scala
+--langmap=scala:.scala
+--regex-scala=/^[ \t]*class[ \t]+([a-zA-Z0-9_]+)/\1/c,classes/
+--regex-scala=/^[ \t]*trait[ \t]+([a-zA-Z0-9_]+)/\1/t,traits/
+--regex-scala=/^[ \t]*type[ \t]+([a-zA-Z0-9_]+)/\1/T,types/
+--regex-scala=/^[ \t]*def[ \t]+([a-zA-Z0-9_\?]+)/\1/m,methods/
+--regex-scala=/^[ \t]*val[ \t]+([a-zA-Z0-9_]+)/\1/C,constants/
+--regex-scala=/^[ \t]*var[ \t]+([a-zA-Z0-9_]+)/\1/l,local variables/
+--regex-scala=/^[ \t]*package[ \t]+([a-zA-Z0-9_.]+)/\1/p,packages/
+--regex-scala=/^[ \t]*case class[ \t]+([a-zA-Z0-9_]+)/\1/c,case classes/
+--regex-scala=/^[ \t]*final case class[ \t]+([a-zA-Z0-9_]+)/\1/c,case classes/
+--regex-scala=/^[ \t]*object[ \t]+([a-zA-Z0-9_]+)/\1/o,objects/
+--regex-scala=/^[ \t]*private def[ \t]+([a-zA-Z0-9_]+)/\1/pd,defs/</code></pre>
+
+It might work best if used in conjunction with [the theme Paul Phillips use](http://github.com/paulp/scala.tmtheme) or [the theme I use](http://github.com/mads379/Github_flavor.tmtheme) alongside it:
