@@ -40,3 +40,6 @@ First off, some of the nicest features of this bundle requires a ctags file of y
 
 - **Navigation (cmd+shift+c)**    
   This will display a list of all the traits/classes/objects/types in the project. Simply pick the one you want and press enter and Textmate will jump to the appropriate line in the file where you declare that class/trait (etc.).
+- **Comments**  
+  - Javadoc for line (ctrl+shift+d ): Will analyze the the current line and add the appropriate documentation for the line (i.e. correct @param etc.) 
+  - New javadoc line (shift-enter in comment scope): Will create a new correctly indented comment line. 

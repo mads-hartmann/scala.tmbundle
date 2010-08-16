@@ -12,7 +12,7 @@ space = cline.scan(/^\s*/).to_s
 
 chars = cline.chars.to_a.slice(ENV['TM_COLUMN_NUMBER'].to_i-1,cline.chars.count)
 
-print cline
+print cline.gsub(chars.to_s,"")
 print "\n" + space + "*\t"+chars.to_s+ "$0"</string>
 	<key>fallbackInput</key>
 	<string>line</string>
