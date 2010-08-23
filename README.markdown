@@ -43,3 +43,5 @@ First off, some of the nicest features of this bundle requires a ctags file of y
 - **Comments**  
   - Javadoc for line (ctrl+shift+d ): Will analyze the the current line and add the appropriate documentation for the line (i.e. correct @param etc.) 
   - New javadoc line (shift-enter in comment scope): Will create a new correctly indented comment line. 
+- **Refactoring**
+  - Organize imports (ctrl+shift+o): This will take the current selection and organize the imports alphabetically 

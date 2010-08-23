@@ -47,25 +47,25 @@
 				2 = { name = 'entity.other.inherited-class.scala'; };
 			};
 		},
-		{	match = '\b(val)\s+([a-zA-Z][a-zA-Z0-9]*(_[^a-zA-Z0-9\s]+)?)';
+		{	match = '\b(val)\s+([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)';
 			captures = {
 				1 = { name = 'keyword.declaration.stable.scala'; };
 				2 = { name = 'entity.name.val'; };
 			};
 		},
-		{	match = '\b(var)\s+([a-zA-Z][a-zA-Z0-9]*(_[^a-zA-Z0-9\s]+)?)';
+		{	match = '\b(var)\s+([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)';
 			captures = {
 				1 = { name = 'keyword.declaration.volatile.scala'; };
 				2 = { name = 'entity.name.var'; };
 			};
 		},
-		{	match = '\b(type)\s+([a-zA-Z][a-zA-Z0-9]*(_[^a-zA-Z0-9\s]+)?)';
+		{	match = '\b(type)\s+([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)';
 			captures = {
 				1 = { name = 'keyword.declaration.scala'; };
 				2 = { name = 'entity.name.type'; };
 			};
 		},
-		{	match = '\b(def)\s+([a-zA-Z][a-zA-Z0-9]*(_[^a-zA-Z0-9\s]+)?)';
+		{	match = '\b(def)\s+([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)';
 			captures = {
 				1 = { name = 'keyword.declaration.scala'; };
 				2 = { name = 'entity.name.function'; };
@@ -146,7 +146,7 @@
 		};
 		identifier = {
 			patterns = (
-				{	match = '([a-zA-Z][a-zA-Z0-9]*(_[^a-zA-Z0-9\s]+)?)';
+				{	match = '([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)';
 					captures = { 0 = { name = 'variable.other'; }; };
 				},
 				{	match = '([^a-zA-Z0-9\s]+)';
@@ -194,7 +194,7 @@
 		};
 		parameterList = {
 			patterns = (
-				{	match = '(\w+)\s*:\s*([A-Za-z0-9][\w|_|?|\.]*),?';
+				{	match = '([a-zA-Z$_][a-zA-Z0-9$_]*)\s*:\s*([A-Za-z0-9][\w|_|?|\.]*),?';
 					captures = {
 						1 = { name = 'variable.parameter'; };
 						2 = { name = 'entity.name.type'; };

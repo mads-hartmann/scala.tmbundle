@@ -28,3 +28,7 @@ puts "Simple import2: " + RunTests.compare("import2").to_s
 
 ## Comments on same line as import statements 
 puts "Simple import3: " + RunTests.compare("import3").to_s
+
+## In identifiers $ and _ should be treated as uppercase letters
+## are be allowed. 
+puts "Identifiers: " + RunTests.compare("identifiers").to_s
