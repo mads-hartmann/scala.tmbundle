@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -wKU
+
+project = ENV['TM_PROJECT_DIRECTORY']
+file = ENV['TM_FILEPATH']
+name = ENV['TM_FILENAME']
+packageName = file.gsub(project+"/","").gsub("/"+name,"").gsub("src/main/scala/","").gsub("/",".")
+
+print "package " + packageName</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>name</key>
+	<string>Package for file</string>
+	<key>output</key>
+	<string>afterSelectedText</string>
+	<key>scope</key>
+	<string>source.scala</string>
+	<key>tabTrigger</key>
+	<string>package</string>
+	<key>uuid</key>
+	<string>CF8424AF-D081-49BF-A535-FAF593584F86</string>
+</dict>
+</plist>
