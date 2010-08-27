@@ -10,15 +10,15 @@
 project = ENV['TM_PROJECT_DIRECTORY']
 file = ENV['TM_FILEPATH']
 name = ENV['TM_FILENAME']
-packageName = file.gsub(project+"/","").gsub("/"+name,"").gsub("src/main/scala/","").gsub("/",".")
+packageName = file.gsub(project+"/","").gsub("/"+name,"").gsub("src/","").gsub("main/scala/","").gsub("/",".")
 
 print "package " + packageName</string>
 	<key>input</key>
-	<string>selection</string>
+	<string>none</string>
 	<key>name</key>
 	<string>Package for file</string>
 	<key>output</key>
-	<string>afterSelectedText</string>
+	<string>insertAsSnippet</string>
 	<key>scope</key>
 	<string>source.scala</string>
 	<key>tabTrigger</key>
