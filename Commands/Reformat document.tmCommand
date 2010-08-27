@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -wKU
+
+jar = ENV['TM_BUNDLE_SUPPORT'].gsub(' ','\ ') + "/bin/scalariform_2.8.0-0.0.5-SNAPSHOT.jar"
+file = ENV['TM_FILEPATH'].gsub(' ','\ ')
+scala = ENV['SCALA_HOME'] + "/bin/scala"
+
+puts `#{scala} -cp #{jar} scalariform.commandline.Main #{file}`</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^H</string>
+	<key>name</key>
+	<string>Reformat document</string>
+	<key>output</key>
+	<string>replaceDocument</string>
+	<key>scope</key>
+	<string>source.scala</string>
+	<key>uuid</key>
+	<string>8B6C7774-8CFF-49DE-A89B-A337BB4F0867</string>
+</dict>
+</plist>
