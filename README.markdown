@@ -47,3 +47,4 @@ First off, some of the nicest features of this bundle requires a ctags file of y
   - New javadoc line (shift-enter in comment scope): Will create a new correctly indented comment line. 
 - **Refactoring**
   - Organize imports (ctrl+shift+o): This will take the current selection and organize the imports alphabetically 
+  - Reformat Document (ctrl+shift+h): This will reformat the current document using Scalariform (http://github.com/mdr/scalariform)
