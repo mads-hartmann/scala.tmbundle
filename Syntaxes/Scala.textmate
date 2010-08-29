@@ -3,6 +3,7 @@
 	foldingStartMarker = '/\*\*|\{\s*$';
 	foldingStopMarker = '\*\*/|^\s*\}';
 	patterns = (
+		{	include = 'text.xml'; }, // Power of TM - syntax hightling for xml in scala files
 		{	name = 'meta.package.scala';
 			match = '\b(package)\s+([\w\.]+)';
 			captures = {
