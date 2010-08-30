@@ -3,7 +3,7 @@
 	foldingStartMarker = '/\*\*|\{\s*$';
 	foldingStopMarker = '\*\*/|^\s*\}';
 	patterns = (
-		{	include = 'text.xml'; }, // Power of TM - syntax hightling for xml in scala files
+		{	include = 'text.xml'; },
 		{	name = 'meta.package.scala';
 			match = '\b(package)\s+([\w\.]+)';
 			captures = {
@@ -216,13 +216,8 @@
 		};
 		regexp-double = {
 			name = 'string.quoted.regex.scala';
-			begin = '(?x)
-		    " (?= 
-		        (?: (\\. | [^"])* " \.r\b ) |
-		        (?: \s*\(\? )
-		      )
-  		';
-			end = '"(\.r\b)?';
+			begin = '"([\\\(\[^])+';
+			end = '"(\.r)?';
 			patterns = (
 				{	include = 'source.regexp.oniguruma'; },
 				{	match = '\\.|[^"]'; },
@@ -230,14 +225,8 @@
 		};
 		regexp-triple = {
 			name = 'string.quoted.regex.scala';
-			begin = '(?x)
-		    """
-		      (?=
-		        (?: \s*\(\? ) |
-		        (?: .*? """ (?=\.r\b) )
-		      )
-		  ';
-			end = '"""';
+			begin = '"""([\\\(\[^])+';
+			end = '"""(\.r)?';
 			patterns = (
 				{	include = 'source.regexp.oniguruma'; },
 				{	match = '.'; },
@@ -261,10 +250,10 @@
 				{	include = '#regexp-triple'; },
 				{	name = 'string.quoted.triple.scala';
 					begin = '"""';
-					end = '"*?"""';
+					end = '"""';
 				},
 				{	name = 'string.quoted.double.scala';
-					match = '"(\\.|[^"])*"';
+					match = '"([^"])*"';
 				},
 			);
 		};

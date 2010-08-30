@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>bundleUUID</key>
+	<string>452017E8-0065-49EF-AB9D-7849B27D9367</string>
 	<key>fileTypes</key>
 	<array>
 		<string>scala</string>
@@ -562,14 +564,9 @@
 		<key>regexp-double</key>
 		<dict>
 			<key>begin</key>
-			<string>(?x)
-		    " (?= 
-		        (?: (\\. | [^"])* " \.r\b ) |
-		        (?: \s*\(\? )
-		      )
-  		</string>
+			<string>"([\\\(\[^])+</string>
 			<key>end</key>
-			<string>"(\.r\b)?</string>
+			<string>"(\.r)?</string>
 			<key>name</key>
 			<string>string.quoted.regex.scala</string>
 			<key>patterns</key>
@@ -587,15 +584,9 @@
 		<key>regexp-triple</key>
 		<dict>
 			<key>begin</key>
-			<string>(?x)
-		    """
-		      (?=
-		        (?: \s*\(\? ) |
-		        (?: .*? """ (?=\.r\b) )
-		      )
-		  </string>
+			<string>"""([\\\(\[^])+</string>
 			<key>end</key>
-			<string>"""</string>
+			<string>"""(\.r)?</string>
 			<key>name</key>
 			<string>string.quoted.regex.scala</string>
 			<key>patterns</key>
@@ -665,13 +656,13 @@
 					<key>begin</key>
 					<string>"""</string>
 					<key>end</key>
-					<string>"*?"""</string>
+					<string>"""</string>
 					<key>name</key>
 					<string>string.quoted.triple.scala</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>"(\\.|[^"])*"</string>
+					<string>"([^"])*"</string>
 					<key>name</key>
 					<string>string.quoted.double.scala</string>
 				</dict>
