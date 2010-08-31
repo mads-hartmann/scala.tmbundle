@@ -12,36 +12,18 @@ require ENV['TM_BUNDLE_SUPPORT'] + '/lib/ScalaHelper.rb'
 require ENV['TM_SUPPORT_PATH'] + '/lib/ui.rb'
 require ENV['TM_SUPPORT_PATH'] + '/lib/textmate.rb'
 
-hash = Scala::Helper.list_sources()
-if !hash.nil?
-  names = hash.collect{ |line| line["name"] }.to_a
-
-  selected = TextMate::UI.request_item({ 
-  	:title =&gt; "Scala Navigater", 
-  	:prompt =&gt; "Please select a definition to jump tp", 
-  	:items =&gt; names})
-
-  if !selected.nil?
-  	hash_item = hash.select{ |item| item["name"] == selected}.to_a.first
-  	TextMate.go_to({
-  		:file =&gt; hash_item['path'],
-  		:line =&gt; hash_item['line'],
-  		:column =&gt; 0
-  	})
-  end
-end
-</string>
+Scala::Helper.display_types()</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
 	<string>@C</string>
 	<key>name</key>
-	<string>Navigate sources</string>
+	<string>Navigate</string>
 	<key>output</key>
-	<string>showAsTooltip</string>
+	<string>showAsHTML</string>
 	<key>scope</key>
 	<string>source.scala</string>
 	<key>uuid</key>
-	<string>3E2B0452-04DC-4EA4-8203-5EE2672D0B31</string>
+	<string>72D33CBB-485D-4344-BA32-B9B945F72BDC</string>
 </dict>
 </plist>

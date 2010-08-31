@@ -6,35 +6,90 @@
 	<string>mads379@gmail.com</string>
 	<key>contactName</key>
 	<string>Mads Hartmann</string>
+	<key>deleted</key>
+	<array>
+		<string>3E2B0452-04DC-4EA4-8203-5EE2672D0B31</string>
+	</array>
 	<key>mainMenu</key>
 	<dict>
+		<key>excludedItems</key>
+		<array/>
 		<key>items</key>
 		<array>
 			<string>DDFBBCF9-D333-4077-8D4F-EF6F2CA62220</string>
-			<string>97BA37F9-5960-4BEA-B8FA-48FD7C6379C7</string>
+			<string>72D33CBB-485D-4344-BA32-B9B945F72BDC</string>
+			<string>4D2E3F41-4796-4069-9C33-17733A632BDD</string>
+			<string>------------------------------------</string>
+			<string>CA13E220-F557-4681-971E-C3D3D4A36CF8</string>
+			<string>D603466C-6006-4708-9E15-1475E194CCD3</string>
+			<string>C894B1A9-A166-492E-909A-E35BC839FBEF</string>
+			<string>C4253257-7C5F-4B11-94C3-ADD8682D3606</string>
+			<string>2788959A-AD07-4AF3-9D6F-E4B034FCCDEB</string>
 		</array>
 		<key>submenus</key>
 		<dict>
-			<key>97BA37F9-5960-4BEA-B8FA-48FD7C6379C7</key>
+			<key>2788959A-AD07-4AF3-9D6F-E4B034FCCDEB</key>
 			<dict>
 				<key>items</key>
 				<array>
-					<string>BAD79DCF-1B14-42CE-BE6E-7EE5A56190B3</string>
 					<string>E3CAD7C5-59B2-4CD2-9D9F-5D225998E2ED</string>
-					<string>D03DC03A-8622-4F4F-BDAC-3AD1E8D51705</string>
-					<string>9D749173-9874-4BEC-80A1-BAE8AF266AD9</string>
-					<string>97CB4393-6DCC-45B4-8830-61D6B5D036B2</string>
 					<string>92B4042E-2409-466F-A0B6-80A46B36679F</string>
 					<string>53B78E1D-F3C2-49C6-89D3-6BE30961C14D</string>
-					<string>ADF7CCBE-80DD-488E-A2A9-B3B8B582F69F</string>
 					<string>C32C1AFB-F874-454E-8C82-86832CA296FD</string>
-					<string>E79DCC79-E834-4B6C-8280-EBE0B9A0A41F</string>
-					<string>56D7D5D4-355C-4BAA-8F38-DA5A5FCA33C8</string>
-					<string>493A836C-428D-4CA5-9E29-E2C927C8B642</string>
+					<string>701CC71E-0CB8-4C5C-922B-F363193B4AAF</string>
+					<string>F56949E3-B311-4BD8-898C-7316E4134785</string>
+				</array>
+				<key>name</key>
+				<string>Other</string>
+			</dict>
+			<key>C4253257-7C5F-4B11-94C3-ADD8682D3606</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>5949EEB2-B50D-46D2-A67F-C27AD9BE2053</string>
+					<string>8B6C7774-8CFF-49DE-A89B-A337BB4F0867</string>
+				</array>
+				<key>name</key>
+				<string>Refactor</string>
+			</dict>
+			<key>C894B1A9-A166-492E-909A-E35BC839FBEF</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>F38BFF4F-BE1D-4CE2-8BE8-8BEDF5EB7277</string>
+					<string>CF8424AF-D081-49BF-A535-FAF593584F86</string>
+				</array>
+				<key>name</key>
+				<string>Directives</string>
+			</dict>
+			<key>CA13E220-F557-4681-971E-C3D3D4A36CF8</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>9D749173-9874-4BEC-80A1-BAE8AF266AD9</string>
+					<string>ADF7CCBE-80DD-488E-A2A9-B3B8B582F69F</string>
 					<string>6851152B-CD07-4E27-9932-631A86102B5C</string>
 				</array>
 				<key>name</key>
-				<string>Snippets</string>
+				<string>Control</string>
+			</dict>
+			<key>D603466C-6006-4708-9E15-1475E194CCD3</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>11D5086B-FD25-4B33-92E3-4DEADCF4119D</string>
+					<string>CC643A92-5A38-4998-AB95-041EAF15ECF9</string>
+					<string>97CB4393-6DCC-45B4-8830-61D6B5D036B2</string>
+					<string>56D7D5D4-355C-4BAA-8F38-DA5A5FCA33C8</string>
+					<string>853C1915-7B23-4C79-AAAA-AEDFB21CA08C</string>
+					<string>6CCA6D38-8C03-4D29-97BD-45CED52713FB</string>
+					<string>BAD79DCF-1B14-42CE-BE6E-7EE5A56190B3</string>
+					<string>D03DC03A-8622-4F4F-BDAC-3AD1E8D51705</string>
+					<string>E79DCC79-E834-4B6C-8280-EBE0B9A0A41F</string>
+					<string>493A836C-428D-4CA5-9E29-E2C927C8B642</string>
+				</array>
+				<key>name</key>
+				<string>Constructs</string>
 			</dict>
 		</dict>
 	</dict>
@@ -69,6 +124,13 @@
 		<string>F56949E3-B311-4BD8-898C-7316E4134785</string>
 		<string>DDFBBCF9-D333-4077-8D4F-EF6F2CA62220</string>
 		<string>701CC71E-0CB8-4C5C-922B-F363193B4AAF</string>
+		<string>4D2E3F41-4796-4069-9C33-17733A632BDD</string>
+		<string>72D33CBB-485D-4344-BA32-B9B945F72BDC</string>
+		<string>CF8424AF-D081-49BF-A535-FAF593584F86</string>
+		<string>8B6C7774-8CFF-49DE-A89B-A337BB4F0867</string>
+		<string>80930738-1643-4DEC-A143-B6E96F0E63AD</string>
+		<string>256E7AF5-FEF1-4078-A423-08C59FA950A9</string>
+		<string>37AD8061-D284-4D24-A6C2-A641197D5CC2</string>
 	</array>
 	<key>uuid</key>
 	<string>452017E8-0065-49EF-AB9D-7849B27D9367</string>
