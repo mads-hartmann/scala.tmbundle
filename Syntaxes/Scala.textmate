@@ -3,7 +3,6 @@
 	foldingStartMarker = '/\*\*|\{\s*$';
 	foldingStopMarker = '\*\*/|^\s*\}';
 	patterns = (
-		{	include = 'text.xml'; },
 		{	name = 'meta.package.scala';
 			match = '\b(package)\s+([\w\.]+)';
 			captures = {
@@ -107,6 +106,7 @@
 		{	include = '#types'; },
 		{	include = '#qualifiedClassName'; },
 	);
+	bundleUUID = '452017E8-0065-49EF-AB9D-7849B27D9367';
 	repository = {
 		access-modifiers = {
 			match = '\b(private\[\S?\]|protected\[\S?\]|private|protected)\b';
