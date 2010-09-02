@@ -18,6 +18,21 @@ $(document).ready(function() {
         show.eq(0).addClass('selected');
         hide.hide();
     });
+    
+    function openFile(node){
+        var path = node.find('.path').text(),
+            line = node.find('.line').text(),
+            cmd = 'open "txmt://open?url=file://'+path+'&line='+line+'"';
+            myCommand = TextMate.system(cmd);
+
+        window.close();    
+        myCommand.onreadoutput = function(str) { console.log("read: " + str); };
+        myCommand.onreaderror = function(str) { console.log("error: " + str); };
+    }
+    
+    $("li").bind('click',function(){
+        var path = openFile($(this));
+    });
         
     $(document).bind('keydown', function(e) {
         var key = e.which || e.charCode || e.keyCode || 0;
@@ -52,14 +67,7 @@ $(document).ready(function() {
                 break;
             }
             case ENTER : {
-                var path = that.find('.path').text(),
-                    line = that.find('.line').text(),
-                    cmd = 'open "txmt://open?url=file://'+path+'&line='+line+'"';
-                    myCommand = TextMate.system(cmd);
-                
-                window.close();    
-                myCommand.onreadoutput = function(str) { console.log("read: " + str); };
-                myCommand.onreaderror = function(str) { console.log("error: " + str); };
+                openFile(that);
             }
             case TAB : {
                 // var support = root.replace("file://","").replace(/\s/g,"\\ "),

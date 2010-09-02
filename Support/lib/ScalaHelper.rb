@@ -21,7 +21,7 @@ module Scala
         ctags_path = ENV['TM_BUNDLE_SUPPORT'] + "/ctags"
               safe_path = ctags_path.gsub(" ",'\ ')
       
-              `cd #{PROJECT_DIR} && #{safe_path} -h ".scala" -n -R --exclude=*.js -f #{TAG_FILE_PATH} .`
+              `cd #{PROJECT_DIR} && #{safe_path} -h ".scala" -n -R --exclude=*.js --exclude=target --exclude=resources -f #{TAG_FILE_PATH} .`
       
               puts "created index file"
       end
@@ -56,7 +56,14 @@ module Scala
           makeHTMLListOfTypes(hash,"")
         end
 		  end
-		  		  
+		  
+		  def package_of_path(file) 
+		    project = ENV['TM_PROJECT_DIRECTORY']
+        name = ENV['TM_FILENAME']
+        packageName = file.gsub(project+"/","").gsub("/"+name,"").gsub("src/","").gsub("main/scala/","").gsub("/",".")
+        return packageName
+	    end
+		  	  
 		  private
 		  
 		  #--- Helpers
@@ -191,6 +198,7 @@ module Scala
           else
             puts "<li>"
           end
+          puts "<span class='package'>" + package_of_path(item['path']) + "</span>"
       	  puts "<p class='" + item['type'] + "'>" + item['name'] 
       	  puts "</p>"	 
        	  puts "<span class='path'>" + item['path'] + "</span>"

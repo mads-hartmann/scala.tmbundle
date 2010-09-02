@@ -15,9 +15,10 @@ padding: 0px;
 }
 
 ul li {
-padding: 1px 5px;
-margin: 0px;
-color: #686868;
+    clear: right;
+    padding: 1px 5px;
+    margin: 0px;
+    color: #686868;
 }
 
 p {
@@ -39,6 +40,16 @@ p.f {
 }
 p.V {
     background: url("../imgs/v.png") no-repeat top left;
+}
+
+span.package {
+    display: block;
+    float: right;
+    color: #c1c1c1;
+}
+
+li.selected span.package, li:hover span.package {
+    color: #fff;
 }
 
 span.path, span.line {
@@ -89,6 +100,7 @@ display: block;
 font-size: 10px;
 }
 
-li.selected {
-background: #d4d4d4;
+li.selected, li:hover {
+    background: #d4d4d4;
+    cursor: pointer;
 }
