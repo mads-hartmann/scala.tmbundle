@@ -100,7 +100,6 @@ $(document).ready(function() {
                 return false;
             }
             default : {
-                console.log(key);
                 return true;
             }
         }
@@ -111,27 +110,19 @@ $(document).ready(function() {
 
         // Now move the list up/down
         // -------------------------
-        var maxOffset = $("#content").height() + $("#content").offset().top,
-            minOffset = $(".top").height(),
-            offsetTop = $('.selected').eq(0).offset().top,
+        var content = $('#content'),
+            scrollbarOffset = content.scrollTop(),
             rowHeight = $('ul li').eq(0).height() + 20, //padding (20)
-            oldOffset = (function() {
-                var px = $('#content ul').css('top');
-                return parseInt(px.slice(0,px.length - 2),"");
-            })();
-
-        if (offsetTop > maxOffset) {
-            var newOffset = oldOffset - rowHeight;
-            console.log("o:" + oldOffset);
-            $('#content ul').css({
-                "top": newOffset
-            });
-        } else if (offsetTop < minOffset) {
-            var newOffset = oldOffset + rowHeight; 
-            $('#content ul').css({
-                "top": newOffset
-            });
+            maxOffset = content.height() + content.offset().top - 16, // 16 for the scrollbar
+            itemOffset = offsetTop = $('.selected').eq(0).offset().top;
+        
+        if( itemOffset >= maxOffset) {
+            content.scrollTop(scrollbarOffset+rowHeight+20); // 20 is just extra spacing.
+        } else if (itemOffset <= 0 ) {
+            content.scrollTop(scrollbarOffset-rowHeight-20);
         }
-
+        
+        return false;
+        
     });
 });
