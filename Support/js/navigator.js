@@ -91,6 +91,10 @@ $(document).ready(function() {
                 return false;
             }
             case ESC : {
+				if(inputIsEmpty()) {
+					window.close();
+					return false;
+				}
                 input.val("");
                 input.trigger('input');
                 return false;
@@ -100,6 +104,10 @@ $(document).ready(function() {
                 return true;
             }
         }
+
+		function inputIsEmpty() {
+			return (input.val() == "");
+		}
 
         // Now move the list up/down
         // -------------------------
