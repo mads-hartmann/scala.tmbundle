@@ -682,7 +682,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(\w*)\s*,?\s*</string>
+					<string>(\w+)\s*,?\s*</string>
 				</dict>
 				<dict>
 					<key>include</key>
