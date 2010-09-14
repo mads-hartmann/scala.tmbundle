@@ -3,6 +3,13 @@
 	foldingStartMarker = '/\*\*|\{\s*$';
 	foldingStopMarker = '\*\*/|^\s*\}';
 	patterns = (
+	    {   match = '\b(package object)\s+([^\s\{\(\[]+)';
+			captures = {
+				1 = { name = 'keyword.declaration.scala'; };
+				2 = { name = 'entity.name.class'; };
+			};
+	        
+	    },
 		{	name = 'meta.package.scala';
 			match = '\b(package)\s+([\w\.]+)';
 			captures = {

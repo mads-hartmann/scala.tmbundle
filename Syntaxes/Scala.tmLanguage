@@ -24,6 +24,23 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
+					<string>keyword.declaration.scala</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.class</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>\b(package object)\s+([^\s\{\(\[]+)</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
 					<string>keyword.other.scoping.scala</string>
 				</dict>
 				<key>2</key>
