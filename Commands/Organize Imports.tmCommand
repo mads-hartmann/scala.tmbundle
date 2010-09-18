@@ -4,6 +4,8 @@
 <dict>
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
+	<key>bundleUUID</key>
+	<string>452017E8-0065-49EF-AB9D-7849B27D9367</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby -w
 #
@@ -38,9 +40,12 @@ if imports.empty?
   exit 0
 end
 
-imports.sort.each do |line|
+sorted = imports.sort
+sorted.slice(0,sorted.size - 1).each do |line|
   print line + "\n"
-end</string>
+end
+print sorted[sorted.size-1]
+</string>
 	<key>fallbackInput</key>
 	<string>none</string>
 	<key>input</key>
