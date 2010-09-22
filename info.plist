@@ -14,10 +14,10 @@
 	<dict>
 		<key>items</key>
 		<array>
-			<string>DDFBBCF9-D333-4077-8D4F-EF6F2CA62220</string>
 			<string>72D33CBB-485D-4344-BA32-B9B945F72BDC</string>
 			<string>4D2E3F41-4796-4069-9C33-17733A632BDD</string>
 			<string>------------------------------------</string>
+			<string>245CEE34-0738-47CB-9939-E5B0507472DE</string>
 			<string>CA13E220-F557-4681-971E-C3D3D4A36CF8</string>
 			<string>D603466C-6006-4708-9E15-1475E194CCD3</string>
 			<string>C894B1A9-A166-492E-909A-E35BC839FBEF</string>
@@ -26,6 +26,17 @@
 		</array>
 		<key>submenus</key>
 		<dict>
+			<key>245CEE34-0738-47CB-9939-E5B0507472DE</key>
+			<dict>
+				<key>items</key>
+				<array>
+					<string>DDFBBCF9-D333-4077-8D4F-EF6F2CA62220</string>
+					<string>BCAA9E11-45C8-43C7-8B43-E680AD7F6165</string>
+					<string>45A658D8-D64D-4810-B7DD-762AC3EFD8CF</string>
+				</array>
+				<key>name</key>
+				<string>Run</string>
+			</dict>
 			<key>2788959A-AD07-4AF3-9D6F-E4B034FCCDEB</key>
 			<dict>
 				<key>items</key>
@@ -66,6 +77,7 @@
 				<array>
 					<string>9D749173-9874-4BEC-80A1-BAE8AF266AD9</string>
 					<string>ADF7CCBE-80DD-488E-A2A9-B3B8B582F69F</string>
+					<string>E0E52BED-94DD-4D9F-8ED5-BEE344AB3FDC</string>
 					<string>6851152B-CD07-4E27-9932-631A86102B5C</string>
 				</array>
 				<key>name</key>
@@ -98,6 +110,8 @@
 	<array>
 		<string>6851152B-CD07-4E27-9932-631A86102B5C</string>
 		<string>833B549D-AA46-4BC9-AC05-CBF4CD1DA723</string>
+		<string>BCAA9E11-45C8-43C7-8B43-E680AD7F6165</string>
+		<string>45A658D8-D64D-4810-B7DD-762AC3EFD8CF</string>
 		<string>BAD79DCF-1B14-42CE-BE6E-7EE5A56190B3</string>
 		<string>E3CAD7C5-59B2-4CD2-9D9F-5D225998E2ED</string>
 		<string>D03DC03A-8622-4F4F-BDAC-3AD1E8D51705</string>
@@ -106,6 +120,7 @@
 		<string>92B4042E-2409-466F-A0B6-80A46B36679F</string>
 		<string>53B78E1D-F3C2-49C6-89D3-6BE30961C14D</string>
 		<string>ADF7CCBE-80DD-488E-A2A9-B3B8B582F69F</string>
+		<string>E0E52BED-94DD-4D9F-8ED5-BEE344AB3FDC</string>
 		<string>C32C1AFB-F874-454E-8C82-86832CA296FD</string>
 		<string>E79DCC79-E834-4B6C-8280-EBE0B9A0A41F</string>
 		<string>56D7D5D4-355C-4BAA-8F38-DA5A5FCA33C8</string>

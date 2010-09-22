@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -wKU
+require ENV["TM_SUPPORT_PATH"] + "/lib/tm/executor"
+
+puts "&lt;style&gt;.echo{ display: none; }&lt;/style&gt;"
+
+if ENV['TM_FILEPATH'] != nil
+	cmd = ["scala"]
+	args = ["-i", ENV['TM_FILEPATH']]
+
+	TextMate::Executor.run(cmd,
+  		:script_args =&gt; args,
+  		:version_args =&gt; ["-version"]) do |line, type|
+          line + "&lt;br/&gt;\n"
+	end
+else
+	puts "Please save your file first"
+end
+
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>@r</string>
+	<key>name</key>
+	<string>Scala REPL: Preload file</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>source.scala</string>
+	<key>uuid</key>
+	<string>45A658D8-D64D-4810-B7DD-762AC3EFD8CF</string>
+</dict>
+</plist>

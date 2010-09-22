@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -wKU
+require ENV["TM_SUPPORT_PATH"] + "/lib/tm/executor"
+
+puts "&lt;style&gt;.echo{ display: none; }&lt;/style&gt;"
+
+cmd = ["scala"]
+TextMate::Executor.run(
+  cmd,
+  :version_args =&gt; ["-version"]) do |line, type|
+	line + "&lt;br/&gt;\n"
+end</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>@r</string>
+	<key>name</key>
+	<string>Scala REPL</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>source.scala</string>
+	<key>uuid</key>
+	<string>BCAA9E11-45C8-43C7-8B43-E680AD7F6165</string>
+</dict>
+</plist>

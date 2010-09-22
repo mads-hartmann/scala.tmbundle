@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>for($i &lt;- $2 to $3){
-$4
+	<string>for($1 &lt;- $2 to $3) {
+	$0
 }</string>
 	<key>name</key>
-	<string>For</string>
+	<string>For - Block</string>
 	<key>scope</key>
 	<string>source.scala</string>
 	<key>tabTrigger</key>
