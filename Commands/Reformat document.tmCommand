@@ -12,7 +12,7 @@ require ENV['TM_SUPPORT_PATH'] + '/lib/ui.rb'
 
 TextMate.require_env_var("SCALA_HOME", "Please set the SCALA_HOME shell variable to the root of your scala installation. For me this is /Users/Mads/dev/programming_languages/scala-2.8.0.final")
 
-jar = ENV['TM_BUNDLE_SUPPORT'].gsub(' ','\ ') + "/bin/scalariform_2.8.0-0.0.5-SNAPSHOT.jar"
+jar = ENV['TM_BUNDLE_SUPPORT'].gsub(' ','\ ') + "/bin/scalariform_2.8.0-0.0.5.jar"
 file = ENV['TM_FILEPATH'].gsub(' ','\ ')
 scala = ENV['SCALA_HOME'] + "/bin/scala"
 
