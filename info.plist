@@ -9,6 +9,7 @@
 	<key>deleted</key>
 	<array>
 		<string>3E2B0452-04DC-4EA4-8203-5EE2672D0B31</string>
+		<string>8B6C7774-8CFF-49DE-A89B-A337BB4F0867</string>
 	</array>
 	<key>mainMenu</key>
 	<dict>
@@ -55,8 +56,8 @@
 			<dict>
 				<key>items</key>
 				<array>
+					<string>E974D149-FD2B-4FA9-A873-70AF1771EA3A</string>
 					<string>5949EEB2-B50D-46D2-A67F-C27AD9BE2053</string>
-					<string>8B6C7774-8CFF-49DE-A89B-A337BB4F0867</string>
 				</array>
 				<key>name</key>
 				<string>Refactor</string>
@@ -142,7 +143,7 @@
 		<string>4D2E3F41-4796-4069-9C33-17733A632BDD</string>
 		<string>72D33CBB-485D-4344-BA32-B9B945F72BDC</string>
 		<string>CF8424AF-D081-49BF-A535-FAF593584F86</string>
-		<string>8B6C7774-8CFF-49DE-A89B-A337BB4F0867</string>
+		<string>E974D149-FD2B-4FA9-A873-70AF1771EA3A</string>
 		<string>80930738-1643-4DEC-A143-B6E96F0E63AD</string>
 		<string>256E7AF5-FEF1-4078-A423-08C59FA950A9</string>
 		<string>37AD8061-D284-4D24-A6C2-A641197D5CC2</string>

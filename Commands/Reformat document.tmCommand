@@ -7,29 +7,20 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby -wKU
 
-require ENV['TM_SUPPORT_PATH'] + '/lib/textmate.rb'
-require ENV['TM_SUPPORT_PATH'] + '/lib/ui.rb'
+require ENV['TM_BUNDLE_SUPPORT'] + '/lib/Scalariform.rb'
 
-TextMate.require_env_var("SCALA_HOME", "Please set the SCALA_HOME shell variable to the root of your scala installation. For me this is /Users/Mads/dev/programming_languages/scala-2.8.0.final")
-
-jar = ENV['TM_BUNDLE_SUPPORT'].gsub(' ','\ ') + "/bin/scalariform_2.8.0-0.0.5.jar"
-file = ENV['TM_FILEPATH'].gsub(' ','\ ')
-scala = ENV['SCALA_HOME'] + "/bin/scala"
-
-puts `#{scala} -cp #{jar} scalariform.commandline.Main #{file}`
-
-TextMate::UI.tool_tip("It was my pleasure to reformat the document for you, and my satisfaction to exit with the knowledge of a job well done.")</string>
+Scala::Scalariform.reformatDocument</string>
 	<key>input</key>
-	<string>none</string>
+	<string>document</string>
 	<key>keyEquivalent</key>
 	<string>^H</string>
 	<key>name</key>
 	<string>Reformat document</string>
 	<key>output</key>
-	<string>replaceDocument</string>
+	<string>showAsHTML</string>
 	<key>scope</key>
 	<string>source.scala</string>
 	<key>uuid</key>
-	<string>8B6C7774-8CFF-49DE-A89B-A337BB4F0867</string>
+	<string>E974D149-FD2B-4FA9-A873-70AF1771EA3A</string>
 </dict>
 </plist>
