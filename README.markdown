@@ -17,7 +17,7 @@ To install the bundle simply run the following in your terminal:
 open scala.tmbundle
 </code></pre>
 
-Add the shell variable <code>SCALA\_HOME</code> in TextMate -> Preferences... -> Advanced -> Shell Variables to the root of your scala installation. For me this is <code>/Users/Mads/dev/programming_languages/scala-2.8.0.final</code>
+Add the shell variable <code>SCALA\_HOME</code> in TextMate -> Preferences... -> Advanced -> Shell Variables to the root of your scala installation. If you installed scala using MacPorts, it probably is <code>/opt/local/share/scala-2.8</code>
 
 Also, some of the features of the bundle uses ctags, so please add the following to your ~/.ctags file (If you haven't got one, simply create one)
 
