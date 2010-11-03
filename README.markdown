@@ -14,7 +14,15 @@ cc &lt;tab&gt; => case class &lt;tab&gt; => proper source for a case class
 
 This means you have to hit tab twice but I think that's a fair tradeoff.
 
-**Other**
+**Playing with the code**
+
+The bundle offers several ways to play around with Scala code in your document - Hit ⌘R and see the options possible
+
+- **Scala REPL**: This will start the Scala REPL in a new tab in the a frontmost terminal window or create a new window if one doesn't exist. 
+- **Scala REPL: Preload file** This will start the Scala REPL like above but it will preload the current file
+- **Scala REPL: Paste selection** This will paste the current selection in TextMate to the Scala REPL.
+
+**Other cool stuff**
 
 First off, some of the nicest features of this bundle requires a ctags file of your project. To create one simply run the <code>Create Index File</code> command by pressing ⌃⌥⌘T.
 

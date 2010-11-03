@@ -5,23 +5,9 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby -wKU
-require ENV["TM_SUPPORT_PATH"] + "/lib/tm/executor"
-
-puts "&lt;style&gt;.echo{ display: none; }&lt;/style&gt;"
-
-if ENV['TM_FILEPATH'] != nil
-	cmd = ["scala"]
-	args = ["-i", ENV['TM_FILEPATH']]
-
-	TextMate::Executor.run(cmd,
-  		:script_args =&gt; args,
-  		:version_args =&gt; ["-version"]) do |line, type|
-          line + "&lt;br/&gt;\n"
-	end
-else
-	puts "Please save your file first"
-end
+	<string>export SHELL_NAME=${SHELL_NAME:="Textmate Scala REPL"}
+export CMD=${CMD:="scala -i $TM_FILEPATH"}
+"$TM_BUNDLE_SUPPORT/scala_repl.sh"
 
 </string>
 	<key>input</key>
@@ -31,7 +17,7 @@ end
 	<key>name</key>
 	<string>Scala REPL: Preload file</string>
 	<key>output</key>
-	<string>showAsHTML</string>
+	<string>discard</string>
 	<key>scope</key>
 	<string>source.scala</string>
 	<key>uuid</key>

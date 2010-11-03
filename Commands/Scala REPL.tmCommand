@@ -5,17 +5,9 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby -wKU
-require ENV["TM_SUPPORT_PATH"] + "/lib/tm/executor"
-
-puts "&lt;style&gt;.echo{ display: none; }&lt;/style&gt;"
-
-cmd = ["scala"]
-TextMate::Executor.run(
-  cmd,
-  :version_args =&gt; ["-version"]) do |line, type|
-	line + "&lt;br/&gt;\n"
-end</string>
+	<string>export SHELL_NAME=${SHELL_NAME:="Textmate Scala REPL"}
+export CMD=${CMD:="scala"}
+"$TM_BUNDLE_SUPPORT/scala_repl.sh"</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>
@@ -23,7 +15,7 @@ end</string>
 	<key>name</key>
 	<string>Scala REPL</string>
 	<key>output</key>
-	<string>showAsHTML</string>
+	<string>discard</string>
 	<key>scope</key>
 	<string>source.scala</string>
 	<key>uuid</key>
