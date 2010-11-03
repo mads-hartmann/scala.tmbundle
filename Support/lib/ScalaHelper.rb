@@ -12,6 +12,7 @@ module Scala
 		  #
 		  # constants
 		  TAG_FILE_PATH = ENV['TM_PROJECT_DIRECTORY'] + "/tags"
+		  CTAGS_OPTIONS_FILE = (ENV['TM_BUNDLE_SUPPORT'] + "/ctags-options.txt").gsub(" ",'\ ')
 		  PROJECT_DIR = ENV['TM_PROJECT_DIRECTORY']
 		  NO_FILE_MSG = "Please create a ctags file using the Create Index File command"
 		  
@@ -19,11 +20,12 @@ module Scala
 		  # Creates a CTAGS index file of the current project
       def create_ctags_index 
         ctags_path = ENV['TM_BUNDLE_SUPPORT'] + "/ctags"
-              safe_path = ctags_path.gsub(" ",'\ ')
-      
-              `cd #{PROJECT_DIR} && #{safe_path} -h ".scala" -n -R --exclude=*.js --exclude=target --exclude=resources -f #{TAG_FILE_PATH} .`
-      
-              puts "created index file"
+        safe_path = ctags_path.gsub(" ",'\ ')
+        cmd = "cd #{PROJECT_DIR} && #{safe_path} -f #{TAG_FILE_PATH} --options=#{CTAGS_OPTIONS_FILE} ."
+        # puts cmd
+        `#{cmd}`
+
+        puts "created index file"
       end
 		  
 		  #
