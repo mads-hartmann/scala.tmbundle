@@ -1,4 +1,4 @@
-Scala Textmate Bundle
+Scala TextMate Bundle
 =====================
 
 About
@@ -6,7 +6,7 @@ About
 
 **If you're on a slightly older system Dan Oxlade is currently maintaining a 32bit compatible version of the bundle. Get it from his fork [here](http://github.com/oxlade39/scala.tmbundle "here")**
 
-I wasn't happy with the official [TextMate](http://macromates.com/) bundle so I started my own bundle. It has since been hugely improved by [Paul Phillips](http://github.com/paulp) and is now vastly better than the original one. It still needs some work but it is very usable (I use it for all my Scala development) 
+I wasn't happy with the official [TextMate](http://macromates.com/) bundle so I started my own bundle. It has since been hugely improved by [Paul Phillips](http://github.com/paulp) and is now vastly better than the original one. It still needs some work but it is very usable (I use it for all my Scala development)
 
 Installation
 ------------
@@ -17,7 +17,7 @@ To install the bundle simply run the following in your terminal:
 open scala.tmbundle
 </code></pre>
 
-Add the shell variable <code>SCALA\_HOME</code> in TextMate -> Preferences... -> Advanced -> Shell Variables to the root of your scala installation. For me this is <code>/Users/Mads/dev/programming_languages/scala-2.8.0.final</code>
+Add the shell variable <code>SCALA\_HOME</code> in TextMate -> Preferences... -> Advanced -> Shell Variables to the root of your scala installation. If you installed scala using MacPorts, it probably is <code>/opt/local/share/scala-2.8</code>
 
 Also, some of the features of the bundle uses ctags, so please add the following to your ~/.ctags file (If you haven't got one, simply create one)
 
@@ -40,13 +40,13 @@ It might work best if used in conjunction with [the theme Paul Phillips use](htt
 Using it
 --------
 
-First off, some of the nicest features of this bundle requires a ctags file of your project. To create one simply run the <code>Create Index File</code> command by pressing ctrl+option+cmd+t.
+First off, some of the nicest features of this bundle requires a ctags file of your project. To create one simply run the <code>Create Index File</code> command by pressing ⌃⌥⌘T.
 
-- **Navigation (cmd+shift+c)**    
-  This will display a list of all the traits/classes/objects/types in the project. Simply pick the one you want and press enter and Textmate will jump to the appropriate line in the file where you declare that class/trait (etc.).
-- **Comments**  
-  - Javadoc for line (ctrl+shift+d ): Will analyze the the current line and add the appropriate documentation for the line (i.e. correct @param etc.) 
-  - New javadoc line (shift-enter in comment scope): Will create a new correctly indented comment line. 
+- **Navigation (⇧⌘C)**
+  This will display a list of all the traits/classes/objects/types in the project. Simply pick the one you want and press enter and TextMate will jump to the appropriate line in the file where you declare that class/trait (etc.).
+- **Comments**
+  - Javadoc for line (⌃⇧D): Will analyze the the current line and add the appropriate documentation for the line (i.e. correct @param etc.)
+  - New javadoc line (shift-enter in comment scope): Will create a new correctly indented comment line.
 - **Refactoring**
-  - Organize imports (ctrl+shift+o): This will take the current selection and organize the imports alphabetically 
-  - Reformat Document (ctrl+shift+h): This will reformat the current document using Scalariform (http://github.com/mdr/scalariform)
+  - Organize imports (⌃⇧O): This will take the current selection and organize the imports alphabetically
+  - Reformat Document (⌃⇧H): This will reformat the current document using [Scalariform](http://github.com/mdr/scalariform)
