@@ -20,7 +20,7 @@ The bundle offers several ways to play around with Scala code in your document -
 
 - **Scala REPL**: This will start the Scala REPL in a new tab in the a frontmost terminal window or create a new window if one doesn't exist. 
 - **Scala REPL: Preload file** This will start the Scala REPL like above but it will preload the current file
-- **Scala REPL: Paste selection** This will paste the current selection in TextMate to the Scala REPL.
+- **Scala REPL: Paste selection** This will paste the current selection in TextMate to active Terminal tab.
 
 **Other cool stuff**
 
