@@ -12,7 +12,5 @@ tell application "Terminal"
     end
     do script "$CMD" in window id window_id of application "Terminal"
 	end if
-	set t to selected tab of front window
-  set custom title of t to "$SHELL_NAME"
 end tell
 END

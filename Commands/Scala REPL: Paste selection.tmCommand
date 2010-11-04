@@ -10,15 +10,8 @@ PASTE=$(echo "$TM_SELECTED_TEXT" | sed s/\"/\\\\\"/g)
 osascript &lt;&lt; END
 tell application "Terminal"
   activate
-  set wWindow to first window whose frontmost is true
-  set tTabs to every tab in wWindow
-  repeat with tTab in tTabs
-    set title to custom title of tTab
-    if title is "$SHELL_NAME" then
-      set selected tab of front window to tTab
-      do script "$PASTE" in tTab
-    end if
-  end repeat
+  set window_id to id of first window whose frontmost is true
+  do script "$PASTE" in window id window_id of application "Terminal"
 end tell
 END</string>
 	<key>input</key>
