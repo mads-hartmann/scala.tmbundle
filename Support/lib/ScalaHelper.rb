@@ -8,46 +8,52 @@
 module Scala
 	module Helper
 		class << self
-		  		  
+		  		  		  
 		  #
 		  # constants
-		  TAG_FILE_PATH = ENV['TM_PROJECT_DIRECTORY'] + "/tags"
+		  PROJECT_DIR = ENV['TM_PROJECT_DIRECTORY'].to_s
+		  TAG_FILE_PATH = PROJECT_DIR + "/tags"
 		  CTAGS_OPTIONS_FILE = (ENV['TM_BUNDLE_SUPPORT'] + "/ctags-options.txt").gsub(" ",'\ ')
-		  PROJECT_DIR = ENV['TM_PROJECT_DIRECTORY']
 		  NO_FILE_MSG = "Please create a ctags file using the Create Index File command"
 		  
 		  #
 		  # Creates a CTAGS index file of the current project
-      def create_ctags_index 
-        ctags_path = ENV['TM_BUNDLE_SUPPORT'] + "/ctags"
-        safe_path = ctags_path.gsub(" ",'\ ')
-        cmd = "cd #{PROJECT_DIR} && #{safe_path} -f #{TAG_FILE_PATH} --options=#{CTAGS_OPTIONS_FILE} ."
-        # puts cmd
-        `#{cmd}`
+      def create_ctags_index
+        if !ENV['TM_PROJECT_DIRECTORY'].nil?
+          ctags_path = ENV['TM_BUNDLE_SUPPORT'] + "/ctags"
+          safe_path = ctags_path.gsub(" ",'\ ')
+          cmd = "cd #{PROJECT_DIR} && #{safe_path} -f #{TAG_FILE_PATH} --options=#{CTAGS_OPTIONS_FILE} ."
+          # puts cmd
+          `#{cmd}`
 
-        puts "created index file"
+          puts "created index file"
+        else
+          puts "This only works for projects"
+        end
       end
 		  
 		  #
 		  # Displays a list (in HTML) of all of the types/traits/classes/objects
 		  # in the project
 		  def display_types
-		    
-        hash = list_sources()
-        if !hash.nil?
-          selection = begin 
-        	  s = ENV['TM_SELECTED_TEXT']
-        	  if !s.nil? then s else "" end
+		    if !ENV['TM_PROJECT_DIRECTORY'].nil?
+		      if !hash.nil?
+            selection = begin 
+          	  s = ENV['TM_SELECTED_TEXT']
+          	  if !s.nil? then s else "" end
+            end
+
+            makeHTMLHeader()
+            makeHTMLTop()
+            puts "<div id='content'>"
+            makeHTMLListOfTypes(hash,selection)
+            puts "</div>"
+            makeHTMLFooter()
           end
-
-          makeHTMLHeader()
-          makeHTMLTop()
-          puts "<div id='content'>"
-          makeHTMLListOfTypes(hash,selection)
-          puts "</div>"
-          makeHTMLFooter()
-
-        end
+          hash = list_sources()
+        else
+          puts "This only works for projects"
+	      end
 	    end
 		  
 		  #
