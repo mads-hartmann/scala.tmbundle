@@ -3,13 +3,12 @@
 	foldingStartMarker = '/\*\*|\{\s*$';
 	foldingStopMarker = '\*\*/|^\s*\}';
 	patterns = (
-	    {   match = '\b(package object)\s+([^\s\{\(\[]+)';
+		{	match = '\b(package object)\s+([^\s\{\(\[]+)';
 			captures = {
 				1 = { name = 'keyword.declaration.scala'; };
 				2 = { name = 'entity.name.class'; };
 			};
-	        
-	    },
+		},
 		{	name = 'meta.package.scala';
 			match = '\b(package)\s+([\w\.]+)';
 			captures = {
@@ -54,25 +53,25 @@
 				2 = { name = 'entity.other.inherited-class.scala'; };
 			};
 		},
-		{	match = '\b(val)\s+([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)';
+		{	match = '\b(val)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)';
 			captures = {
 				1 = { name = 'keyword.declaration.stable.scala'; };
 				2 = { name = 'entity.name.val'; };
 			};
 		},
-		{	match = '\b(var)\s+([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)';
+		{	match = '\b(var)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)';
 			captures = {
 				1 = { name = 'keyword.declaration.volatile.scala'; };
 				2 = { name = 'entity.name.var'; };
 			};
 		},
-		{	match = '\b(type)\s+([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)';
+		{	match = '\b(type)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)';
 			captures = {
 				1 = { name = 'keyword.declaration.scala'; };
 				2 = { name = 'entity.name.type'; };
 			};
 		},
-		{	match = '\b(def)\s+([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)';
+		{	match = '\b(def)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)';
 			captures = {
 				1 = { name = 'keyword.declaration.scala'; };
 				2 = { name = 'entity.name.function'; };
