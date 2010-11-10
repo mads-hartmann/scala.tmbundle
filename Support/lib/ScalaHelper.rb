@@ -37,6 +37,7 @@ module Scala
 		  # in the project
 		  def display_types
 		    if !ENV['TM_PROJECT_DIRECTORY'].nil?
+		      hash = list_sources()
 		      if !hash.nil?
             selection = begin 
           	  s = ENV['TM_SELECTED_TEXT']
@@ -50,7 +51,6 @@ module Scala
             puts "</div>"
             makeHTMLFooter()
           end
-          hash = list_sources()
         else
           puts "This only works for projects"
 	      end
