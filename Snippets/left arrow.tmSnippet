@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>"${1}" -&gt; ${2:"${3}"}</string>
+	<string>${1:"${2}"} &lt;- ${3:"${4}"}</string>
 	<key>name</key>
-	<string>-&gt;</string>
+	<string>left arrow</string>
 	<key>scope</key>
 	<string>source.scala</string>
 	<key>tabTrigger</key>
-	<string>-&gt;</string>
+	<string>&lt;-</string>
 	<key>uuid</key>
-	<string>53B78E1D-F3C2-49C6-89D3-6BE30961C14D</string>
+	<string>20512DA9-649C-420F-A0E1-F7DD04A349EE</string>
 </dict>
 </plist>
