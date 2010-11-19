@@ -222,8 +222,8 @@
 		};
 		regexp-double = {
 			name = 'string.quoted.regex.scala';
-			begin = '"([\\\(\[^])+';
-			end = '"(\.r)?';
+			begin = '"';
+			end = '"\.r';
 			patterns = (
 				{	include = 'source.regexp.oniguruma'; },
 				{	match = '\\.|[^"]'; },
@@ -232,7 +232,7 @@
 		regexp-triple = {
 			name = 'string.quoted.regex.scala';
 			begin = '"""([\\\(\[^])+';
-			end = '"""(\.r)?';
+			end = '"""\.r';
 			patterns = (
 				{	include = 'source.regexp.oniguruma'; },
 				{	match = '.'; },
@@ -252,15 +252,21 @@
 		};
 		strings = {
 			patterns = (
-				{	include = '#regexp-double'; },
-				{	include = '#regexp-triple'; },
 				{	name = 'string.quoted.triple.scala';
 					begin = '"""';
 					end = '"""';
 				},
 				{	name = 'string.quoted.double.scala';
-					match = '"([^"])*"';
+					begin = '"';
+					end = '"';
+					patterns = (
+						{	name = 'invalid.string.newline';
+							match = '\n';
+						},
+					);
 				},
+				// {       include = '#regexp-double'; },
+				// {       include = '#regexp-triple'; },
 			);
 		};
 		typeParameterList = {

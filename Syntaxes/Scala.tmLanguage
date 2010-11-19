@@ -577,9 +577,9 @@
 		<key>regexp-double</key>
 		<dict>
 			<key>begin</key>
-			<string>"([\\\(\[^])+</string>
+			<string>"</string>
 			<key>end</key>
-			<string>"(\.r)?</string>
+			<string>"\.r</string>
 			<key>name</key>
 			<string>string.quoted.regex.scala</string>
 			<key>patterns</key>
@@ -599,7 +599,7 @@
 			<key>begin</key>
 			<string>"""([\\\(\[^])+</string>
 			<key>end</key>
-			<string>"""(\.r)?</string>
+			<string>"""\.r</string>
 			<key>name</key>
 			<string>string.quoted.regex.scala</string>
 			<key>patterns</key>
@@ -658,14 +658,6 @@
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>include</key>
-					<string>#regexp-double</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#regexp-triple</string>
-				</dict>
-				<dict>
 					<key>begin</key>
 					<string>"""</string>
 					<key>end</key>
@@ -674,10 +666,21 @@
 					<string>string.quoted.triple.scala</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>"([^"])*"</string>
+					<key>begin</key>
+					<string>"</string>
+					<key>end</key>
+					<string>"</string>
 					<key>name</key>
 					<string>string.quoted.double.scala</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\n</string>
+							<key>name</key>
+							<string>invalid.string.newline</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
