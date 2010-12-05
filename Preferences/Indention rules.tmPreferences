@@ -3,15 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>Symbol List: Hide</string>
+	<string>Indention rules</string>
 	<key>scope</key>
-	<string>source.scala entity.name.type, entity.other.inherited-class.scala</string>
+	<string>source.scala</string>
 	<key>settings</key>
 	<dict>
-		<key>showInSymbolList</key>
-		<integer>0</integer>
+		<key>decreaseIndentPattern</key>
+		<string>\}</string>
+		<key>increaseIndentPattern</key>
+		<string>(^.*\{[^}]*$)</string>
 	</dict>
 	<key>uuid</key>
-	<string>BBD68246-176D-4811-9FBB-D3BE38FF8FAA</string>
+	<string>EEEDB0BB-E825-4BFF-8D9B-CAE34FFCD8FC</string>
 </dict>
 </plist>
