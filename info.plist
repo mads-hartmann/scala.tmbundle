@@ -12,6 +12,9 @@
 		<string>8B6C7774-8CFF-49DE-A89B-A337BB4F0867</string>
 		<string>AED57095-357B-45A0-BC44-19CA9005C609</string>
 		<string>E974D149-FD2B-4FA9-A873-70AF1771EA3A</string>
+		<string>5949EEB2-B50D-46D2-A67F-C27AD9BE2053</string>
+		<string>4D2E3F41-4796-4069-9C33-17733A632BDD</string>
+		<string>72D33CBB-485D-4344-BA32-B9B945F72BDC</string>
 	</array>
 	<key>mainMenu</key>
 	<dict>
@@ -25,7 +28,6 @@
 			<string>CA13E220-F557-4681-971E-C3D3D4A36CF8</string>
 			<string>D603466C-6006-4708-9E15-1475E194CCD3</string>
 			<string>C894B1A9-A166-492E-909A-E35BC839FBEF</string>
-			<string>C4253257-7C5F-4B11-94C3-ADD8682D3606</string>
 			<string>2788959A-AD07-4AF3-9D6F-E4B034FCCDEB</string>
 		</array>
 		<key>submenus</key>
@@ -62,6 +64,7 @@
 			<dict>
 				<key>items</key>
 				<array>
+					<string>8DD4BB8E-C09D-4BC2-90F6-B4248892F325</string>
 					<string>E3CAD7C5-59B2-4CD2-9D9F-5D225998E2ED</string>
 					<string>92B4042E-2409-466F-A0B6-80A46B36679F</string>
 					<string>53B78E1D-F3C2-49C6-89D3-6BE30961C14D</string>
@@ -72,15 +75,6 @@
 				</array>
 				<key>name</key>
 				<string>Other</string>
-			</dict>
-			<key>C4253257-7C5F-4B11-94C3-ADD8682D3606</key>
-			<dict>
-				<key>items</key>
-				<array>
-					<string>5949EEB2-B50D-46D2-A67F-C27AD9BE2053</string>
-				</array>
-				<key>name</key>
-				<string>Refactor</string>
 			</dict>
 			<key>C894B1A9-A166-492E-909A-E35BC839FBEF</key>
 			<dict>
@@ -158,7 +152,6 @@
 		<string>7BE0DE43-86F5-48C6-A8DF-A7AC891A68EE</string>
 		<string>FFD2A2D6-000C-4AD6-BA36-A1ACD05A392B</string>
 		<string>1D85F938-738B-42DD-9206-A4D250B744DD</string>
-		<string>5949EEB2-B50D-46D2-A67F-C27AD9BE2053</string>
 		<string>F56949E3-B311-4BD8-898C-7316E4134785</string>
 		<string>701CC71E-0CB8-4C5C-922B-F363193B4AAF</string>
 		<string>DDFBBCF9-D333-4077-8D4F-EF6F2CA62220</string>
@@ -166,9 +159,8 @@
 		<string>BCAA9E11-45C8-43C7-8B43-E680AD7F6165</string>
 		<string>45A658D8-D64D-4810-B7DD-762AC3EFD8CF</string>
 		<string>7F176B4F-5D0E-459A-8042-A459B41051A8</string>
-		<string>4D2E3F41-4796-4069-9C33-17733A632BDD</string>
-		<string>72D33CBB-485D-4344-BA32-B9B945F72BDC</string>
 		<string>CF8424AF-D081-49BF-A535-FAF593584F86</string>
+		<string>8DD4BB8E-C09D-4BC2-90F6-B4248892F325</string>
 		<string>99FB23BA-DD49-447F-9F1A-FF07630CB940</string>
 		<string>80930738-1643-4DEC-A143-B6E96F0E63AD</string>
 		<string>256E7AF5-FEF1-4078-A423-08C59FA950A9</string>
@@ -178,6 +170,9 @@
 		<string>700924A0-8541-4D3B-8AEC-80CB4D6DC074</string>
 		<string>D7F71256-E8BB-4AC1-A61E-BE36832E3E5E</string>
 		<string>A43C5E83-6D71-4D6F-B19C-445588806EAF</string>
+		<string>9C932C48-440C-4EFF-B9DF-088587CAD485</string>
+		<string>DEC9652D-94E8-4A94-8086-707F375A98A6</string>
+		<string>EEEDB0BB-E825-4BFF-8D9B-CAE34FFCD8FC</string>
 		<string>158C0929-299A-40C8-8D89-316BE0C446E8</string>
 	</array>
 	<key>uuid</key>
