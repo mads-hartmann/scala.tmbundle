@@ -4,7 +4,7 @@ Scala TextMate Bundle
 Using it
 --------
 
-**NOTICE:** If you want fancy IDE features (code-completion, refactoring, navigation, type-checking, inspection, etc. ) use my [ENSIME.tmbundle](https://github.com/mads379/ensime.tmbundle ENSIME.tmbundle) alongside this one.
+**NOTICE:** If you want fancy IDE features (code-completion, refactoring, navigation, type-checking, inspection, etc. ) use my [ENSIME.tmbundle](https://github.com/mads379/ensime.tmbundle "ENSIME.tmbundle") alongside this one.
 
 **Snippets** 
 
