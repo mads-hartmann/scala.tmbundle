@@ -40,18 +40,22 @@ pattern, column_pattern, split_pattern, symbol = begin
   line                             = ENV['TM_CURRENT_LINE']
   
   arrow_line_pattern               = /^[^=]+[^-+&lt;&gt;=!%\/|&amp;*^]-&gt;(?!=|~)/
+  arrow_left_line_pattern          = /^[^=]+[^-+&lt;&gt;=!%\/|&amp;*^]&lt;-(?!=|~)/
   assignment_line_pattern          = /^[^=]+[^-+&lt;&gt;=!%\/|&amp;*^]=([^&gt;]|(?=.*=))/
   function_line_pattern            = /^[^=]+[^-+&lt;&gt;=!%\/|&amp;*^]=&gt;(?!=|~)/
 
   arrow_column_search_pattern      = /[\t ]*-&gt;/
+  arrow_left_column_search_pattern = /[\t ]*&lt;-/
   assignment_column_search_pattern = /[\t ]*=[^&gt;]/
   function_column_search_pattern   = /[\t ]*=&gt;/
 
   assignment_split_pattern         = /[\t ]*=[^&gt;][\t ]*/
   function_split_pattern           = /[\t ]*=&gt;[\t ]*/
   arrow_split_pattern              = /[\t ]*-&gt;[\t ]*/
+  arrow_left_split_pattern         = /[\t ]*&lt;-[\t ]*/
 
   arrow_symbol                     = "-&gt;"
+  arrow_left_symbol                = "&lt;-"
   assignment_symbol                = "="
   function_symbol                  = "=&gt;"
   
@@ -61,6 +65,8 @@ pattern, column_pattern, split_pattern, symbol = begin
     [assignment_line_pattern, assignment_column_search_pattern, assignment_split_pattern, assignment_symbol]
   elsif !line.match(arrow_line_pattern).nil?
     [arrow_line_pattern, arrow_column_search_pattern, arrow_split_pattern, arrow_symbol]
+  elsif !line.match(arrow_left_line_pattern).nil?
+    [arrow_left_line_pattern, arrow_left_column_search_pattern, arrow_left_split_pattern, arrow_left_symbol]
   end
     
 end
