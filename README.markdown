@@ -26,6 +26,34 @@ The bundle offers several ways to play around with Scala code in your document -
 
 **Other cool stuff**
 
+- **Align Assignments**: This will align anything according to =>,=,->. As an example, the following: 
+
+	<pre>case foo => bar
+	case blah if ding => baz</pre> 
+	
+	turns into 
+	
+	<pre>case foo          => bar
+	case blah if ding => baz</pre> 
+	
+	The current line decides the pattern. i.e. if the current line is the first one the following: 
+	
+	<pre>def foo(body: => Unit) = 55
+	def baz(somethingelse: => Unit) = 55
+	val x = 22</pre>
+			
+	Turns into
+			
+	<pre>def foo(body:          => Unit) = 55
+	def baz(somethingelse: => Unit) = 55
+	val x = 22</pre>
+			
+	and if you select the last line it turn into
+	
+	<pre>def foo(body: => Unit)          = 55
+	def baz(somethingelse: => Unit) = 55
+	val x                           = 22</pre>
+
 - **Comments**
   - Javadoc for line (⌃⇧D): Will analyze the the current line and add the appropriate documentation for the line (i.e. correct @param etc.)
   - New javadoc line (shift-enter in comment scope): Will create a new correctly indented comment line.
