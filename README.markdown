@@ -26,7 +26,7 @@ The bundle offers several ways to play around with Scala code in your document -
 
 **Other cool stuff**
 
-- **Align Assignments**: This will align anything according to =>,=,->. As an example, the following: 
+- **Align Assignments**: This will align anything according to =>,=,->,<-. As an example, the following: 
 
 	<pre>case foo => bar
 case blah if ding => baz</pre> 
