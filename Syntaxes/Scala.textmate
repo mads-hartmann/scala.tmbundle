@@ -263,10 +263,11 @@
 						{	name = 'invalid.string.newline';
 							match = '\n';
 						},
+						{	name = 'constant.character.escape.scala';
+							match = '\\.';
+						},
 					);
 				},
-				// {       include = '#regexp-double'; },
-				// {       include = '#regexp-triple'; },
 			);
 		};
 		typeParameterList = {

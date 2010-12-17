@@ -680,6 +680,12 @@
 							<key>name</key>
 							<string>invalid.string.newline</string>
 						</dict>
+						<dict>
+							<key>match</key>
+							<string>\\.</string>
+							<key>name</key>
+							<string>constant.character.escape.scala</string>
+						</dict>
 					</array>
 				</dict>
 			</array>
