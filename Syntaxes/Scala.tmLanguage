@@ -370,7 +370,7 @@
 		<key>char-literal</key>
 		<dict>
 			<key>match</key>
-			<string>'.'</string>
+			<string>'\\?.'</string>
 			<key>name</key>
 			<string>constant.character.literal.scala</string>
 		</dict>
@@ -667,7 +667,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>"</string>
+					<string>(?&lt;!\\)"</string>
 					<key>end</key>
 					<string>"</string>
 					<key>name</key>

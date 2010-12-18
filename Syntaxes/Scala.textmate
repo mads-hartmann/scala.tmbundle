@@ -136,7 +136,7 @@
 		};
 		char-literal = {
 			name = 'constant.character.literal.scala';
-			match = "'.'";
+			match = '''\\?.''';
 		};
 		char-literal-escaped = {
 			name = 'constant.character.escape.scala';
@@ -257,7 +257,7 @@
 					end = '"""';
 				},
 				{	name = 'string.quoted.double.scala';
-					begin = '"';
+					begin = '(?<!\\)"';
 					end = '"';
 					patterns = (
 						{	name = 'invalid.string.newline';
