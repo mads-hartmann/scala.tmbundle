@@ -55,8 +55,8 @@ def baz(somethingelse: => Unit) = 55
 val x                           = 22</pre>
 
 - **Comments**
-  - Javadoc for line (⌃⇧D): Will analyze the the current line and add the appropriate documentation for the line (i.e. correct @param etc.)
-  - New javadoc line (shift-enter in comment scope): Will create a new correctly indented comment line.
+  - Javadoc for line (⌘⇧D): Will analyze the the current line and add the appropriate documentation for the line (i.e. correct @param etc.)
+  - New javadoc line (⇧⏎ in comment scope): Will create a new correctly indented comment line.
 
 Installation
 ------------
