@@ -9,17 +9,16 @@
 
 require ENV['TM_SUPPORT_PATH'] + '/lib/ui.rb'
 
-# the globals (ewwww)
-tab_stop_count = 1 
-currentLine = ENV["TM_CURRENT_LINE"]
+# ===========
+# = Helpers =
+# ===========
 
-# the helpers
 def largest_argument(arguments)
-	size = 0
-	arguments.each do |arg|
-	  size = arg.size if arg.size &gt; size 
-	end
-	return size
+  size = 0
+  arguments.each do |arg|
+    size = arg.size if arg.size &gt; size 
+  end
+  return size
 end
 
 def pretty_print(annotation, arguments, msg, size, spacing, initial_tab_stop_count)
@@ -32,38 +31,56 @@ def pretty_print(annotation, arguments, msg, size, spacing, initial_tab_stop_cou
   new_tab_stop_count
 end
 
-# the code 
+# ==========
+# = Script =
+# ==========
 
-if currentLine.match(/def/) != nil
-  initial_spacing = currentLine.scan(/^\s*/).to_s
+tab_stop_count = 1 
+line_number    = ENV['TM_LINE_NUMBER'].to_i
+current_line   = ENV['TM_CURRENT_LINE']
+lines          = STDIN.readlines().to_a
+
+if current_line.match(/def|class|object|trait/) != nil
+  before, middle, after = begin 
+    before      = lines.slice(0,line_number-1)
+    middle      = lines.slice(line_number-1,lines.size).take_while { |line|
+      line.match(/\{/).nil?
+    }
+    middle      = middle | lines.slice(line_number-1+middle.size,1)
+    after       = lines.slice(line_number-1+middle.size,lines.size)
+    [before, middle, after]
+  end
+
+
+  print before.to_s
+  
+  initial_spacing = current_line.scan(/^\s*/).to_s
 
   puts "#{initial_spacing}/**"
   puts "#{initial_spacing}* ${1:I really should get around to writing some documentation}"
   puts "#{initial_spacing}* "
 
-  arguments = currentLine.scan(/[^)](\w*\s?:\s?\w*)/).collect do |arg| arg.to_s.split(":").first end
+  arguments = middle.to_s.scan(/[^)](\w*\s?:\s?\w*)/).collect do |arg| arg.to_s.split(":").first end
   size = largest_argument(arguments)
-
+  
   tab_stop_count = pretty_print("@param",arguments, "well isn't it obvious", size, initial_spacing,tab_stop_count)  
-  tab_stop_count = pretty_print("@return",[""], "dunno", size, initial_spacing,tab_stop_count)  
-
+  # tab_stop_count = pretty_print("@return",[""], "dunno", size, initial_spacing,tab_stop_count)  
+  # 
   puts "#{initial_spacing}*/"
-	print "$TM_CURRENT_LINE${0}"
-elsif currentLine.match(/[def|class|object|trait]/)
-  initial_spacing = currentLine.scan(/^\s*/).to_s
-
-  puts "#{initial_spacing}/**"
-  puts "#{initial_spacing}* ${1:I really should get around to writing some documentation}"
-  puts "#{initial_spacing}* "
-  puts "#{initial_spacing}*/"
-  print "$TM_CURRENT_LINE${0}"
+  
+  print "${0:}"+middle.to_s
+  print after.to_s
+else
+  TextMate::UI.tool_tip("Place the caret at a line that declares something")
+  lines[line_number-1] = "${0:}" + lines[line_number-1]
+  puts lines.to_s
 end</string>
 	<key>fallbackInput</key>
-	<string>line</string>
+	<string>document</string>
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
-	<string>^D</string>
+	<string>@D</string>
 	<key>name</key>
 	<string>Javadoc for line</string>
 	<key>output</key>
