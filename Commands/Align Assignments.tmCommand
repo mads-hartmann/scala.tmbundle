@@ -4,6 +4,8 @@
 <dict>
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
+	<key>bundleUUID</key>
+	<string>452017E8-0065-49EF-AB9D-7849B27D9367</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby
 #
@@ -71,9 +73,6 @@ pattern, column_pattern, split_pattern, symbol = begin
     
 end
 
-
-
-
 #
 # If called on a selection, every assignment statement
 # is in the block.  If called on the document, we start on the 
@@ -131,6 +130,34 @@ else
    end
 end
 
+
+# First off, make sure that the indentation is the same for each line. 
+# The smallest indentation is used. 
+
+indentation = nil ## some number that
+block_top.upto(block_bottom) do |number|
+  line = lines[number - 1]
+  if line =~ pattern then
+    _indentation = line.match(/^\s*/).to_s
+    indentation = _indentation if indentation.nil? 
+    indentation = _indentation if _indentation.size &lt; indentation.size
+  end
+end
+
+block_top.upto(block_bottom) do |number|
+  if lines[number-1] =~ pattern then
+        symbol, before, after = begin
+          line = lines[number-1]
+          if !line.match(split_pattern).nil?
+            [symbol] | line.split(split_pattern,2)
+          end
+        end
+        
+        lines[number-1] = indentation + lines[number-1].gsub(/^\s*/,"")
+
+     end
+end
+
 #
 # Now, iterate over the block and find the best column number
 # for the = sign.  The pattern will tell us the position of the
@@ -159,7 +186,6 @@ block_top.upto(block_bottom) do |number|
             [symbol] | line.split(split_pattern,2)
           end
         end
-        # lines[number-1] = before + " a=b " +after
         lines[number-1] = [before.ljust(best_column), after].join(after[0,1] == '&gt;' ? " #{symbol}" : " #{symbol} ")
      end
 end
