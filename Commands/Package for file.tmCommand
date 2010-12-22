@@ -4,12 +4,17 @@
 <dict>
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
+	<key>bundleUUID</key>
+	<string>452017E8-0065-49EF-AB9D-7849B27D9367</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby -wKU
 
-require ENV['TM_BUNDLE_SUPPORT'] + '/lib/ScalaHelper.rb'
+project     = ENV['TM_PROJECT_DIRECTORY']
+name        = ENV['TM_FILENAME']
+file        = ENV['TM_FILEPATH']
+packageName = file.gsub(project+"/","").gsub("/"+name,"").gsub("src/","").gsub("main/scala/","").gsub("/",".")
 
-print "package " + Scala::Helper.package_of_path(ENV['TM_FILEPATH'])
+print "package " + packageName
 
 </string>
 	<key>input</key>
