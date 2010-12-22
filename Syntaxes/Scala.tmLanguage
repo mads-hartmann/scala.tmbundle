@@ -167,38 +167,84 @@
 			<string>(extends|with)\s+([^\s\{\(\[]+)</string>
 		</dict>
 		<dict>
-			<key>captures</key>
+			<key>begin</key>
+			<string>\b(val)\s+</string>
+			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.declaration.stable.scala</string>
 				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.val</string>
-				</dict>
 			</dict>
-			<key>match</key>
-			<string>\b(val)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)</string>
+			<key>end</key>
+			<string>=|\n</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>([A-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)(?=\()</string>
+					<key>name</key>
+					<string>entity.name.class</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.val</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.val</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>`(.*)`|([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
-			<key>captures</key>
+			<key>begin</key>
+			<string>\b(var)\s+</string>
+			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.declaration.volatile.scala</string>
 				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.var</string>
-				</dict>
 			</dict>
-			<key>match</key>
-			<string>\b(var)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)</string>
+			<key>end</key>
+			<string>=|\n</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>([A-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)(?=\()</string>
+					<key>name</key>
+					<string>entity.name.class</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.var</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.var</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>`(.*)`|([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>captures</key>
