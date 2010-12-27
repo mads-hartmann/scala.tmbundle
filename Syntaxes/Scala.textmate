@@ -53,40 +53,47 @@
 				2 = { name = 'entity.other.inherited-class.scala'; };
 			};
 		},
-		{
-			begin = '\b(val)\s+';
-			end = '=|\n';  
+		{	begin = '^\s*\b(val)\s+';
+			end = '=|\n';
 			beginCaptures = { 1 = { name = 'keyword.declaration.stable.scala'; }; };
 			patterns = (
-				{
-				    name = 'entity.name.class';
+				{	name = 'entity.name.class';
 					match = '([A-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)(?=\()';
 				},
-				{   match = '`(.*)`|([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)';
-				    captures = { 
-				        1 = { name = 'entity.name.val';};
-				        2 = { name = 'entity.name.val';};
-				    };
-				}
+				{	match = '`(.*)`|(?<!:)\b([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)';
+					captures = {
+						1 = { name = 'entity.name.val'; };
+						2 = { name = 'entity.name.val'; };
+					};
+				},
+			);
+		},
+		{	begin = '^\s*\b(var)\s+';
+			end = '=|\n';
+			beginCaptures = { 1 = { name = 'keyword.declaration.volatile.scala'; }; };
+			patterns = (
+				{	name = 'entity.name.class';
+					match = '([A-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)(?=\()';
+				},
+				{	match = '`(.*)`|([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)';
+					captures = {
+						1 = { name = 'entity.name.var'; };
+						2 = { name = 'entity.name.var'; };
+					};
+				},
 			);
 		},
 		{
-			begin = '\b(var)\s+';
-			end = '=|\n';  
-			beginCaptures = { 1 = { name = 'keyword.declaration.volatile.scala'; }; };
-			patterns = (
-				{
-				    name = 'entity.name.class';
-					match = '([A-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)(?=\()';
-				},
-				{   match = '`(.*)`|([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)';
-				    captures = { 
-				        1 = { name = 'entity.name.var';};
-				        2 = { name = 'entity.name.var';};
-				    };
-				}
-			);
-		},	
+		  match = '\b(val)';  
+		  name = 'keyword.declaration.stable.scala';
+		},
+		{
+		  match = '\b(var)';  
+		  name = 'keyword.declaration.volatile.scala';
+		},
+		{
+		    
+		},
 		{	match = '\b(type)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)';
 			captures = {
 				1 = { name = 'keyword.declaration.scala'; };

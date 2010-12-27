@@ -168,7 +168,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>\b(val)\s+</string>
+			<string>^\s*\b(val)\s+</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -202,13 +202,13 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>`(.*)`|([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)</string>
+					<string>`(.*)`|(?&lt;!:)\b([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)</string>
 				</dict>
 			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>\b(var)\s+</string>
+			<string>^\s*\b(var)\s+</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -246,6 +246,19 @@
 				</dict>
 			</array>
 		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(val)</string>
+			<key>name</key>
+			<string>keyword.declaration.stable.scala</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(var)</string>
+			<key>name</key>
+			<string>keyword.declaration.volatile.scala</string>
+		</dict>
+		<dict/>
 		<dict>
 			<key>captures</key>
 			<dict>
