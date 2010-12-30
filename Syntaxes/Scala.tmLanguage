@@ -248,13 +248,13 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(val)</string>
+			<string>\b(val)\b</string>
 			<key>name</key>
 			<string>keyword.declaration.stable.scala</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(var)</string>
+			<string>\b(var)\b</string>
 			<key>name</key>
 			<string>keyword.declaration.volatile.scala</string>
 		</dict>

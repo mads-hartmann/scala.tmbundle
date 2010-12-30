@@ -83,16 +83,11 @@
 				},
 			);
 		},
-		{
-		  match = '\b(val)';  
-		  name = 'keyword.declaration.stable.scala';
+		{	name = 'keyword.declaration.stable.scala';
+			match = '\b(val)\b';
 		},
-		{
-		  match = '\b(var)';  
-		  name = 'keyword.declaration.volatile.scala';
-		},
-		{
-		    
+		{	name = 'keyword.declaration.volatile.scala';
+			match = '\b(var)\b';
 		},
 		{	match = '\b(type)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)';
 			captures = {
