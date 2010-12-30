@@ -11,9 +11,9 @@
 	<key>settings</key>
 	<dict>
 		<key>decreaseIndentPattern</key>
-		<string>^\s*\}</string>
+		<string>^\s*(\}|\))</string>
 		<key>increaseIndentPattern</key>
-		<string>(^.*\{[^}]*$)</string>
+		<string>(^.*(\{[^}]*|\([^)]*)$)</string>
 	</dict>
 	<key>uuid</key>
 	<string>EEEDB0BB-E825-4BFF-8D9B-CAE34FFCD8FC</string>
