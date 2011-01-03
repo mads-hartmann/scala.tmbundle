@@ -18,6 +18,10 @@
 	</array>
 	<key>mainMenu</key>
 	<dict>
+		<key>excludedItems</key>
+		<array>
+			<string>E364F26E-C766-4068-BAAF-C010FA1F5F92</string>
+		</array>
 		<key>items</key>
 		<array>
 			<string>------------------------------------</string>
@@ -151,6 +155,7 @@
 		<string>7BE0DE43-86F5-48C6-A8DF-A7AC891A68EE</string>
 		<string>FFD2A2D6-000C-4AD6-BA36-A1ACD05A392B</string>
 		<string>1D85F938-738B-42DD-9206-A4D250B744DD</string>
+		<string>E364F26E-C766-4068-BAAF-C010FA1F5F92</string>
 		<string>04D3E42F-4497-4D65-AE50-E7F261D25158</string>
 		<string>F56949E3-B311-4BD8-898C-7316E4134785</string>
 		<string>701CC71E-0CB8-4C5C-922B-F363193B4AAF</string>

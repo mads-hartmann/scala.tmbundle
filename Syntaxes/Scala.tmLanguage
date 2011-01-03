@@ -359,6 +359,12 @@
 			<string>constant.language.scala</string>
 		</dict>
 		<dict>
+			<key>match</key>
+			<string>\(\)</string>
+			<key>name</key>
+			<string>meta.parentheses.scala</string>
+		</dict>
+		<dict>
 			<key>include</key>
 			<string>#parameterList</string>
 		</dict>

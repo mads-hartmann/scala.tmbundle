@@ -131,6 +131,9 @@
 		{	name = 'constant.language.scala';
 			match = '\b(false|null|true|Nil|None)\b';
 		},
+		{	name = 'meta.parentheses.scala';
+			match = '\(\)';
+		},
 		{	include = '#parameterList'; },
 		{	include = '#returnTypes'; },
 		{	include = '#types'; },
