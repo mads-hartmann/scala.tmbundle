@@ -70,7 +70,7 @@
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.class</string>
+					<string>entity.name.class.declaration</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -111,6 +111,8 @@
 			</dict>
 			<key>end</key>
 			<string>=(?!&gt;)|\n</string>
+			<key>name</key>
+			<string>meta.declaration.variable.scala</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -189,7 +191,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.type</string>
+					<string>entity.name.type.declaration</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -206,7 +208,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.function</string>
+					<string>entity.name.function.declaration</string>
 				</dict>
 			</dict>
 			<key>match</key>

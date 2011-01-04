@@ -20,7 +20,7 @@
 			captures = {
 				1 = { name = 'keyword.declaration.scala'; };
 				2 = { name = 'keyword.declaration.scala'; };
-				3 = { name = 'entity.name.class'; };
+				3 = { name = 'entity.name.class.declaration'; };
 			};
 		},
 		{	match = '(extends|with)\s+([^\s\{\(\[]+)';
@@ -43,6 +43,7 @@
 			*/
 			begin = '^\s*(?:(val)|(var))\s+';
 			end = '=(?!>)|\n';
+			name = 'meta.declaration.variable.scala'; // scope for the symbol list
 			beginCaptures = { 
 				1 = { name = 'keyword.declaration.stable.scala'; }; 
 				2 = { name = 'keyword.declaration.volatile.scala'; };
@@ -91,13 +92,13 @@
 		{	match = '\b(type)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)';
 			captures = {
 				1 = { name = 'keyword.declaration.scala'; };
-				2 = { name = 'entity.name.type'; };
+				2 = { name = 'entity.name.type.declaration'; };
 			};
 		},
 		{	match = '\b(def)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)';
 			captures = {
 				1 = { name = 'keyword.declaration.scala'; };
-				2 = { name = 'entity.name.function'; };
+				2 = { name = 'entity.name.function.declaration'; };
 			};
 		},		
 		{	name = 'meta.parentheses.scala';

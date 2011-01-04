@@ -5,17 +5,13 @@
 	<key>name</key>
 	<string>Symbol List: Functions</string>
 	<key>scope</key>
-	<string>source.scala entity.name.function</string>
+	<string>entity.name.function.declaration</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
 		<integer>1</integer>
-		<key>symbolTransformation</key>
-		<string>
-		s/^.*$/\tdef $0/g;
-   </string>
 	</dict>
 	<key>uuid</key>
-	<string>2F441666-0BAE-46EA-8023-D2F1B5E9ED2D</string>
+	<string>A1312B89-E4BE-41D8-9C90-0A66F88B4D00</string>
 </dict>
 </plist>

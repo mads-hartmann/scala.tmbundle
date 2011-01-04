@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>Symbol List: Hide</string>
+	<string>Symbol List: Class</string>
 	<key>scope</key>
-	<string>source.scala entity.other.inherited-class.scala</string>
+	<string>entity.name.class.declaration</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
-		<integer>0</integer>
+		<integer>1</integer>
 	</dict>
 	<key>uuid</key>
-	<string>BBD68246-176D-4811-9FBB-D3BE38FF8FAA</string>
+	<string>6B5F65D8-41FC-4DC4-A4EE-FBD30948BD0B</string>
 </dict>
 </plist>
