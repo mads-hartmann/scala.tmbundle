@@ -363,7 +363,7 @@
 					match = '\b(catch|finally|try)\b';
 				},
 				{	name = 'variable.language.scala';
-					match = '\b(this|super|self)\b';
+					match = '\b(this|super|self)\b(?!\()';
 				},
 			);
 		};
