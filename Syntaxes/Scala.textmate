@@ -95,7 +95,14 @@
 				2 = { name = 'entity.name.type.declaration'; };
 			};
 		},
-		{	match = '\b(def)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)';
+		{	/*
+		        This mathes definitions of methods. It takes care of three cases
+		        
+		        1. normal identifier
+		        2. identifier surrounded with back-ticks (``)
+		        3. operator identifier. TODO: This probably isn't totally correct yet
+		    */
+		    match = '\b(def)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`|[^\w\[\(\:\_]+)';
 			captures = {
 				1 = { name = 'keyword.declaration.scala'; };
 				2 = { name = 'entity.name.function.declaration'; };

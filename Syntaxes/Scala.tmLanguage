@@ -212,7 +212,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(def)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)</string>
+			<string>\b(def)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`|[^\w\[\(\:\_]+)</string>
 		</dict>
 		<dict>
 			<key>match</key>
