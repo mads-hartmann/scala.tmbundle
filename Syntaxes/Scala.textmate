@@ -16,30 +16,6 @@
 				2 = { name = 'entity.name.package.scala'; };
 			};
 		},
-		{	include = '#imports'; },
-		{	name = 'comment.block.empty.scala';
-			match = '/\*\*/';
-			captures = { 0 = { name = 'punctuation.definition.comment.scala'; }; };
-		},
-		{	name = 'comment.block.documentation.scala';
-			begin = '(^\s*)?/\*\*';
-			end = '\*/(\s*\n)?';
-			captures = { 0 = { name = 'punctuation.definition.comment.scala'; }; };
-			patterns = (
-				{	name = 'keyword.other.documentation.scaladoc.scala';
-					match = '(@\w+\s)';
-				},
-				{	name = 'keyword.other.documentation.scaladoc.link.scala';
-					match = '\{@link\s+[^\}]*\}';
-				},
-			);
-		},
-		{	include = '#any-modifier'; },
-		{	include = '#char-literal'; },
-		{	include = '#scala-symbol'; },
-		{	include = '#comments'; },
-		{	include = '#strings'; },
-		{	include = '#typeParameterList'; },
 		{	match = '(case)?\b(class|trait|object)\s+([^\s\{\(\[]+)';
 			captures = {
 				1 = { name = 'keyword.declaration.scala'; };
@@ -53,42 +29,65 @@
 				2 = { name = 'entity.other.inherited-class.scala'; };
 			};
 		},
-		{	begin = '^\s*\b(val)\s+';
-			end = '=|\n';
-			beginCaptures = { 1 = { name = 'keyword.declaration.stable.scala'; }; };
+		{	 /*
+				This takes care of matching any plain var/val declarations. 
+
+				val t: (String, String => String) => (String) = (str,f) => f(str)
+				val (x: String , y: String) = ("test" , "test")
+				val (x,y)
+
+				By plain I mean var/vals that aren't placed in the declaration 
+				of a class like this
+
+				class MyClass(val name: String)
+			*/
+			begin = '^\s*(?:(val)|(var))\s+';
+			end = '=(?!>)|\n';
+			beginCaptures = { 
+				1 = { name = 'keyword.declaration.stable.scala'; }; 
+				2 = { name = 'keyword.declaration.volatile.scala'; };
+			};
 			patterns = (
-				{	name = 'entity.name.class';
-					match = '([A-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)(?=\()';
-				},
-				{	match = '`(.*)`|(?<!:)\b([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)';
+				{	/*
+						This matches any identifiers that are surrounded by ticks
+					*/
+					match = '`(.*)`';
 					captures = {
 						1 = { name = 'entity.name.val'; };
-						2 = { name = 'entity.name.val'; };
 					};
+					
 				},
+				{	/*
+						This matches identifiers where extrators are used like this 
+						
+						var MyClass(x,y,z) = MyClass("test","test","test")
+					*/
+					begin = '([A-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)\(';
+					end = '\)';
+					beginCaptures = { 1 = { name = 'entity.name.class'; }; };
+					patterns = (
+						{ include = '#untyped-variable-identifier';},
+						{ include = '#typed-variable-identifier';}
+					);
+				},
+				{ include = '#untyped-variable-identifier';},
+				{ include = '#typed-variable-identifier';},
 			);
 		},
-		{	begin = '^\s*\b(var)\s+';
-			end = '=|\n';
-			beginCaptures = { 1 = { name = 'keyword.declaration.volatile.scala'; }; };
-			patterns = (
-				{	name = 'entity.name.class';
-					match = '([A-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)(?=\()';
-				},
-				{	match = '`(.*)`|([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)';
-					captures = {
-						1 = { name = 'entity.name.var'; };
-						2 = { name = 'entity.name.var'; };
-					};
-				},
-			);
+		{	/*
+				This takes care of matching any var/val declarations that 
+				aren't plain ones. The only known use-case right now is 
+				inside class declarations like this: 
+				
+				class MyClass(val name: String)
+			*/
+			match = '\b(?:(val)|(var))\b';
+			captures = {
+				1 = { name = 'keyword.declaration.stable.scala';};
+				2 = { name = 'keyword.declaration.volatile.scala';};
+			};
 		},
-		{	name = 'keyword.declaration.stable.scala';
-			match = '\b(val)\b';
-		},
-		{	name = 'keyword.declaration.volatile.scala';
-			match = '\b(var)\b';
-		},
+		{ },
 		{	match = '\b(type)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)';
 			captures = {
 				1 = { name = 'keyword.declaration.scala'; };
@@ -100,98 +99,169 @@
 				1 = { name = 'keyword.declaration.scala'; };
 				2 = { name = 'entity.name.function'; };
 			};
-		},
-		{	match = '\b(new)\s+([^\s\{\(\[]+)';
-			captures = {
-				1 = { name = 'keyword'; };
-				2 = { name = 'entity.name.type'; };
-			};
-		},
-		{	name = 'keyword.control.flow.jump.scala';
-			match = '\b(return|throw)\b';
-		},
-		{	name = 'keyword.control.flow.scala';
-			match = '\b(else|if|do|while|for|yield|match|case)\b';
-		},
-		{	name = 'keyword.control.exception.scala';
-			match = '\b(catch|finally|try)\b';
-		},
-		{	name = 'storage.modifier.access';
-			match = '\b(private\[\S?\]|protected\[\S?\]|private|protected)\b';
-		},
-		{	name = 'storage.modifier.other';
-			match = '\b(synchronized|@volatile|abstract|final|lazy|sealed|implicit|override|@transient|@native)\b';
-		},
-		{	name = 'variable.language.scala';
-			match = '\b(this|super|self)\b';
-		},
-		{	name = 'constant.numeric.scala';
-			match = '\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)([LlFfUuDd]|UL|ul)?\b';
-		},
-		{	name = 'constant.language.scala';
-			match = '\b(false|null|true|Nil|None)\b';
-		},
+		},		
 		{	name = 'meta.parentheses.scala';
 			match = '\(\)';
 		},
-		{	include = '#parameterList'; },
-		{	include = '#returnTypes'; },
-		{	include = '#types'; },
-		{	include = '#qualifiedClassName'; },
+		{	include = '#imports'; },
+		{	include = '#storage-modifiers'; },
+		{	include = '#char-literal'; },
+		{	include = '#scala-symbol'; },
+		{	include = '#comments'; },
+		{	include = '#strings'; },
+		{	include = '#parametric-types'; },
+		{	include = '#keywords';},
+		{	include = '#constants';},
+		{	include = '#parameter-definitions'; },
+		{	include = '#legal-class-name'; },
 	);
 	bundleUUID = '452017E8-0065-49EF-AB9D-7849B27D9367';
 	repository = {
-		access-modifiers = {
-			match = '\b(private\[\S?\]|protected\[\S?\]|private|protected)\b';
-			captures = { 1 = { name = 'storage.modifier.access.scala'; }; };
+		legal-class-name = {
+			/*
+				This matches any legal class name 
+			*/
+			match = '\b([A-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)\b';
+			name = 'entity.name.class';
 		};
-		any-modifier = {
-			match = '\b(private\[\S?\]|protected\[\S?\]|private|protected)\b';
-			captures = { 1 = { name = 'storage.modifier.scala'; }; };
+		parametric-types = {
+			/*
+				Matches parameterized types (recursivly). Example:
+				
+				MyClass[List[Int]]
+			*/
+			begin = '\[';
+			end = '\]';
+			patterns = (
+				{	include = '#legal-class-name';},
+				{	include = '#parametric-types'; },
+			);
+		};
+		types = {
+			/*
+				Matches types (recursivly). Example: 
+				
+				(String, String => String) => (String)
+			*/
+			patterns = (
+				{	include = '#legal-class-name'; },
+				{	include = '#parametric-types';},
+				{	begin = '\(';
+					end = '\)';
+					patterns = (
+						{	include = '#legal-class-name'; },
+					);
+				},
+			);
+		};
+		untyped-variable-identifier = { 
+			/*
+				This matches any legal variable identifiers that AREN'T explicitly typed.
+				In the following example that would be x and y
+				
+				var (x,y) = ("test","test")
+			*/
+			match = '([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)\s*(?!:)';
+			captures = { 1 = { name = 'entity.name.val'; }; };
+		};
+		typed-variable-identifier = {	
+			/*
+				This matches any legal variable identifiers which ARE explicitly typed. In the followig
+				example it matches everything from 't' to the last '='
+				
+				var t: (String, String => String) => (String) = (str,f) => f(str)
+			*/
+			begin = '([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)(?=\s*:)';
+			end = '(?==(?!>)|,|\n|\))';
+			beginCaptures = { 1 = { name = 'entity.name.val'; }; };
+			patterns = (
+				{ include = '#types';}
+			);
+		};
+		parameter-definitions = {
+			/*
+				This takes care of matching parameters in method/class definitions.
+			*/
+			begin = '([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)(?=\s*:)';
+			end = '(?==(?!>)|,|\n|\))';
+			beginCaptures = { 1 = { name = 'variable.parameter'; }; };
+			patterns = (
+				{ include = '#types';}
+			);
+		};		
+		char-literal = {
+			/*
+				Matches char liters like the following three examples
+				
+				'a'		,	'b'		,	'\n'
+			*/
+			name = 'constant.character.literal.scala';
+			match = '''\\?.''';
 		};
 		block-comments = {
+			/*
+				This matches block comments. This is defined here independently because it
+				needs to be recursive and therefore named.	Do not include this as it gets
+				included by the 'comments' repository element below which highlights 
+				all comments when included.
+			*/
 			name = 'comment.block.scala';
 			begin = '/\*';
 			end = '\*/';
 			patterns = (
 				{	include = '#block-comments'; },
 				{	match = '(?x)
-            (?! /\*)
-            (?! \*/)
-          '; },
+			(?! /\*)
+			(?! \*/)
+		  '; },
 			);
 		};
-		char-literal = {
-			name = 'constant.character.literal.scala';
-			match = '''\\?.''';
-		};
-		char-literal-escaped = {
-			name = 'constant.character.escape.scala';
-			match = "'\.'";
-		};
 		comments = {
+			/*
+				Highlights all comments, both block, single and documentation comments. 
+			*/
 			patterns = (
+				{	/*
+						Matches an empty comment block /(asterisk)(asterisk)/
+					*/
+					name = 'comment.block.empty.scala';
+					match = '/\*\*/';
+					captures = { 0 = { name = 'punctuation.definition.comment.scala'; }; };
+				},
+				{	/*
+						Matches a documentation block
+					*/
+					name = 'comment.block.documentation.scala';
+					begin = '(^\s*)?/\*\*';
+					end = '\*/(\s*\n)?';
+					captures = { 0 = { name = 'punctuation.definition.comment.scala'; }; };
+					patterns = (
+						{	name = 'keyword.other.documentation.scaladoc.scala';
+							match = '(@\w+\s)';
+						},
+						{	name = 'keyword.other.documentation.scaladoc.link.scala';
+							match = '\{@link\s+[^\}]*\}';
+						},
+					);
+				},
 				{	include = '#block-comments'; },
-				{	name = 'comment.line.double-slash.scala';
+				{	/*
+						Matches single line comments
+					*/
+					name = 'comment.line.double-slash.scala';
 					match = '(//).*$\n?';
 					captures = { 1 = { name = 'punctuation.definition.comment.scala'; }; };
 				},
 			);
 		};
-		identifier = {
-			patterns = (
-				{	match = '([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)';
-					captures = { 0 = { name = 'variable.other'; }; };
-				},
-				{	match = '([^a-zA-Z0-9\s]+)';
-					captures = { 0 = { name = 'variable.other'; }; };
-				},
-				{	match = '`[^`]+`';
-					captures = { 0 = { name = 'variable.other'; }; };
-				},
-			);
-		};
 		imports = {
+			/*
+				This takes care of highlighting imports. Example
+				
+				import scala.collection.mutable.ListBuffer
+				import scala.tools.nsc.io.{ Directory, File, Path }
+				import java.io.{ ObjectInputStream, ObjectOutputStream => Test }
+			*/
 			name = 'meta.import.scala';
 			begin = '\b(import)\s+';
 			end = '(?<=[\n;])';
@@ -209,10 +279,10 @@
 					end = '}';
 					patterns = (
 						{	match = '(?x) \s*
-                ([^\s.,}]+) \s*
-                (=>) \s*
-                ([^\s.,}]+) \s*
-              ';
+				([^\s.,}]+) \s*
+				(=>) \s*
+				([^\s.,}]+) \s*
+			  ';
 							captures = {
 								1 = { name = 'variable.import.renamed-from.scala'; };
 								2 = { name = 'keyword.other.arrow.scala'; };
@@ -226,58 +296,19 @@
 				},
 			);
 		};
-		parameterList = {
-			patterns = (
-				{	match = '([a-zA-Z$_][a-zA-Z0-9$_]*)\s*:\s*([A-Za-z0-9][\w|_|?|\.]*)?';
-					captures = {
-						1 = { name = 'variable.parameter'; };
-						2 = { name = 'entity.name.type'; };
-					};
-				},
-			);
-		};
-		primitive-types = {
-			patterns = (
-				{	name = 'storage.type.primitive.scala';
-					match = '\b(Unit|Boolean|Byte|Char|Short|Int|Float|Long|Double)\b';
-				},
-			);
-		};
-		qualifiedClassName = {
-			match = '(\b([A-Z][\w]*))';
-			captures = { 1 = { name = 'entity.name.type'; }; };
-		};
-		regexp-double = {
-			name = 'string.quoted.regex.scala';
-			begin = '"';
-			end = '"\.r';
-			patterns = (
-				{	include = 'source.regexp.oniguruma'; },
-				{	match = '\\.|[^"]'; },
-			);
-		};
-		regexp-triple = {
-			name = 'string.quoted.regex.scala';
-			begin = '"""([\\\(\[^])+';
-			end = '"""\.r';
-			patterns = (
-				{	include = 'source.regexp.oniguruma'; },
-				{	match = '.'; },
-			);
-		};
-		returnTypes = {
-			match = '[^:]:\s*(\w+)';
-			captures = { 1 = { name = 'entity.name.type'; }; };
-		};
 		scala-symbol = {
+			/*
+			  Mathces scala symbols. Example
+			  
+			  'mysylbol
+			*/
 			match = "('\w+)";
 			captures = { 1 = { name = 'entity.name.symbol'; }; };
 		};
-		storage-modifiers = {
-			match = '\b(final|@native|synchronized|abstract|sealed|@transient|@volatile)\b';
-			captures = { 1 = { name = 'storage.modifier.scala'; }; };
-		};
 		strings = {
+			/*
+				Takes care of highlighting strings. Both double and triple
+			*/
 			patterns = (
 				{	name = 'string.quoted.triple.scala';
 					begin = '"""';
@@ -297,22 +328,56 @@
 				},
 			);
 		};
-		typeParameterList = {
-			begin = '\[';
-			end = '\]';
+		storage-modifiers = {
+			/*
+				Takes care of highlighting the storage modifiers
+			*/
 			patterns = (
-				{	match = '(\w+)\s*,?\s*';
-					captures = { 1 = { name = 'entity.name.type'; }; };
+				{	name = 'storage.modifier.access';
+					match = '\b(private\[\S?\]|protected\[\S?\]|private|protected)\b';
 				},
-				{	include = '#typeParameterList'; },
+				{	name = 'storage.modifier.other';
+					match = '\b(synchronized|@volatile|abstract|final|lazy|sealed|implicit|override|@transient|@native)\b';
+				},
+				{	name = 'storage.modifier.other';
+					match = '@volatile|@transient|@native';
+				},
 			);
 		};
-		types = {
-			match = '(\w+)\s*:\s*([A-Za-z0-9][\w|_|?|\.]*)';
-			captures = {
-				1 = { name = 'variable.language.scala'; };
-				2 = { name = 'entity.name.type'; };
-			};
+		keywords = {
+			/*
+				Takes care of highlighting the keywords
+			*/
+			patterns = (
+				{	name = 'keyword.control.new';
+					match = '\b(new)\b';
+				},
+				{	name = 'keyword.control.flow.jump.scala';
+					match = '\b(return|throw)\b';
+				},
+				{	name = 'keyword.control.flow.scala';
+					match = '\b(else|if|do|while|for|yield|match|case)\b';
+				},
+				{	name = 'keyword.control.exception.scala';
+					match = '\b(catch|finally|try)\b';
+				},
+				{	name = 'variable.language.scala';
+					match = '\b(this|super|self)\b';
+				},
+			);
+		};
+		constants = {
+			/*
+				Takes care of highlighting the constants
+			*/
+			patterns = (
+				{	name = 'constant.numeric.scala';
+					match = '\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)([LlFfUuDd]|UL|ul)?\b';
+				},
+				{	name = 'constant.language.scala';
+					match = '\b(false|null|true|Nil|None)\b';
+				},
+			);
 		};
 	};
 }
