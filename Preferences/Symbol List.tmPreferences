@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Symbol List</string>
+	<key>scope</key>
+	<string>meta.declaration</string>
+	<key>settings</key>
+	<dict>
+		<key>showInSymbolList</key>
+		<integer>1</integer>
+		<key>symbolTransformation</key>
+		<string>
+		s/\t/s/g;				# Convert tabs to spaces, just in case.
+		s/(^\s*)/$1$1/;		# Double to spacing at the start of the line
+		s/\/\*.*\*\///g;		# Remove double line comments
+		s/\/\/.*\n///g;		# Remove single line comments
+		s/(\S)\s+(\S)/$1 $2/g;	# Remove spacing between words (i.e. newlines etc.)
+	</string>
+	</dict>
+	<key>uuid</key>
+	<string>31262BFB-520A-4253-A81C-60023C0CFC8B</string>
+</dict>
+</plist>
