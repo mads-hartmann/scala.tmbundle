@@ -61,19 +61,19 @@ val x                           = 22</pre>
 Installation
 ------------
 
-To install the bundle simply run the following in your terminal:
+**Stable**: To install latest stable version simply grab it from the downloads page, unzip it and follow the instructions in the INSTALLATION_GUIDE.txt file. 
+
+**Cutting-edge**: To install the cutting-edge version of the bundle simply run the following in your terminal:
 
 <pre><code>git clone git://github.com/mads379/scala.tmbundle.git
 open scala.tmbundle
 </code></pre>
 
-Add the shell variable <code>SCALA\_HOME</code> in TextMate -> Preferences... -> Advanced -> Shell Variables to the root of your scala installation. If you installed scala using MacPorts, it probably is <code>/opt/local/share/scala-2.8</code>
-
-It might work best if used in conjunction with [the theme Paul Phillips use](http://github.com/paulp/scala.tmtheme) or [the theme I use](http://github.com/mads379/Github_flavor.tmtheme) alongside it:
+In both cases add the shell variable <code>SCALA\_HOME</code> in TextMate -> Preferences... -> Advanced -> Shell Variables to the root of your scala installation. If you installed scala using MacPorts, it probably is <code>/opt/local/share/scala-2.8</code>
 
 About
 -----
 
 **If you're on a slightly older system Dan Oxlade is currently maintaining a 32bit compatible version of the bundle. Get it from his fork [here](http://github.com/oxlade39/scala.tmbundle "here")**
 
-I wasn't happy with the official [TextMate](http://macromates.com/) bundle so I started my own bundle. It has since been hugely improved by [Paul Phillips](http://github.com/paulp) and is now vastly better than the original one. It still needs some work but it is very usable (I use it for all my Scala development)
+I wasn't happy with the official [TextMate](http://macromates.com/) bundle so I started my own bundle. It has since been hugely improved by [Paul Phillips](http://github.com/paulp) and is now vastly better than the original one.
