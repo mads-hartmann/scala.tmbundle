@@ -54,6 +54,7 @@
 			patterns = (
 			    {   include = '#storage-modifiers';},
 				{	include = '#method-declaration';},
+				{	include = '#class-declaration';},
 				{	include = '#variable-declaration';},
 			    {   include = '#comments';}
 			);

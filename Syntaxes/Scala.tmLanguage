@@ -122,6 +122,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#class-declaration</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#variable-declaration</string>
 				</dict>
 				<dict>

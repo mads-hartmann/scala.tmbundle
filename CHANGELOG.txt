@@ -1,0 +1,2 @@
+RC01:
+- Fixed grammar glitch where it didn't highlight implicit object declarations
