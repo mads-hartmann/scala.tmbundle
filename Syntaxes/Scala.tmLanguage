@@ -45,6 +45,10 @@
 			<array>
 				<dict>
 					<key>include</key>
+					<string>#storage-modifiers</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#class-declaration</string>
 				</dict>
 				<dict>

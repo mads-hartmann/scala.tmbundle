@@ -17,6 +17,7 @@
 				2 = { name = 'storage.modifier.access'; };
 			};
 			patterns = (
+			    {   include = '#storage-modifiers';},
 				{	include = '#class-declaration';},
 				{	include = '#method-declaration';},
 				{	include = '#variable-declaration';},
