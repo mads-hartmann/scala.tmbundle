@@ -150,7 +150,7 @@
 				============================================= */
 			name = 'meta.declaration.method.scala';
 			begin = '(?x)\s*
-				(def)\s*
+				\b(def)\b\s*
 				(
 					([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|
 					`.*`|
