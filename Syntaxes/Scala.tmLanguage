@@ -22,7 +22,7 @@
 			<key>begin</key>
 			<string>(?x)\s*
 				(?:
-					\b(private\[\S*\]|protected\[\S*\]|private|protected|synchronized|@volatile|abstract|final|lazy|sealed|@transient|@native)\b
+					\b(private\[\S+\]|protected\[\S+\]|private|protected|synchronized|@volatile|abstract|final|lazy|sealed|@transient|@native)\b
 				)</string>
 			<key>beginCaptures</key>
 			<dict>
@@ -778,7 +778,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>\b(private\[\S*\]|protected\[\S*\]|private|protected)\b</string>
+					<string>\b(private\[\S+\]|protected\[\S+\]|private|protected)\b</string>
 					<key>name</key>
 					<string>storage.modifier.access</string>
 				</dict>

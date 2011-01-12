@@ -8,7 +8,7 @@
 			===================================================*/
 		{	begin = '(?x)\s*
 				(?:
-					\b(private\[\S*\]|protected\[\S*\]|private|protected|synchronized|@volatile|abstract|final|lazy|sealed|@transient|@native)\b
+					\b(private\[\S+\]|protected\[\S+\]|private|protected|synchronized|@volatile|abstract|final|lazy|sealed|@transient|@native)\b
 				)';
 			end = '(?==(?!>)|\{|\n)';
 			name = 'meta.declaration';
@@ -491,7 +491,7 @@
 			*/
 			patterns = (
 				{	name = 'storage.modifier.access';
-					match = '\b(private\[\S*\]|protected\[\S*\]|private|protected)\b';
+					match = '\b(private\[\S+\]|protected\[\S+\]|private|protected)\b';
 				},
 				{	name = 'storage.modifier.other';
 					match = '\b(synchronized|@volatile|abstract|final|lazy|sealed|implicit|override|@transient|@native)\b';
