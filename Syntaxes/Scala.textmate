@@ -210,12 +210,12 @@
 						end = '\)';
 						beginCaptures = { 1 = { name = 'entity.name.class'; }; };
 						patterns = (
+						    { include = '#typed-variable-identifier';},
 							{ include = '#untyped-variable-identifier';},
-							{ include = '#typed-variable-identifier';}
 						);
 					},
-					{ include = '#untyped-variable-identifier';},
 					{ include = '#typed-variable-identifier';},
+					{ include = '#untyped-variable-identifier';},
 				);
 		};
 		legal-class-name = {

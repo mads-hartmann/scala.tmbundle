@@ -941,21 +941,21 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>#untyped-variable-identifier</string>
+							<string>#typed-variable-identifier</string>
 						</dict>
 						<dict>
 							<key>include</key>
-							<string>#typed-variable-identifier</string>
+							<string>#untyped-variable-identifier</string>
 						</dict>
 					</array>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#untyped-variable-identifier</string>
+					<string>#typed-variable-identifier</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#typed-variable-identifier</string>
+					<string>#untyped-variable-identifier</string>
 				</dict>
 			</array>
 		</dict>

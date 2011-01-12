@@ -2,3 +2,4 @@ RC01:
 - Fixed grammar glitch: Where it didn't highlight implicit object declarations
 - Fixed grammar glitch: Matching of def should be word-bound
 - Fixed grammar glitch: override in protected override def is not properly highlighted.
+- Fixed grammar glitch: Typed variable names should be matched before untyped ones as the untyped is less restrictive.
