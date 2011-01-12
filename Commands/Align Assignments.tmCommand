@@ -51,7 +51,7 @@ pattern, column_pattern, split_pattern, symbol = begin
   assignment_column_search_pattern = /[\t ]*=[^&gt;]/
   function_column_search_pattern   = /[\t ]*=&gt;/
 
-  assignment_split_pattern         = /[\t ]*=[^&gt;][\t ]*/
+  assignment_split_pattern         = /[\t ]*=(?!&gt;)[\t ]*/
   function_split_pattern           = /[\t ]*=&gt;[\t ]*/
   arrow_split_pattern              = /[\t ]*-&gt;[\t ]*/
   arrow_left_split_pattern         = /[\t ]*&lt;-[\t ]*/
