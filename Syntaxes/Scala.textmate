@@ -313,7 +313,7 @@
 			);
 		};
 		inheritance = { 
-			match = '\b(extends|with)\s+([^\s\{\(\[]+)';
+			match = '\b(extends|with)\s+([^\s\{\(\[\]]+)';
 			captures = {
 				1 = { name = 'keyword.declaration.scala'; };
 				2 = { name = 'entity.other.inherited-class.scala'; };
