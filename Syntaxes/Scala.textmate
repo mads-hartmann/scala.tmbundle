@@ -132,7 +132,7 @@
 				============================================= */  
 			name = 'meta.declaration.class.scala';
 			begin = '\s*\b(case\s+)?\b(class|trait|object)\s+([^\s\{\(\[]+)';
-			end = '(?==(?!>)|\{|\)\s*\n)';
+			end = '(?==(?!>)|\{|\n)';
 			beginCaptures = {
 				1 = { name = 'keyword.declaration.scala'; };
 				2 = { name = 'keyword.declaration.scala'; };

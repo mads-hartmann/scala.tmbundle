@@ -396,7 +396,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>(?==(?!&gt;)|\{|\)\s*\n)</string>
+			<string>(?==(?!&gt;)|\{|\n)</string>
 			<key>name</key>
 			<string>meta.declaration.class.scala</string>
 			<key>patterns</key>
