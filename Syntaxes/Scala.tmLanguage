@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>bundleUUID</key>
-	<string>452017E8-0065-49EF-AB9D-7849B27D9367</string>
 	<key>fileTypes</key>
 	<array>
 		<string>scala</string>
@@ -19,229 +17,24 @@
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>begin</key>
-			<string>(?x)\s*
-				(?:
-					\b(private\[\S+\]|protected\[\S+\]|private|protected|synchronized|@volatile|abstract|final|lazy|sealed|@transient|@native)\b
-				)</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>storage.modifier.other</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>storage.modifier.access</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(?==(?!&gt;)|\{|\n)</string>
-			<key>name</key>
-			<string>meta.declaration</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#storage-modifiers</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#class-declaration</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#method-declaration</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#variable-declaration</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>\s*(override)</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>storage.modifier.other</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(?x)
-			    (?==(?!&gt;)|  
-			    \{|
-			    .*:(?!=))</string>
-			<key>name</key>
-			<string>meta.declaration</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#storage-modifiers</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#method-declaration</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#variable-declaration</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#comments</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>\s*\b(implicit)\b</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>storage.modifier.other</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(?==(?!&gt;)|\{|\n)</string>
-			<key>name</key>
-			<string>meta.declaration</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#storage-modifiers</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#method-declaration</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#class-declaration</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#variable-declaration</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#comments</string>
-				</dict>
-			</array>
+			<key>include</key>
+			<string>#storage-modifiers</string>
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#class-declaration</string>
+			<string>#keywords</string>
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#method-declaration</string>
+			<string>#declarations</string>
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#variable-declaration</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.declaration.scala</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.class</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>\b(package object)\s+([^\s\{\(\[]+)</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.other.scoping.scala</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.package.scala</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>\b(package)\s+([\w\.]+)</string>
-			<key>name</key>
-			<string>meta.package.scala</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.declaration.stable.scala</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.declaration.volatile.scala</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>\b(?:(val)|(var))\b</string>
-		</dict>
-		<dict/>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.declaration.scala</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.type.declaration</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>\b(type)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\(\)</string>
-			<key>name</key>
-			<string>meta.parentheses.scala</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#annotations</string>
+			<string>#inheritance</string>
 		</dict>
 		<dict>
 			<key>include</key>
 			<string>#imports</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#char-literal</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#scala-symbol</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -253,11 +46,7 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#parametric-types</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#keywords</string>
+			<string>#initialization</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -265,84 +54,31 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#parameter-definitions</string>
+			<string>#char-literal</string>
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#legal-class-name</string>
+			<string>#scala-symbol</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#empty-parentheses</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#type-parameter-list</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#parameter-list</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#qualifiedClassName</string>
 		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
-		<key>annotations</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>begin</key>
-					<string>(@[^ (]+)(\()</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>storage.type.annotation.scala</string>
-						</dict>
-						<key>2</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.annotation-arguments.begin.scala</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>(\))</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.annotation-arguments.end.scala</string>
-						</dict>
-					</dict>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>captures</key>
-							<dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>constant.other.key.scala</string>
-								</dict>
-								<key>2</key>
-								<dict>
-									<key>name</key>
-									<string>keyword.operator.assignment.scala</string>
-								</dict>
-							</dict>
-							<key>match</key>
-							<string>(\w*)\s*(=)</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#code</string>
-						</dict>
-						<dict>
-							<key>match</key>
-							<string>,</string>
-							<key>name</key>
-							<string>punctuation.seperator.property.scala</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>@\w*</string>
-					<key>name</key>
-					<string>storage.type.annotation.scala</string>
-				</dict>
-			</array>
-		</dict>
 		<key>block-comments</key>
 		<dict>
 			<key>begin</key>
@@ -373,56 +109,28 @@
 			<key>name</key>
 			<string>constant.character.literal.scala</string>
 		</dict>
-		<key>class-declaration</key>
-		<dict>
-			<key>begin</key>
-			<string>\s*\b(case\s+)?\b(class|trait|object)\s+([^\s\{\(\[]+)</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.declaration.scala</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.declaration.scala</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.class</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(?==(?!&gt;)|\{|\n)</string>
-			<key>name</key>
-			<string>meta.declaration.class.scala</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#types</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#parametric-types</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#inheritance</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#parameter-definitions</string>
-				</dict>
-			</array>
-		</dict>
 		<key>comments</key>
 		<dict>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#block-comments</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.scala</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(//).*$\n?</string>
+					<key>name</key>
+					<string>comment.line.double-slash.scala</string>
+				</dict>
 				<dict>
 					<key>captures</key>
 					<dict>
@@ -468,37 +176,18 @@
 						</dict>
 					</array>
 				</dict>
-				<dict>
-					<key>include</key>
-					<string>#block-comments</string>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.comment.scala</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>(//).*$\n?</string>
-					<key>name</key>
-					<string>comment.line.double-slash.scala</string>
-				</dict>
 			</array>
-		</dict>
-		<key>constant-variables</key>
-		<dict>
-			<key>match</key>
-			<string>\b(this|super|self)\b(?!\()</string>
-			<key>name</key>
-			<string>variable.language.scala</string>
 		</dict>
 		<key>constants</key>
 		<dict>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>match</key>
+					<string>\b(false|null|true|Nil|None)\b</string>
+					<key>name</key>
+					<string>constant.language.scala</string>
+				</dict>
 				<dict>
 					<key>match</key>
 					<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)([LlFfUuDd]|UL|ul)?\b</string>
@@ -507,11 +196,146 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(false|null|true|Nil|None)\b</string>
+					<string>\b(this|super|self)\b</string>
 					<key>name</key>
-					<string>constant.language.scala</string>
+					<string>variable.language.scala</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(Unit|Boolean|Byte|Char|Short|Int|Float|Long|Double)\b</string>
+					<key>name</key>
+					<string>storage.type.primitive.scala</string>
 				</dict>
 			</array>
+		</dict>
+		<key>declarations</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.declaration.scala</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.function.declaration</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(?x)
+						\b(def)\s+
+						(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`|[^\w\[\(\:\_\s]+)</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.declaration.scala</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.declaration.scala</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.class.declaration</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(case)?\b(class|trait|object)\s+([^\s\{\(\[]+)</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.declaration.scala</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.type.declaration</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>\b(type)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.declaration.stable.scala</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.declaration.volatile.scala</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.val.declaration</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>\b(?:(val)|(var))\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)?</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.declaration.scala</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.class.declaration</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>\b(package object)\s+([^\s\{\(\[]+)</string>
+				</dict>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.scoping.scala</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.package.scala</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>\b(package)\s+([\w\.]+)</string>
+					<key>name</key>
+					<string>meta.package.scala</string>
+				</dict>
+			</array>
+		</dict>
+		<key>empty-parentheses</key>
+		<dict>
+			<key>match</key>
+			<string>\(\)</string>
+			<key>name</key>
+			<string>meta.parentheses.scala</string>
 		</dict>
 		<key>imports</key>
 		<dict>
@@ -594,32 +418,49 @@
 		</dict>
 		<key>inheritance</key>
 		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.declaration.scala</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.other.inherited-class.scala</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(extends|with)\s+([^\s\{\(\[\]]+)</string>
+				</dict>
+			</array>
+		</dict>
+		<key>initialization</key>
+		<dict>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.declaration.scala</string>
+					<string>keyword</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.other.inherited-class.scala</string>
+					<string>entity.name.class</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(extends|with)\s+([^\s\{\(\[\]]+)</string>
+			<string>\b(new)\s+([^\s\{\(\[]+)</string>
 		</dict>
 		<key>keywords</key>
 		<dict>
 			<key>patterns</key>
 			<array>
-				<dict>
-					<key>match</key>
-					<string>\b(new)\b</string>
-					<key>name</key>
-					<string>keyword.control.new</string>
-				</dict>
 				<dict>
 					<key>match</key>
 					<string>\b(return|throw)\b</string>
@@ -628,7 +469,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(else|if|do|while|for|yield|match|case\s(?!class|trait|object))\b</string>
+					<string>\b(else|if|do|while|for|yield|match|case)\b</string>
 					<key>name</key>
 					<string>keyword.control.flow.scala</string>
 				</dict>
@@ -640,124 +481,41 @@
 				</dict>
 			</array>
 		</dict>
-		<key>legal-class-name</key>
+		<key>parameter-list</key>
 		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>variable.parameter</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.class</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>([a-zA-Z$_][a-zA-Z0-9$_]*)\s*:\s*([A-Za-z0-9][\w|_|?|\.]*)?,?</string>
+				</dict>
+			</array>
+		</dict>
+		<key>qualifiedClassName</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.class</string>
+				</dict>
+			</dict>
 			<key>match</key>
-			<string>(?&lt;!\.)\b([A-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)\b</string>
-			<key>name</key>
-			<string>entity.name.class</string>
-		</dict>
-		<key>method-declaration</key>
-		<dict>
-			<key>begin</key>
-			<string>(?x)\s*
-				\b(def)\b\s*
-				(
-					([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|
-					`.*`|
-					[^\w\[\(\:\_\{]+
-				)</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.declaration.scala</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.function</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(?==(?!&gt;)|\{|\n)</string>
-			<key>name</key>
-			<string>meta.declaration.method.scala</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#parametric-types</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#parameter-definitions</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#return-type</string>
-				</dict>
-			</array>
-		</dict>
-		<key>parameter-definitions</key>
-		<dict>
-			<key>begin</key>
-			<string>(?x)\s*
-			    (\bimplicit\b)?\s*
-			    ([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)(?=\s*:)</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>storage.modifier.other</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>variable.parameter</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(?==(?!&gt;)|,|\n|\))</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#types</string>
-				</dict>
-			</array>
-		</dict>
-		<key>parametric-types</key>
-		<dict>
-			<key>begin</key>
-			<string>\[</string>
-			<key>end</key>
-			<string>\]</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#legal-class-name</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#inheritance</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#parametric-types</string>
-				</dict>
-			</array>
-		</dict>
-		<key>return-type</key>
-		<dict>
-			<key>begin</key>
-			<string>:</string>
-			<key>end</key>
-			<string>(?==(?!&gt;)|\n|\{)</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#types</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#constant-variables</string>
-				</dict>
-			</array>
+			<string>(\b([A-Z][\w]*))</string>
 		</dict>
 		<key>scala-symbol</key>
 		<dict>
@@ -827,107 +585,20 @@
 				</dict>
 			</array>
 		</dict>
-		<key>typed-variable-identifier</key>
+		<key>type-parameter-list</key>
 		<dict>
 			<key>begin</key>
-			<string>([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)(?=\s*:)</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.val</string>
-				</dict>
-			</dict>
+			<string>\[</string>
 			<key>end</key>
-			<string>(?==(?!&gt;)|,|\n|\))</string>
+			<string>\]</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#types</string>
+					<string>#inheritance</string>
 				</dict>
-			</array>
-		</dict>
-		<key>types</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#legal-class-name</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#parametric-types</string>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>\(</string>
-					<key>end</key>
-					<string>\)</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#legal-class-name</string>
-						</dict>
-					</array>
-				</dict>
-			</array>
-		</dict>
-		<key>untyped-variable-identifier</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.val</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)\s*(?!:)</string>
-		</dict>
-		<key>variable-declaration</key>
-		<dict>
-			<key>begin</key>
-			<string>\s*\b(?:(val)|(var))\s+</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.declaration.stable.scala</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>keyword.declaration.volatile.scala</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>(?==(?!&gt;)|\n)</string>
-			<key>name</key>
-			<string>meta.declaration.variable.scala</string>
-			<key>patterns</key>
-			<array>
 				<dict>
 					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>entity.name.val</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>`(.*)`</string>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>([A-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)\(</string>
-					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
@@ -935,27 +606,12 @@
 							<string>entity.name.class</string>
 						</dict>
 					</dict>
-					<key>end</key>
-					<string>\)</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#typed-variable-identifier</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#untyped-variable-identifier</string>
-						</dict>
-					</array>
+					<key>match</key>
+					<string>(\w+)\s*,?\s*</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#typed-variable-identifier</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#untyped-variable-identifier</string>
+					<string>#type-parameter-list</string>
 				</dict>
 			</array>
 		</dict>
