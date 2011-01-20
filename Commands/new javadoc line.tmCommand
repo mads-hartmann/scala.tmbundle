@@ -4,16 +4,23 @@
 <dict>
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
+	<key>bundleUUID</key>
+	<string>452017E8-0065-49EF-AB9D-7849B27D9367</string>
 	<key>command</key>
 	<string>#!/usr/bin/env ruby -wKU
 
 cline = ENV['TM_CURRENT_LINE']
 space = cline.scan(/^\s*/).to_s
 
-chars = cline.chars.to_a.slice(ENV['TM_COLUMN_NUMBER'].to_i-1,cline.chars.count)
+chars = cline.chars.to_a
+startColumn = ENV['TM_COLUMN_NUMBER'].to_i-1
+endColumn = cline.chars.count
 
-print cline.gsub(chars.to_s,"")
-print "\n" + space + "*\t"+chars.to_s+ "$0"</string>
+start = chars.slice(0,startColumn)
+rest  = chars.slice(startColumn, endColumn)
+
+print start
+print "\n" + space + "*\t"+rest.to_s+ "$0"</string>
 	<key>fallbackInput</key>
 	<string>line</string>
 	<key>input</key>
