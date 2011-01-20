@@ -222,7 +222,6 @@
 		};
 		comments = {
 			patterns = (
-				{	include = '#block-comments';},
 				{	name = 'comment.line.double-slash.scala';
 					match = '(//).*$\n?';
 					captures = { 1 = { name = 'punctuation.definition.comment.scala'; }; };
@@ -244,6 +243,7 @@
 						},
 					);
 				},
+				{	include = '#block-comments';}
 			);
 		};
 		/*

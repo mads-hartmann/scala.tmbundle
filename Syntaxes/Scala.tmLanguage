@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>bundleUUID</key>
+	<string>452017E8-0065-49EF-AB9D-7849B27D9367</string>
 	<key>fileTypes</key>
 	<array>
 		<string>scala</string>
@@ -66,10 +68,6 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#type-parameter-list</string>
-		</dict>
-		<dict>
-			<key>include</key>
 			<string>#parameter-list</string>
 		</dict>
 		<dict>
@@ -113,10 +111,6 @@
 		<dict>
 			<key>patterns</key>
 			<array>
-				<dict>
-					<key>include</key>
-					<string>#block-comments</string>
-				</dict>
 				<dict>
 					<key>captures</key>
 					<dict>
@@ -175,6 +169,10 @@
 							<string>keyword.other.documentation.scaladoc.link.scala</string>
 						</dict>
 					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block-comments</string>
 				</dict>
 			</array>
 		</dict>
@@ -582,36 +580,6 @@
 							<string>constant.character.escape.scala</string>
 						</dict>
 					</array>
-				</dict>
-			</array>
-		</dict>
-		<key>type-parameter-list</key>
-		<dict>
-			<key>begin</key>
-			<string>\[</string>
-			<key>end</key>
-			<string>\]</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#inheritance</string>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>entity.name.class</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>(\w+)\s*,?\s*</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#type-parameter-list</string>
 				</dict>
 			</array>
 		</dict>
