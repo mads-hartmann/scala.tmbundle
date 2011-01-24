@@ -9,6 +9,7 @@
 		{	include = '#inheritance';},
 		{	include = '#imports'; },
 		{	include = '#comments';},
+		{	include = '#block-comments';},
 		{	include = '#strings'; },
 		{	include = '#initialization';},
 		{	include = '#constants';},
@@ -242,8 +243,7 @@
 							match = '\{@link\s+[^\}]*\}';
 						},
 					);
-				},
-				{	include = '#block-comments';}
+				}
 			);
 		};
 		/*

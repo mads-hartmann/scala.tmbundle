@@ -44,6 +44,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#block-comments</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#strings</string>
 		</dict>
 		<dict>
@@ -169,10 +173,6 @@
 							<string>keyword.other.documentation.scaladoc.link.scala</string>
 						</dict>
 					</array>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#block-comments</string>
 				</dict>
 			</array>
 		</dict>
