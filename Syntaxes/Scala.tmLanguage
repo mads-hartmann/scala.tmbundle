@@ -78,6 +78,10 @@
 			<key>include</key>
 			<string>#qualifiedClassName</string>
 		</dict>
+		<dict>
+			<key>include</key>
+			<string>#xml-literal</string>
+		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
@@ -578,6 +582,62 @@
 							<string>\\.</string>
 							<key>name</key>
 							<string>constant.character.escape.scala</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>xml-attribute</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>entity.other.attribute-name</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>string.quoted.double</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(\w+)=("[^"]*")</string>
+				</dict>
+			</array>
+		</dict>
+		<key>xml-literal</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>&lt;/?([^\s/&gt;]+)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.tag</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>/?&gt;</string>
+					<key>name</key>
+					<string>text.xml</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#xml-literal</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#xml-attribute</string>
 						</dict>
 					</array>
 				</dict>
