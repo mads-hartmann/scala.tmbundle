@@ -255,7 +255,7 @@
 		    patterns = (
 		        {
 		            name = 'text.xml';
-		            begin = '</?([^\s/>]+)';
+		            begin = '</?([a-zA-Z0-9]+)';
 		            end = '/?>';
 		            beginCaptures = {
 		                1 = { name = 'entity.name.tag' ;};
