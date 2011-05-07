@@ -58,6 +58,14 @@ val x                           = 22</pre>
   - Javadoc for line (⌘⇧D): Will analyze the the current line and add the appropriate documentation for the line (i.e. correct @param etc.)
   - New javadoc line (⇧⏎ in comment scope): Will create a new correctly indented comment line.
 
+Shell variables
+---------------
+
+- **SCALA_DOC**    
+If you want to browse the documentation online, set this shell variable. Here's how mine is set: /Users/Mads/dev/programming\_languages/scala-2.8.1.final-devel-docs
+- **SCALA_HOME**    
+If you want to be able to run and/or compile single files from within textmate /Users/Mads/dev/programming\_languages/scala-2.8.0.final/
+
 Installation
 ------------
 
