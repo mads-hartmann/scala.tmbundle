@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>if [[ "${SCALA_DOC}" ]]
+    then echo "&lt;meta http-equiv='Refresh' content='0;URL=file://$SCALA_DOC/api/index.html'&gt;"
+    else echo "&lt;meta http-equiv='Refresh' content='0;URL=http://www.scala-lang.org/api/current/index.html'&gt;"
+fi</string>
+	<key>fallbackInput</key>
+	<string>none</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>^h</string>
+	<key>name</key>
+	<string>Scala Library Documentation</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>source.scala</string>
+	<key>tabTrigger</key>
+	<string>"</string>
+	<key>uuid</key>
+	<string>FE33460A-1416-47B5-A76B-75BBFA2398F8</string>
+</dict>
+</plist>
