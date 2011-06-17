@@ -12,7 +12,7 @@
 project     = ENV['TM_PROJECT_DIRECTORY']
 name        = ENV['TM_FILENAME']
 file        = ENV['TM_FILEPATH']
-packageName = file.gsub(project+"/","").gsub("/"+name,"").gsub("src/","").gsub("main/scala/","").gsub("/",".")
+packageName = file.gsub(project+"/","").gsub("/"+name,"").gsub("src/","").gsub("main/","").gsub("test/","").gsub("scala/","").gsub("/",".")
 
 print "package " + packageName
 
