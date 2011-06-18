@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>sbt</string>
+	</array>
+	<key>foldingStartMarker</key>
+	<string>/\*\*|\{\s*$</string>
+	<key>foldingStopMarker</key>
+	<string>\*\*/|^\s*\}</string>
+	<key>keyEquivalent</key>
+	<string>^~S</string>
+	<key>name</key>
+	<string>Simple Build Tool</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.setting</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(\w*)\s+(?=.*=)</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(at)\b</string>
+			<key>name</key>
+			<string>keyword.sbt</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>end</key>
+			<string>"</string>
+			<key>name</key>
+			<string>string.quoted.double.sbt</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\.</string>
+					<key>name</key>
+					<string>constant.character.escape.untitled</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.sbt</string>
+	<key>uuid</key>
+	<string>4A4E6D54-9232-4F33-9E4F-777A56075844</string>
+</dict>
+</plist>
