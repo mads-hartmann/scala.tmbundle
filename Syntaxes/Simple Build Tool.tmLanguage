@@ -22,7 +22,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.setting</string>
+					<string>entity.name.setting.sbt</string>
 				</dict>
 			</dict>
 			<key>match</key>
