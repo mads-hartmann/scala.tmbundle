@@ -28,8 +28,12 @@ def pretty_print(annotation, arguments, msg, size, spacing, initial_tab_stop_cou
   new_tab_stop_count = initial_tab_stop_count
   str = arguments.collect do |arg| 
     new_tab_stop_count = new_tab_stop_count+1
-    spaces = " " * (size - arg.size)
-    "#{spacing}* #{annotation}\t#{arg}#{spaces}\t${#{new_tab_stop_count}:#{msg}}\n"
+    if arg == ""
+      "#{spacing} * #{annotation} ${#{new_tab_stop_count}:#{msg}}\n"
+    else
+      "#{spacing} * #{annotation} #{arg} ${#{new_tab_stop_count}:#{msg}}\n"
+    end
+    
   end
   return str.to_s , new_tab_stop_count
 end
@@ -60,15 +64,22 @@ if current_line.match(/def|class|object|trait/) != nil
 
   comments = StringIO.new
   comments &lt;&lt; "#{initial_spacing}/** \n"
-  comments &lt;&lt; "#{initial_spacing}* ${1:I really should get around to writing some documentation} \n"
-  comments &lt;&lt; "#{initial_spacing}* \n"
+  comments &lt;&lt; "#{initial_spacing} * ${#{tab_stop_count}:I really should get around to writing some documentation} \n"
+  
+  tab_stop_count = tab_stop_count + 1 
+    
+  comments &lt;&lt; "${#{tab_stop_count}:"
   
   params, tab_stop_count = pretty_print("@param",arguments, "well isn't it obvious", size, initial_spacing, tab_stop_count)  
-  returns, tab_stop_count = pretty_print("@return",[""], "dunno", size, initial_spacing, tab_stop_count)  
+  returns, tab_stop_count = pretty_print("@return",[""], "dunno", size, initial_spacing, tab_stop_count)
   
+  comments &lt;&lt; "#{initial_spacing} * \n"
   comments &lt;&lt; params.to_s
   comments &lt;&lt; returns.to_s
-  comments &lt;&lt; "#{initial_spacing}*/\n"
+  comments &lt;&lt; "}"
+  comments &lt;&lt; "#{initial_spacing} */\n"
+  
+  tab_stop_count = tab_stop_count+1
   
   before.each do | line | puts line.gsub(/`/,'\\\`') end
   print           comments.string.to_s
