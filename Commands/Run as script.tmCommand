@@ -16,7 +16,7 @@ if ENV['TM_FILEPATH'] != nil
   TextMate::HTMLOutput.show(
     :title =&gt; "Running: #{ENV['TM_FILEPATH']}", 
     :sub_title =&gt; "") do |io|
-      cmd = ENV['SCALA_HOME'] + "/bin/scala -nocompdaemon -howtorun:script " + ENV['TM_FILEPATH']
+      cmd = ENV['SCALA_HOME'] + "/bin/scala -nocompdaemon -howtorun:script " + "'" + ENV['TM_FILEPATH'] + "'"
       io &lt;&lt; "&lt;pre&gt;&lt;code&gt;"
       io &lt;&lt; `#{cmd}`
       io &lt;&lt; "&lt;/code&gt;&lt;/pre&gt;"
