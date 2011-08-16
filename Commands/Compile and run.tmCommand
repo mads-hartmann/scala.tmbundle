@@ -11,7 +11,7 @@ html_header "Compile and run ${TM_FILENAME}"
 
 cd "$TM_DIRECTORY"
 
-$SCALA_HOME/bin/$SCALA_COMPILER -unchecked -deprecation "$TM_FILENAME" &amp;&gt; &gt;("${TM_RUBY:-ruby}" -rtm_parser -eTextMate.parse_errors)
+$SCALA_HOME/bin/${SCALA_COMPILER:-scalac} -unchecked -deprecation "$TM_FILENAME" &amp;&gt; &gt;("${TM_RUBY:-ruby}" -rtm_parser -eTextMate.parse_errors)
 if (($? &gt;= 1)); then exit; fi
 
 main=`basename "$TM_FILENAME" .scala`
