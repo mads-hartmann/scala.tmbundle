@@ -1,10 +1,10 @@
 Scala TextMate Bundle
 =====================
 
+Textmate bundle for the Scala Programming Language. 
+
 Using it
 --------
-
-**NOTICE:** If you want fancy IDE features (code-completion, refactoring, navigation, type-checking, inspection, etc. ) use my [ENSIME.tmbundle](https://github.com/mads379/ensime.tmbundle "ENSIME.tmbundle") alongside this one.
 
 **Snippets** 
 
@@ -25,35 +25,7 @@ The bundle offers several ways to play around with Scala code in your document -
 - **Scala REPL: Paste selection** This will paste the current selection in TextMate to active Terminal tab.
 
 **Other cool stuff**
-
-- **Align Assignments**: This will align anything according to =>,=,->,<-. As an example, the following: 
-
-	<pre>case foo => bar
-case blah if ding => baz</pre> 
-	
-	turns into 
-	
-	<pre>case foo          => bar
-case blah if ding => baz</pre> 
-	
-	The current line decides the pattern. i.e. if the current line is the first one the following: 
-	
-	<pre>def foo(body: => Unit) = 55
-def baz(somethingelse: => Unit) = 55
-val x = 22</pre>
-			
-	Turns into
-			
-	<pre>def foo(body:          => Unit) = 55
-def baz(somethingelse: => Unit) = 55
-val x = 22</pre>
-			
-	and if you select the last line it turn into
-	
-	<pre>def foo(body: => Unit)          = 55
-def baz(somethingelse: => Unit) = 55
-val x                           = 22</pre>
-
+- **Align Assignments**: This will align anything according to =>,=,->,<-. 
 - **Comments**
   - Javadoc for line (⌘⇧D): Will analyze the the current line and add the appropriate documentation for the line (i.e. correct @param etc.)
   - New javadoc line (⇧⏎ in comment scope): Will create a new correctly indented comment line.
@@ -61,29 +33,22 @@ val x                           = 22</pre>
 Shell variables
 ---------------
 
-- **SCALA_DOC**    
-If you want to browse the documentation online, set this shell variable. Here's how mine is set: /Users/Mads/dev/programming\_languages/scala-2.8.1.final-devel-docs
-- **SCALA_HOME**    
-If you want to be able to run and/or compile single files from within textmate /Users/Mads/dev/programming\_languages/scala-2.8.0.final/
-- **SCALA_COMPILER**
-Defaults to scalac. 
+- **SCALA_DOC**: If you want to browse the documentation offline, set this shell variable. Here's how mine is set: /Users/Mads/dev/programming\_languages/scala-2.8.1.final-devel-docs
+- **SCALA_HOME**:If you want to be able to run and/or compile single files from within textmate /Users/Mads/dev/programming\_languages/scala-2.8.0.final/
+- **SCALA_COMPILER**:Defaults to scalac. 
 
 Installation
 ------------
-
-**Stable**: To install latest stable version simply grab it from the downloads page, unzip it and follow the instructions in the INSTALLATION_GUIDE.txt file. 
-
-**Cutting-edge**: To install the cutting-edge version of the bundle simply run the following in your terminal:
 
 <pre><code>git clone git://github.com/mads379/scala.tmbundle.git
 open scala.tmbundle
 </code></pre>
 
-In both cases add the shell variable <code>SCALA\_HOME</code> in TextMate -> Preferences... -> Advanced -> Shell Variables to the root of your scala installation. If you installed scala using MacPorts, it probably is <code>/opt/local/share/scala-2.8</code>
+Contributors
+------------
 
-About
------
-
-**If you're on a slightly older system Dan Oxlade is currently maintaining a 32bit compatible version of the bundle. Get it from his fork [here](http://github.com/oxlade39/scala.tmbundle "here")**
-
-I wasn't happy with the official [TextMate](http://macromates.com/) bundle so I started my own bundle. It has since been hugely improved by [Paul Phillips](http://github.com/paulp) and is now vastly better than the original one.
+- Mads Hartmann Jensen
+- Paul Phillips (paulp)
+- (murr4y)
+- (mikemckibben)
+- (fizx)
