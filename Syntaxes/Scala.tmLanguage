@@ -208,6 +208,12 @@
 					<key>name</key>
 					<string>storage.type.primitive.scala</string>
 				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(String)\b</string>
+					<key>name</key>
+					<string>storage.type.scala</string>
+				</dict>
 			</array>
 		</dict>
 		<key>declarations</key>
