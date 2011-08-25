@@ -359,7 +359,7 @@
 		initialization = {
 			match = '\b(new)\s+([^\s\{\(\[]+)';
 			captures = {
-				1 = { name = 'keyword'; };
+				1 = { name = 'keyword.declaration.scala'; };
 				2 = { name = 'entity.name.class'; };
 			};
 		};
