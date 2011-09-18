@@ -21,8 +21,6 @@ fi</string>
 	<string>showAsHTML</string>
 	<key>scope</key>
 	<string>source.scala</string>
-	<key>tabTrigger</key>
-	<string>"</string>
 	<key>uuid</key>
 	<string>FE33460A-1416-47B5-A76B-75BBFA2398F8</string>
 </dict>
