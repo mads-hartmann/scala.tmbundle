@@ -161,6 +161,22 @@
 				</dict>
 				<dict>
 					<key>begin</key>
+					<string>/\*</string>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.scala</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\*/</string>
+					<key>name</key>
+					<string>comment.line.double-slash.scala</string>
+				</dict>
+				<dict>
+					<key>begin</key>
 					<string>(^\s*)?/\*\*</string>
 					<key>captures</key>
 					<dict>
@@ -522,6 +538,30 @@
 					<string>\b(catch|finally|try)\b</string>
 					<key>name</key>
 					<string>keyword.control.exception.scala</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(==?|!=|&lt;=|&gt;=|&lt;&gt;|&lt;|&gt;)</string>
+					<key>name</key>
+					<string>keyword.operator.comprasion.scala</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(\-|\+|\*|/(?![/*])|%|~)</string>
+					<key>name</key>
+					<string>keyword.operator.arithmetic.scala</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(!|&amp;&amp;|\|\|)</string>
+					<key>name</key>
+					<string>keyword.operator.logical.scala</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(&lt;-|←|-&gt;|→|=&gt;|⇒|\?|\:+|@|\|)+</string>
+					<key>name</key>
+					<string>keyword.operator.scala</string>
 				</dict>
 			</array>
 		</dict>
