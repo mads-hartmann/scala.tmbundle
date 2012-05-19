@@ -574,6 +574,12 @@
 				</dict>
 				<dict>
 					<key>match</key>
+					<string>\b(classOf|isInstanceOf|asInstanceOf)\b</string>
+					<key>name</key>
+					<string>support.function.type-of.scala</string>
+				</dict>
+				<dict>
+					<key>match</key>
 					<string>\b(else|if|do|while|for|yield|match|case)\b</string>
 					<key>name</key>
 					<string>keyword.control.flow.scala</string>
