@@ -20,79 +20,7 @@
 	<array>
 		<dict>
 			<key>include</key>
-			<string>#storage-modifiers</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#keywords</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#declarations</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#inheritance</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#imports</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#comments</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#block-comments</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#strings</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#initialization</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#constants</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#scala-symbol</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#char-literal</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#empty-parentheses</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#parameter-list</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#qualifiedClassName</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#xml-literal</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#meta-brackets</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#meta-bounds</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#meta-colons</string>
+			<string>#code</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -169,6 +97,88 @@
 					<string>(?&lt;!')[^']</string>
 					<key>name</key>
 					<string>invalid.illegal.character-literal-too-long</string>
+				</dict>
+			</array>
+		</dict>
+		<key>code</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#storage-modifiers</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#declarations</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inheritance</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#imports</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#comments</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block-comments</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#strings</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#initialization</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#xml-literal</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#keywords</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#constants</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#scala-symbol</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#char-literal</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#empty-parentheses</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#parameter-list</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#qualifiedClassName</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#meta-brackets</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#meta-bounds</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#meta-colons</string>
 				</dict>
 			</array>
 		</dict>
@@ -261,7 +271,7 @@
 								<key>1</key>
 								<dict>
 									<key>name</key>
-									<string>keyword.operator.documentation.link.scala</string>
+									<string>punctuation.definition.documentation.link.scala</string>
 								</dict>
 								<key>2</key>
 								<dict>
@@ -271,11 +281,11 @@
 								<key>3</key>
 								<dict>
 									<key>name</key>
-									<string>keyword.operator.documentation.link.scala</string>
+									<string>punctuation.definition.documentation.link.scala</string>
 								</dict>
 							</dict>
 							<key>match</key>
-							<string>(\[\[)(.*)(\]\])</string>
+							<string>(\[\[)([^\]]+)(\]\])</string>
 						</dict>
 					</array>
 				</dict>
@@ -371,7 +381,7 @@
 					<key>match</key>
 					<string>(?x)
 						\b(def)\s+
-						(`[^`]+`|[_$a-zA-Z][_$a-zA-Z0-9]*(?:_[^\s])(?=[\t ])|[_$a-zA-Z][_$a-zA-Z0-9]*|[-?~&gt;&lt;^+*%:!#|/@\\]+)</string>
+						(`[^`]+`|[_$a-zA-Z][_$a-zA-Z0-9]*(?:_[^\s])(?=[(\t ])|[_$a-zA-Z][_$a-zA-Z0-9]*|[-?~&gt;&lt;^+*%:!#|/@\\]+)</string>
 				</dict>
 				<dict>
 					<key>captures</key>
@@ -655,7 +665,7 @@
 					<key>match</key>
 					<string>(==?|!=|&lt;=|&gt;=|&lt;&gt;|&lt;|&gt;)</string>
 					<key>name</key>
-					<string>keyword.operator.comprasion.scala</string>
+					<string>keyword.operator.comparison.scala</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -855,28 +865,121 @@
 				</dict>
 			</array>
 		</dict>
-		<key>xml-attribute</key>
+		<key>xml-doublequotedString</key>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.xml</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.xml</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.double.xml</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#xml-entity</string>
+				</dict>
+			</array>
+		</dict>
+		<key>xml-embedded-content</key>
 		<dict>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>begin</key>
+					<string>{</string>
+					<key>captures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>meta.bracket.scala</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>}</string>
+					<key>name</key>
+					<string>meta.source.embedded.scala</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#code</string>
+						</dict>
+					</array>
+				</dict>
 				<dict>
 					<key>captures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>entity.other.attribute-name</string>
+							<string>entity.other.attribute-name.namespace.xml</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>string.quoted.double</string>
+							<string>entity.other.attribute-name.xml</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.separator.namespace.xml</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>entity.other.attribute-name.localname.xml</string>
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(\w+)=("[^"]*")</string>
+					<string> (?:([-_a-zA-Z0-9]+)((:)))?([_a-zA-Z-]+)=</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#xml-doublequotedString</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#xml-singlequotedString</string>
 				</dict>
 			</array>
+		</dict>
+		<key>xml-entity</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.constant.xml</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.constant.xml</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(&amp;)([:a-zA-Z_][:a-zA-Z0-9_.-]*|#[0-9]+|#x[0-9a-fA-F]+)(;)</string>
+			<key>name</key>
+			<string>constant.character.entity.xml</string>
 		</dict>
 		<key>xml-literal</key>
 		<dict>
@@ -884,30 +987,169 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>&lt;/?([a-zA-Z0-9]+)</string>
+					<string>(&lt;)((?:([_a-zA-Z0-9][_a-zA-Z0-9]*)((:)))?([_a-zA-Z0-9][-_a-zA-Z0-9:]*))(?=(\s[^&gt;]*)?&gt;&lt;/\2&gt;)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.tag</string>
+							<string>punctuation.definition.tag.xml</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.tag.namespace.xml</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.tag.xml</string>
+						</dict>
+						<key>5</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.separator.namespace.xml</string>
+						</dict>
+						<key>6</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.tag.localname.xml</string>
 						</dict>
 					</dict>
+					<key>comment</key>
+					<string>We do not allow a tag name to start with a - since this would
+				               likely conflict with the &lt;- operator. This is not very common
+				               for tag names anyway.  Also code such as -- if (val &lt;val2 || val&gt; val3)
+				               will falsly be recognized as an xml tag.  The solution is to put a
+				               space on either side of the comparison operator</string>
 					<key>end</key>
-					<string>/?&gt;</string>
+					<string>(&gt;(&lt;))/(?:([-_a-zA-Z0-9]+)((:)))?([-_a-zA-Z0-9:]*[_a-zA-Z0-9])(&gt;)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.tag.xml</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>meta.scope.between-tag-pair.xml</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.tag.namespace.xml</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.tag.xml</string>
+						</dict>
+						<key>5</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.separator.namespace.xml</string>
+						</dict>
+						<key>6</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.tag.localname.xml</string>
+						</dict>
+						<key>7</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.tag.xml</string>
+						</dict>
+					</dict>
 					<key>name</key>
-					<string>text.xml</string>
+					<string>meta.tag.no-content.xml</string>
 					<key>patterns</key>
 					<array>
 						<dict>
 							<key>include</key>
-							<string>#xml-literal</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#xml-attribute</string>
+							<string>#xml-embedded-content</string>
 						</dict>
 					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(&lt;/?)(?:([_a-zA-Z0-9][-_a-zA-Z0-9]*)((:)))?([_a-zA-Z0-9][-_a-zA-Z0-9:]*)(?=[^&gt;]*?&gt;)</string>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.tag.xml</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.tag.namespace.xml</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.tag.xml</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.separator.namespace.xml</string>
+						</dict>
+						<key>5</key>
+						<dict>
+							<key>name</key>
+							<string>entity.name.tag.localname.xml</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>(/?&gt;)</string>
+					<key>name</key>
+					<string>meta.tag.xml</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#xml-embedded-content</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#xml-entity</string>
+				</dict>
+			</array>
+		</dict>
+		<key>xml-singlequotedString</key>
+		<dict>
+			<key>begin</key>
+			<string>'</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.xml</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>'</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.xml</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.single.xml</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#xml-entity</string>
 				</dict>
 			</array>
 		</dict>
