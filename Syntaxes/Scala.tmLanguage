@@ -179,20 +179,6 @@
 				<dict>
 					<key>captures</key>
 					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.comment.scala</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>(//).*$\n?</string>
-					<key>name</key>
-					<string>comment.line.double-slash.scala</string>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
 						<key>0</key>
 						<dict>
 							<key>name</key>
@@ -203,6 +189,95 @@
 					<string>/\*\*/</string>
 					<key>name</key>
 					<string>comment.block.empty.scala</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>^\s*(/\*\*)</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.scala</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\*/</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.scala</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>comment.block.documentation.scala</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.other.documentation.scaladoc.scala</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>variable.parameter.scala</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(@param)\s+(\S+)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.other.documentation.scaladoc.scala</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>entity.name.class</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(@(?:tparam|throws))\s+(\S+)</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>@(return|see|note|example|usecase|author|version|since|todo|deprecated|migration|define|inheritdoc)\b</string>
+							<key>name</key>
+							<string>keyword.other.documentation.scaladoc.scala</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.operator.documentation.link.scala</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>entity.other.documentation.link.scala</string>
+								</dict>
+								<key>3</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.operator.documentation.link.scala</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(\[\[)(.*)(\]\])</string>
+						</dict>
+					</array>
 				</dict>
 				<dict>
 					<key>begin</key>
@@ -218,38 +293,24 @@
 					<key>end</key>
 					<string>\*/</string>
 					<key>name</key>
-					<string>comment.line.double-slash.scala</string>
+					<string>comment.block.scala</string>
 				</dict>
 				<dict>
-					<key>begin</key>
-					<string>(^\s*)?/\*\*</string>
 					<key>captures</key>
 					<dict>
-						<key>0</key>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>comment.line.double-slash.scala</string>
+						</dict>
+						<key>2</key>
 						<dict>
 							<key>name</key>
 							<string>punctuation.definition.comment.scala</string>
 						</dict>
 					</dict>
-					<key>end</key>
-					<string>\*/(\s*\n)?</string>
-					<key>name</key>
-					<string>comment.block.documentation.scala</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>match</key>
-							<string>(@\w+\s)</string>
-							<key>name</key>
-							<string>keyword.other.documentation.scaladoc.scala</string>
-						</dict>
-						<dict>
-							<key>match</key>
-							<string>\{@link\s+[^\}]*\}</string>
-							<key>name</key>
-							<string>keyword.other.documentation.scaladoc.link.scala</string>
-						</dict>
-					</array>
+					<key>match</key>
+					<string>\s*((//).*$)</string>
 				</dict>
 			</array>
 		</dict>
@@ -663,7 +724,7 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>variable.parameter</string>
+							<string>variable.parameter.scala</string>
 						</dict>
 						<key>2</key>
 						<dict>
