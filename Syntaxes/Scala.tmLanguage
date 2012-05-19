@@ -381,7 +381,7 @@
 					<key>match</key>
 					<string>(?x)
 						\b(def)\s+
-						(`[^`]+`|[_$a-zA-Z][_$a-zA-Z0-9]*(?:_[^\s])(?=[\t ])|[_$a-zA-Z][_$a-zA-Z0-9]*|[-?~&gt;&lt;^+*%:!#|/@\\]+)</string>
+						(`[^`]+`|[_$a-zA-Z][_$a-zA-Z0-9]*(?:_[^\s])(?=[(\t ])|[_$a-zA-Z][_$a-zA-Z0-9]*|[-?~&gt;&lt;^+*%:!#|/@\\]+)</string>
 				</dict>
 				<dict>
 					<key>captures</key>
@@ -442,7 +442,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>\b(?:(val)|(var))\s+(`[^`]+`|[_$a-zA-Z][_$a-zA-Z0-9]*(?:_[^\s])(?=[\t ])|[_$a-zA-Z][_$a-zA-Z0-9]*|[-?~&gt;&lt;^+*%:!#|/@\\]+)</string>
+					<string>\b(?:(val)|(var))\s+(?:(`[^`]+`|[_$a-zA-Z][_$a-zA-Z0-9]*(?:_[^\s])(?=[\t ])|[_$a-zA-Z][_$a-zA-Z0-9]*|[-?~&gt;&lt;^+*%:!#|/@\\]+)|(?=\())</string>
 				</dict>
 				<dict>
 					<key>captures</key>
