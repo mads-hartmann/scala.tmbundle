@@ -310,7 +310,7 @@
 					<key>match</key>
 					<string>(?x)
 						\b(def)\s+
-						(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`|[^\w\[\(\:\_\s]+)</string>
+						(`[^`]+`|[_$a-zA-Z][_$a-zA-Z0-9]*(?:_[^\s])(?=[\t ])|[_$a-zA-Z][_$a-zA-Z0-9]*|[-?~&gt;&lt;^+*%:!#|/@\\]+)</string>
 				</dict>
 				<dict>
 					<key>captures</key>
@@ -349,7 +349,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>\b(type)\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)</string>
+					<string>\b(type)\s+(`[^`]+`|[_$a-zA-Z][_$a-zA-Z0-9]*(?:_[^\s])(?=[\t ])|[_$a-zA-Z][_$a-zA-Z0-9]*|[-?~&gt;&lt;^+*%:!#|/@\\]+)</string>
 				</dict>
 				<dict>
 					<key>captures</key>
@@ -371,7 +371,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>\b(?:(val)|(var))\s+(([a-zA-Z$_][a-zA-Z0-9$_]*(_[^a-zA-Z0-9\s]+)?)|`.*`)?</string>
+					<string>\b(?:(val)|(var))\s+(`[^`]+`|[_$a-zA-Z][_$a-zA-Z0-9]*(?:_[^\s])(?=[\t ])|[_$a-zA-Z][_$a-zA-Z0-9]*|[-?~&gt;&lt;^+*%:!#|/@\\]+)</string>
 				</dict>
 				<dict>
 					<key>captures</key>
@@ -664,14 +664,11 @@
 							<key>name</key>
 							<string>meta.colon.scala</string>
 						</dict>
-						<key>3</key>
-						<dict>
-							<key>name</key>
-							<string>entity.name.class</string>
-						</dict>
 					</dict>
+					<key>comment</key>
+					<string>We do not match param names that start with a Capitol letter</string>
 					<key>match</key>
-					<string>([a-zA-Z$_][a-zA-Z0-9$_]*)\s*(:)\s+([A-Za-z0-9][\w|_|?|\.]*)?,?</string>
+					<string>(?&lt;=[^\._$a-zA-Z0-9])(`[^`]+`|[_$a-z][_$a-zA-Z0-9]*(?:_[^\s])(?=[\t ])|[_$a-z][_$a-zA-Z0-9]*|[-?~&gt;&lt;^+*%:!#|/@\\]+)\s*(:)\s+</string>
 				</dict>
 			</array>
 		</dict>
