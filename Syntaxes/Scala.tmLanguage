@@ -283,7 +283,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(String)\b</string>
+					<string>\b(String|Symbol)\b</string>
 					<key>name</key>
 					<string>storage.type.scala</string>
 				</dict>
