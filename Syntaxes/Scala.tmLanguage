@@ -60,11 +60,11 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#char-literal</string>
+			<string>#scala-symbol</string>
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#scala-symbol</string>
+			<string>#char-literal</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -122,10 +122,55 @@
 		</dict>
 		<key>char-literal</key>
 		<dict>
-			<key>match</key>
-			<string>'\\?.'</string>
+			<key>begin</key>
+			<string>'</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.character.begin.scala</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>'</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.character.end.scala</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>constant.character.literal.scala</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\(?:[btnfr\\"']|[0-7]{1,3}|u[0-9A-Fa-f]{4})</string>
+					<key>name</key>
+					<string>constant.character.escape.scala</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\\.</string>
+					<key>name</key>
+					<string>invalid.illegal.unrecognized-character-escape.scala</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>[^']{2,}</string>
+					<key>name</key>
+					<string>invalid.illegal.character-literal-too-long</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;!')[^']</string>
+					<key>name</key>
+					<string>invalid.illegal.character-literal-too-long</string>
+				</dict>
+			</array>
 		</dict>
 		<key>comments</key>
 		<dict>
@@ -645,16 +690,10 @@
 		</dict>
 		<key>scala-symbol</key>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>entity.name.symbol</string>
-				</dict>
-			</dict>
 			<key>match</key>
-			<string>('\w+)</string>
+			<string>'\w+(?=[^'\w])</string>
+			<key>name</key>
+			<string>entity.name.symbol</string>
 		</dict>
 		<key>storage-modifiers</key>
 		<dict>
@@ -681,31 +720,72 @@
 				<dict>
 					<key>begin</key>
 					<string>"""</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.begin.scala</string>
+						</dict>
+					</dict>
 					<key>end</key>
 					<string>"""(?!")</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.end.scala</string>
+						</dict>
+					</dict>
 					<key>name</key>
 					<string>string.quoted.triple.scala</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\\\\|\\u[0-9A-Fa-f]{4}</string>
+							<key>name</key>
+							<string>constant.character.escape.scala</string>
+						</dict>
+					</array>
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(?&lt;!\\)"</string>
+					<string>"</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.begin.scala</string>
+						</dict>
+					</dict>
 					<key>end</key>
 					<string>"</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.end.scala</string>
+						</dict>
+					</dict>
 					<key>name</key>
 					<string>string.quoted.double.scala</string>
 					<key>patterns</key>
 					<array>
 						<dict>
 							<key>match</key>
-							<string>\n</string>
+							<string>\\(?:[btnfr\\"']|[0-7]{1,3}|u[0-9A-Fa-f]{4})</string>
 							<key>name</key>
-							<string>invalid.string.newline</string>
+							<string>constant.character.escape.scala</string>
 						</dict>
 						<dict>
 							<key>match</key>
 							<string>\\.</string>
 							<key>name</key>
-							<string>constant.character.escape.scala</string>
+							<string>invalid.illegal.unrecognized-string-escape.scala</string>
 						</dict>
 					</array>
 				</dict>
