@@ -22,7 +22,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.setting.sbt</string>
+					<string>constant.other.setting.sbt</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -32,13 +32,29 @@
 			<key>match</key>
 			<string>\b(at)\b</string>
 			<key>name</key>
-			<string>keyword.sbt</string>
+			<string>keyword.control.directive.sbt</string>
 		</dict>
 		<dict>
 			<key>begin</key>
 			<string>"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.sbt</string>
+				</dict>
+			</dict>
 			<key>end</key>
 			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.sbt</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>string.quoted.double.sbt</string>
 			<key>patterns</key>
@@ -47,7 +63,7 @@
 					<key>match</key>
 					<string>\\.</string>
 					<key>name</key>
-					<string>constant.character.escape.untitled</string>
+					<string>constant.character.escape.sbt</string>
 				</dict>
 			</array>
 		</dict>
