@@ -380,7 +380,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(case)?\b(class|trait|object)\s+([^\s\{\(\[]+)</string>
+					<string>(?:(case) +)?\b(class|trait|object)\s+([^\s\{\(\[]+)</string>
 				</dict>
 				<dict>
 					<key>captures</key>
