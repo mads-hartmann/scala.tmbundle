@@ -39,13 +39,6 @@
 					<key>include</key>
 					<string>#block-comments</string>
 				</dict>
-				<dict>
-					<key>match</key>
-					<string>(?x)
-			(?! /\*)
-			(?! \*/)
-		  </string>
-				</dict>
 			</array>
 		</dict>
 		<key>char-literal</key>
@@ -123,10 +116,6 @@
 				<dict>
 					<key>include</key>
 					<string>#comments</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#block-comments</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -290,20 +279,8 @@
 					</array>
 				</dict>
 				<dict>
-					<key>begin</key>
-					<string>/\*</string>
-					<key>captures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.comment.scala</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>\*/</string>
-					<key>name</key>
-					<string>comment.block.scala</string>
+					<key>include</key>
+					<string>#block-comments</string>
 				</dict>
 				<dict>
 					<key>captures</key>
