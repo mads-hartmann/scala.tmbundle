@@ -29,7 +29,7 @@ html_footer "Done."</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>@r</string>
+	<string>@b</string>
 	<key>name</key>
 	<string>Compile and Run</string>
 	<key>outputCaret</key>
