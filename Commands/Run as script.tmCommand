@@ -5,7 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby -wKU
+	<string>#!/usr/bin/env ruby18 -wKU
 
 require ENV['TM_SUPPORT_PATH'] + '/lib/textmate.rb'
 require ENV["TM_SUPPORT_PATH"] + "/lib/tm/htmloutput"
@@ -30,15 +30,23 @@ end
 </string>
 	<key>input</key>
 	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>@r</string>
 	<key>name</key>
 	<string>Run as script</string>
-	<key>output</key>
-	<string>showAsHTML</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
 	<key>scope</key>
 	<string>source.scala</string>
 	<key>uuid</key>
 	<string>DDFBBCF9-D333-4077-8D4F-EF6F2CA62220</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

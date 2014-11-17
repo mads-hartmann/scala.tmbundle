@@ -7,7 +7,7 @@
 	<key>bundleUUID</key>
 	<string>452017E8-0065-49EF-AB9D-7849B27D9367</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby
+	<string>#!/usr/bin/env ruby18
 #
 # ----------------------------------------------------------------
 # MODIFIED BY MADS HARTMANN JENSEN TO MATCH THE NEEDS OF THE SCALA 
