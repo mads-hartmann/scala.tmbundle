@@ -4,6 +4,8 @@
 <dict>
 	<key>name</key>
 	<string>Standard completions</string>
+	<key>scope</key>
+	<string>source.scala</string>
 	<key>settings</key>
 	<dict>
 		<key>completions</key>

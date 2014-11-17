@@ -375,7 +375,7 @@
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.function.declaration</string>
+							<string>entity.name.function.declaration.scala</string>
 						</dict>
 					</dict>
 					<key>match</key>
@@ -399,7 +399,7 @@
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.class.declaration</string>
+							<string>entity.name.class.declaration.scala</string>
 						</dict>
 					</dict>
 					<key>match</key>
@@ -416,7 +416,7 @@
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.type.declaration</string>
+							<string>entity.name.type.declaration.scala</string>
 						</dict>
 					</dict>
 					<key>match</key>
@@ -438,7 +438,7 @@
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.val.declaration</string>
+							<string>entity.name.val.declaration.scala</string>
 						</dict>
 					</dict>
 					<key>match</key>
@@ -455,7 +455,7 @@
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.class.declaration</string>
+							<string>entity.name.class.declaration.scala</string>
 						</dict>
 					</dict>
 					<key>match</key>
@@ -472,7 +472,7 @@
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>entity.name.package.scala</string>
+							<string>entity.name.package.scala.scala</string>
 						</dict>
 					</dict>
 					<key>match</key>

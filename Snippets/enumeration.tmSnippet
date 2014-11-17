@@ -12,6 +12,8 @@ ${5:import $1._}
 ${0}</string>
 	<key>name</key>
 	<string>enumeration</string>
+	<key>scope</key>
+	<string>source.scala</string>
 	<key>tabTrigger</key>
 	<string>enumeration</string>
 	<key>uuid</key>
