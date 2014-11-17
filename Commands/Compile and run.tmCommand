@@ -14,13 +14,13 @@ html_header "Compile and run ${TM_FILENAME}"
 
 cd "$TM_DIRECTORY"
 
-$SCALA_HOME/bin/${SCALA_COMPILER:-scalac} -unchecked -deprecation "$TM_FILENAME" &amp;&gt; &gt;("ruby18" -rtm_parser -eTextMate.parse_errors)
+"$TM_SCALAC" -unchecked -deprecation "$TM_FILENAME" &amp;&gt; &gt;("ruby18" -rtm_parser -eTextMate.parse_errors)
 if (($? &gt;= 1)); then exit; fi
 
 main=`basename "$TM_FILENAME" .scala`
 
 echo "&lt;pre&gt;"
-$SCALA_HOME/bin/scala "${main}"
+"$TM_SCALA" "${main}"
 echo "&lt;/pre&gt;"
 
 html_footer "Done."</string>
@@ -31,13 +31,38 @@ html_footer "Done."</string>
 	<key>keyEquivalent</key>
 	<string>@r</string>
 	<key>name</key>
-	<string>Compile and run</string>
+	<string>Compile and Run</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
 	<string>html</string>
 	<key>outputLocation</key>
 	<string>newWindow</string>
+	<key>requiredCommands</key>
+	<array>
+		<dict>
+			<key>command</key>
+			<string>scala</string>
+			<key>locations</key>
+			<array>
+				<string>/usr/local/bin/scala</string>
+				<string>/opt/local/bin/scala</string>
+			</array>
+			<key>variable</key>
+			<string>TM_SCALA</string>
+		</dict>
+		<dict>
+			<key>command</key>
+			<string>scalac</string>
+			<key>locations</key>
+			<array>
+				<string>/usr/local/bin/scalac</string>
+				<string>/opt/local/bin/scalac</string>
+			</array>
+			<key>variable</key>
+			<string>TM_SCALAC</string>
+		</dict>
+	</array>
 	<key>scope</key>
 	<string>source.scala</string>
 	<key>uuid</key>
