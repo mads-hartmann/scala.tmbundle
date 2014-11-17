@@ -8,10 +8,6 @@
 	<string>Mads Hartmann</string>
 	<key>mainMenu</key>
 	<dict>
-		<key>excludedItems</key>
-		<array>
-			<string>E364F26E-C766-4068-BAAF-C010FA1F5F92</string>
-		</array>
 		<key>items</key>
 		<array>
 			<string>DDFBBCF9-D333-4077-8D4F-EF6F2CA62220</string>

@@ -147,7 +147,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#empty-parentheses</string>
+					<string>#empty-blocks</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -459,20 +459,49 @@
 				</dict>
 			</array>
 		</dict>
-		<key>empty-parentheses</key>
+		<key>empty-blocks</key>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
+			<key>patterns</key>
+			<array>
 				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.parentheses.begin.scala</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.parentheses.end.scala</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(\()(\))</string>
 					<key>name</key>
-					<string>meta.bracket.scala</string>
+					<string>meta.parentheses.scala</string>
 				</dict>
-			</dict>
-			<key>match</key>
-			<string>(\(\))</string>
-			<key>name</key>
-			<string>meta.parentheses.scala</string>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.parentheses.begin.scala</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.parentheses.end.scala</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(\{)(\})</string>
+					<key>name</key>
+					<string>meta.braces.scala</string>
+				</dict>
+			</array>
 		</dict>
 		<key>imports</key>
 		<dict>
