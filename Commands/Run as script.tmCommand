@@ -3,30 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>beforeRunningCommand</key>
-	<string>nop</string>
+	<string>saveModifiedFiles</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby18 -wKU
+	<string>#!/usr/bin/env ruby18
 
-require ENV['TM_SUPPORT_PATH'] + '/lib/textmate.rb'
-require ENV["TM_SUPPORT_PATH"] + "/lib/tm/htmloutput"
+require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/executor"
+require "#{ENV['TM_SUPPORT_PATH']}/lib/tm/save_current_document"
 
-TextMate.require_env_var("SCALA_HOME", "Please set the SCALA_HOME shell variable to the root of your scala installation. For me this is /Users/Mads/dev/programming_languages/scala-2.8.0.final")
-
-if ENV['TM_FILEPATH'] != nil
-  TextMate::HTMLOutput.show(
-    :title =&gt; "Running: #{ENV['TM_FILEPATH']}", 
-    :sub_title =&gt; "") do |io|
-      cmd = ENV['SCALA_HOME'] + "/bin/scala -nocompdaemon -howtorun:script " + "'" + ENV['TM_FILEPATH'] + "'"
-      io &lt;&lt; "&lt;pre&gt;&lt;code&gt;"
-      io &lt;&lt; `#{cmd}`
-      io &lt;&lt; "&lt;/code&gt;&lt;/pre&gt;"
-    end
-else
-	puts "Please save your file first"
-end
-
-
-
+TextMate.save_if_untitled('scala')
+TextMate::Executor.run(ENV['TM_SCALA'], '-nocompdaemon', '-howtorun:script', ENV['TM_FILEPATH'], :version_args =&gt; ["-version"], :version_regex =&gt; /\AScala code runner version ([^\s]*).*/m)
 </string>
 	<key>input</key>
 	<string>document</string>
@@ -35,13 +20,27 @@ end
 	<key>keyEquivalent</key>
 	<string>@r</string>
 	<key>name</key>
-	<string>Run as script</string>
+	<string>Run</string>
 	<key>outputCaret</key>
 	<string>afterOutput</string>
 	<key>outputFormat</key>
 	<string>html</string>
 	<key>outputLocation</key>
 	<string>newWindow</string>
+	<key>requiredCommands</key>
+	<array>
+		<dict>
+			<key>command</key>
+			<string>scala</string>
+			<key>locations</key>
+			<array>
+				<string>/usr/local/bin/scala</string>
+				<string>/opt/local/bin/scala</string>
+			</array>
+			<key>variable</key>
+			<string>TM_SCALA</string>
+		</dict>
+	</array>
 	<key>scope</key>
 	<string>source.scala</string>
 	<key>uuid</key>
