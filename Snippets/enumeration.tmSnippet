@@ -4,14 +4,16 @@
 <dict>
 	<key>content</key>
 	<string>object ${1:MyEnumeration} extends Enumeration {
-  type $1 = Value
-  val ${2:${3:MyEnumeration1}, ${4:MyEnumeration2}} = Value
+	type $1 = Value
+	val ${2:${3:MyEnumeration1}, ${4:MyEnumeration2}} = Value
 }
 
 ${5:import $1._}
 ${0}</string>
 	<key>name</key>
 	<string>enumeration</string>
+	<key>scope</key>
+	<string>source.scala</string>
 	<key>tabTrigger</key>
 	<string>enumeration</string>
 	<key>uuid</key>

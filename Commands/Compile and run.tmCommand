@@ -5,33 +5,69 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>. "$TM_SUPPORT_PATH/lib/webpreview.sh"
+	<string>#!/usr/bin/env bash
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+. "$TM_SUPPORT_PATH/lib/webpreview.sh"
 
 html_header "Compile and run ${TM_FILENAME}"
 
 cd "$TM_DIRECTORY"
 
-$SCALA_HOME/bin/${SCALA_COMPILER:-scalac} -unchecked -deprecation "$TM_FILENAME" &amp;&gt; &gt;("${TM_RUBY:-ruby}" -rtm_parser -eTextMate.parse_errors)
+"$TM_SCALAC" -unchecked -deprecation "$TM_FILENAME" &amp;&gt; &gt;("ruby18" -rtm_parser -eTextMate.parse_errors)
 if (($? &gt;= 1)); then exit; fi
 
 main=`basename "$TM_FILENAME" .scala`
 
 echo "&lt;pre&gt;"
-$SCALA_HOME/bin/scala "${main}"
+"$TM_SCALA" "${main}"
 echo "&lt;/pre&gt;"
 
 html_footer "Done."</string>
 	<key>input</key>
 	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>@r</string>
+	<string>@b</string>
 	<key>name</key>
-	<string>Compile and run</string>
-	<key>output</key>
-	<string>showAsHTML</string>
+	<string>Compile and Run</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>requiredCommands</key>
+	<array>
+		<dict>
+			<key>command</key>
+			<string>scala</string>
+			<key>locations</key>
+			<array>
+				<string>/usr/local/bin/scala</string>
+				<string>/opt/local/bin/scala</string>
+			</array>
+			<key>variable</key>
+			<string>TM_SCALA</string>
+		</dict>
+		<dict>
+			<key>command</key>
+			<string>scalac</string>
+			<key>locations</key>
+			<array>
+				<string>/usr/local/bin/scalac</string>
+				<string>/opt/local/bin/scalac</string>
+			</array>
+			<key>variable</key>
+			<string>TM_SCALAC</string>
+		</dict>
+	</array>
 	<key>scope</key>
 	<string>source.scala</string>
 	<key>uuid</key>
 	<string>8C82E10C-A830-4647-B98F-957018D47C9C</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

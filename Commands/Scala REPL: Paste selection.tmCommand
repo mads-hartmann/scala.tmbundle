@@ -5,7 +5,10 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>SHELL_NAME=${SHELL_NAME:="Textmate Scala REPL"}
+	<string>#!/usr/bin/env bash
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+SHELL_NAME=${SHELL_NAME:="Textmate Scala REPL"}
 PASTE=$(echo "$TM_SELECTED_TEXT" | sed s/\"/\\\\\"/g)
 osascript &lt;&lt; END
 tell application "Terminal"
@@ -15,15 +18,23 @@ end tell
 END</string>
 	<key>input</key>
 	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>@r</string>
+	<string>@R</string>
 	<key>name</key>
 	<string>Scala REPL: Paste selection</string>
-	<key>output</key>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
 	<string>discard</string>
 	<key>scope</key>
 	<string>source.scala</string>
 	<key>uuid</key>
 	<string>7F176B4F-5D0E-459A-8042-A459B41051A8</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

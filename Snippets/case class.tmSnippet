@@ -4,7 +4,7 @@
 <dict>
 	<key>content</key>
 	<string>case class ${1:${TM_FILENAME/(.*)\.scala/$1/}}${2:($3)} ${4:extends ${5:Any} }${6:{
-  $7
+	$7
 \}}$0</string>
 	<key>name</key>
 	<string>case class</string>

@@ -5,20 +5,31 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>export SHELL_NAME=${SHELL_NAME:="Textmate Scala REPL"}
+	<string>#!/usr/bin/env bash
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+export SHELL_NAME=${SHELL_NAME:="Textmate Scala REPL"}
 export CMD=${CMD:="scala"}
 "$TM_BUNDLE_SUPPORT/scala_repl.sh"</string>
 	<key>input</key>
 	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>@r</string>
+	<string>@R</string>
 	<key>name</key>
 	<string>Scala REPL</string>
-	<key>output</key>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
 	<string>discard</string>
 	<key>scope</key>
 	<string>source.scala</string>
 	<key>uuid</key>
 	<string>BCAA9E11-45C8-43C7-8B43-E680AD7F6165</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>

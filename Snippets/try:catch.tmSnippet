@@ -4,9 +4,9 @@
 <dict>
 	<key>content</key>
 	<string>try { 
-  ${1:// ...}
+	${1:// ...}
 } catch {
-  case e: Exception =&gt; $0
+	case e: Exception =&gt; $0
 }</string>
 	<key>name</key>
 	<string>try/catch</string>
