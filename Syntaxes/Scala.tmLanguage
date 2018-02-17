@@ -792,7 +792,7 @@
 		<key>scala-symbol</key>
 		<dict>
 			<key>match</key>
-			<string>'\w+(?=[^'\w])</string>
+			<string>('\w+(?=[^'\w])|'[-?~&gt;&lt;^+*%:!#|/@\\]+(?=[-?~&gt;&lt;^+*%:!#|/@\\]))</string>
 			<key>name</key>
 			<string>entity.name.type.symbol.scala</string>
 		</dict>
